@@ -38,6 +38,14 @@ License: You must have a valid license purchased only from themeforest(the above
             <link href="{{ config('layout.self.rtl') ? asset(Metronic::rtlCssPath($theme)) : asset($theme) }}" rel="stylesheet" type="text/css"/>
         @endforeach
 
+        {{-- Datatable --}}
+		<!--begin::Page Vendors Styles(used by this page)-->
+		<link href="{{ asset('js/datatable/datatable.cssplugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendors Styles-->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{{ asset('js/datatable/datatable.js') }}"></script>
+        <link href="{{ asset('js/datatable/datatable.css') }}" rel="stylesheet" type="text/css"/> -->
+
         {{-- Includable CSS --}}
         @yield('styles')
     </head>

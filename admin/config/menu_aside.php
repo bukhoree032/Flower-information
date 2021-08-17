@@ -14,7 +14,7 @@ return [
 
         // Custom
         [
-            'section' => 'Custom',
+            'section' => 'MENU',
         ],
         [
             'title' => 'จัดการ',
@@ -199,7 +199,7 @@ return [
 
         // Layout
         [
-            'section' => 'Layout',
+            'section' => 'SETTING',
         ],
         [
             'title' => 'Themes',
