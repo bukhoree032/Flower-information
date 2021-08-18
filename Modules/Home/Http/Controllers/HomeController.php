@@ -23,9 +23,26 @@ class HomeController extends Controller
      */
     public function FlowerDetail()
     {
-        return view('home::flower_detail');
+        return view('home::flowers.flower_detail');
     }
 
+    public function FlowerFlowers()
+    {
+        return view('home::flowers.flower');
+    }
+
+    // ----------- Stores
+    
+    public function Stores()
+    {
+        return view('home::stores.store');
+    }
+
+    public function StoresDetail()
+    {
+        return view('home::stores.store_detail');
+    }
+    
     /**
      * Store a newly created resource in storage.
      * @param Request $request

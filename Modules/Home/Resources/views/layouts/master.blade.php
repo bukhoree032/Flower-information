@@ -26,6 +26,8 @@
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
+      <link rel="stylesheet" href="{{ asset('fonend/css/custom.css') }}">
+
       <link href="{{ asset('prompt/css/fonts.css') }}" rel="stylesheet">
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -69,11 +71,11 @@
                               <ul class="menu-area-main">
                                  <li class="active"> <a href="#">หน้าแรก</a> </li>
                                  <li> <a href="#about">เกี่ยวกับ</a> </li>
-                                 <li><a href="#plant">ดอกไม้</a></li>
-                                 <li><a href="#plant">ร้านค้า</a></li>
+                                 <li><a href="{{ route('home.flower.flowers') }}">ดอกไม้</a></li>
+                                 <li><a href="{{ route('home.stores') }}">ร้านค้า</a></li>
                                  <li><a href="#gallery">เกษตกร</a></li>
                                  <li><a href="#contact">ติดต่อเรา</a></li>
-                                 <li class="last"><a href="#"><img src="{{ asset('fonend/images/search_icon.png') }}" alt="icon"/></a></li>
+                                 {{-- <li class="last"><a href="#"><img src="{{ asset('fonend/images/search_icon.png') }}" alt="icon"/></a></li> --}}
                               </ul>
                            </nav>
                         </div>

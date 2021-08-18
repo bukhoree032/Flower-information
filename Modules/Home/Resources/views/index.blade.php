@@ -1,8 +1,9 @@
 @extends('home::layouts.master')
 
 @section('content')
+
 <section >
-    <div id="main_slider" class="carousel slide banner-main" data-ride="carousel">
+   <div id="main_slider" class="carousel slide banner-main" data-ride="carousel">
        <ol class="carousel-indicators">
           <li data-target="#main_slider" data-slide-to="0" class="active"></li>
           <li data-target="#main_slider" data-slide-to="1"></li>
@@ -72,7 +73,7 @@
        <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
        <i class='fa fa-angle-right'></i>
        </a>
-    </div>
+   </div>
  </section>
  <!-- plant -->
  <div id="plant" class="plants">
@@ -80,7 +81,7 @@
        <div class="row">
           <div class="col-md-12 ">
              <div class="titlepage">
-                <h2>Our Wonderful plants</h2>
+                <h2>ข้อมูลดอกไม้</h2>
                 <span>looking at its layout. The point of using Lorem Ipsumletters, as opposed to usingl</span>
              </div>
           </div>
@@ -147,6 +148,111 @@
        </div>
     </div>
  </div>
+
+ <section>
+<section style="background-color: #f1f1f1">
+   <!-- plant -->
+   <div id="" class="plants">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 ">
+               <div class="titlepage">
+                  <h2>ข่าวสารดอกไม้เมืองหนาว</h2>
+                  <span>looking at its layout. The point of using Lorem Ipsumletters, as opposed to usingl</span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="card1" style="width: 100%">
+                  <img src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg" alt="Avatar" style="width:100%">
+                  <div class="container" style="background-color: #fff">
+                    <h4><b>John Doe</b></h4> 
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a </p> 
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                        <ul class="details">
+                           <li class="author"><a href="#">John Doe</a></li>
+                           <li class="date">Aug. 24, 2015</li>
+                           <li class="tags">
+                              <ul>
+                              <li><a href="#">Learn</a></li>
+                              <li><a href="#">Code</a></li>
+                              <li><a href="#">HTML</a></li>
+                              <li><a href="#">CSS</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12">
+                     <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                        <ul class="details">
+                           <li class="author"><a href="#">John Doe</a></li>
+                           <li class="date">Aug. 24, 2015</li>
+                           <li class="tags">
+                              <ul>
+                              <li><a href="#">Learn</a></li>
+                              <li><a href="#">Code</a></li>
+                              <li><a href="#">HTML</a></li>
+                              <li><a href="#">CSS</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12">
+                     <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                        <ul class="details">
+                           <li class="author"><a href="#">John Doe</a></li>
+                           <li class="date">Aug. 24, 2015</li>
+                           <li class="tags">
+                              <ul>
+                              <li><a href="#">Learn</a></li>
+                              <li><a href="#">Code</a></li>
+                              <li><a href="#">HTML</a></li>
+                              <li><a href="#">CSS</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+       </div>
+   </div>
+   <!-- end plant -->
+</section>
+ </section>
  <!-- end plant -->
  <!-- about -->
  {{-- <div id="about" class="about">
