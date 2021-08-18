@@ -33,9 +33,10 @@
                                 <span class="form-text text-muted">กรุณาใส่ชื่อทางวิทยาศาสตร์ของดอกไม้</span>
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <div class="col-lg-4">
-                                <label>ชื่อดอกไม้ :</label>
+                                <label>ชื่ออื่นๆ :</label>
                                 <input type="email" class="form-control" placeholder="ใส่ชื่อดอกไม้" />
                                 <span class="form-text text-muted">กรุณาใส่ชื่อของดอกไม้</span>
                             </div>
