@@ -62,7 +62,7 @@
                         </div>
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="#" class="btn btn-primary font-weight-bolder">
+                        <a href="{{ route('manage.create.farme') }}" class="btn btn-primary font-weight-bolder">
                         <i class="la la-plus"></i>เพิ่มกลุ่ม</a>
                         <!--end::Button-->
                     </div>

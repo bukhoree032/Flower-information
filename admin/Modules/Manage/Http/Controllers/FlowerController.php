@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class ManageController extends Controller
+class FlowerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,10 @@ class ManageController extends Controller
      */
     public function index()
     {
-        return view('manage::index');
+        $page_title = 'ดอกไม้';
+        $page_description = '';
+
+        return view('manage::flower.manage_flower', compact('page_title', 'page_description'));
     }
 
     /**
@@ -23,7 +26,10 @@ class ManageController extends Controller
      */
     public function create()
     {
-        return view('manage::create');
+        $page_title = 'เพิ่มข้อมูลดอกไม้';
+        $page_description = '';
+
+        return view('manage::flower.form_flower', compact('page_title', 'page_description'));
     }
 
     /**

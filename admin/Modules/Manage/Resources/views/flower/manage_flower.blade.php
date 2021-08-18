@@ -15,7 +15,7 @@
                         <span class="card-icon">
                             <i class="flaticon2-favourite text-primary"></i>
                         </span>
-                        <h3 class="card-label">ข้อมูลร้านค้า</h3>
+                        <h3 class="card-label">ข้อมูลดอกไม้</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
@@ -62,21 +62,21 @@
                         </div>
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="#" class="btn btn-primary font-weight-bolder">
-                        <i class="la la-plus"></i>เพิ่มร้านค้า</a>
+                        <a href="{{ route('manage.create.flower') }}" class="btn btn-primary font-weight-bolder">
+                        <i class="la la-plus"></i>เพิ่มดอกไม้</a>
                         <!--end::Button-->
                     </div>
                 </div>
                 <div class="card-body">
                     <!--begin: Datatable-->
                     <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
-                        <thead>
+                    <thead>
                             <tr>
                                 <th>ลำดับ</th>
-                                <th>ชื่อ-นามสกุล</th>
-                                <th>ที่อยู่</th>
-                                <th>ดอกไม้ที่ขาย</th>
-                                <th>กลุ่มลูกค้า</th>
+                                <th>ชื่อดอกไม้</th>
+                                <th>ชื่อสามัญ</th>
+                                <th>ประเภทดอกไม้</th>
+                                <th>ลักษณะ</th>
                                 <th>เวลาเพิ่ม</th>
                                 <th>เวลาแก้ไข</th>
                                 <th>สถานะ</th>
@@ -87,8 +87,8 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>นายกูรอบาฮา ลานง</td>
-                                <td>12 ม.10 ต.สะเตง อ.เมือง จ.ยะลา 95000</td>
+                                <td>มะลิ</td>
+                                <td>Delaware</td>
                                 <td>São Félix do Xingu</td>
                                 <td>698 Oriole Pass</td>
                                 <td>10/15/2017</td>
@@ -99,11 +99,11 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>นายสมชาย ลานง</td>
-                                <td>12 ม.10 ต.สะเตง อ.เมือง จ.ยะลา 95000</td>
-                                <td>Bình Minh</td>
-                                <td>8998 Delaware Court</td>
-                                <td>4/24/2016</td>
+                                <td>มะลิ</td>
+                                <td>Delaware</td>
+                                <td>São Félix do Xingu</td>
+                                <td>698 Oriole Pass</td>
+                                <td>10/15/2017</td>
                                 <td>10/15/2017</td>
                                 <td>ปกติ</td>
                                 <th>1</th>
@@ -111,11 +111,11 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>นายแดง ลานง</td>
-                                <td>12 ม.10 ต.สะเตง อ.เมือง จ.ยะลา 95000</td>
-                                <td>Palagao Norte</td>
-                                <td>91796 Sutteridge Road</td>
-                                <td>7/11/2017</td>
+                                <td>มะลิ</td>
+                                <td>Delaware</td>
+                                <td>São Félix do Xingu</td>
+                                <td>698 Oriole Pass</td>
+                                <td>10/15/2017</td>
                                 <td>10/15/2017</td>
                                 <td>ปกติ</td>
                                 <th>1</th>
