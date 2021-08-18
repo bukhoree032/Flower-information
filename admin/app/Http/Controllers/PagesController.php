@@ -8,10 +8,34 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $page_title = 'Dashboard';
-        $page_description = 'Some description for the page';
+        $page_title = 'แผงควบคุม';
+        $page_description = '';
 
         return view('pages.dashboard', compact('page_title', 'page_description'));
+    }
+
+    public function manage_farme()
+    {
+        $page_title = 'กลุ่มเกษตรกร และฟาร์ม';
+        $page_description = '';
+
+        return view('pages.manage_farme', compact('page_title', 'page_description'));
+    }
+
+    public function manage_store()
+    {
+        $page_title = 'ร้านค้า';
+        $page_description = '';
+
+        return view('pages.manage_store', compact('page_title', 'page_description'));
+    }
+
+    public function manage_flower()
+    {
+        $page_title = 'ดอกไม้';
+        $page_description = '';
+
+        return view('pages.manage_flower', compact('page_title', 'page_description'));
     }
 
     /**

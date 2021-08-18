@@ -5,7 +5,7 @@ return [
     'items' => [
         // Dashboard
         [
-            'title' => 'Dashboard',
+            'title' => 'แผงควบคุม',
             'root' => true,
             'icon' => 'media/svg/icons/Design/Layers.svg', // or can be 'flaticon-home' or any flaticon-*
             'page' => '/',
@@ -28,7 +28,7 @@ return [
                     'submenu' => [
                         [
                             'title' => 'เพิ่มข้อมูลเกษตกร',
-                            'page' => 'test',
+                            'page' => 'pages/manage_farme',
                         ],
                     ]
                 ],
@@ -38,7 +38,7 @@ return [
                     'submenu' => [
                         [
                             'title' => 'เพิ่มข้อมูลร้านค้า',
-                            'page' => 'custom/apps/profile/profile-2'
+                            'page' => 'pages/manage_store',
                         ]
                     ]
                 ],
@@ -48,7 +48,7 @@ return [
                     'submenu' => [
                         [
                             'title' => 'เพิ่มข้อมูลดอกไม้',
-                            'page' => 'custom/apps/contacts/list-columns'
+                            'page' => 'pages/manage_flower',
                         ]
                     ]
                 ]
