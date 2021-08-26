@@ -27,4 +27,5 @@ Route::get('pages/manage_store', 'StoreController@index');
 
 Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/create-store', 'StoreController@create')->name('create.store');
+    Route::post('/pages/create-insert', 'StoreController@CreateStore')->name('insert.store');
 });

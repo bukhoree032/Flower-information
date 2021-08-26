@@ -73,7 +73,7 @@
                                  <li> <a href="#about">เกี่ยวกับ</a> </li>
                                  <li><a href="{{ route('home.flower.flowers') }}">ดอกไม้</a></li>
                                  <li><a href="{{ route('home.stores') }}">ร้านค้า</a></li>
-                                 <li><a href="#gallery">เกษตกร</a></li>
+                                 <li><a href="{{ route('home.farmer') }}">เกษตกร</a></li>
                                  <li><a href="#contact">ติดต่อเรา</a></li>
                                  {{-- <li class="last"><a href="#"><img src="{{ asset('fonend/images/search_icon.png') }}" alt="icon"/></a></li> --}}
                               </ul>

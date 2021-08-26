@@ -18,4 +18,7 @@ Route::prefix('home')->name('home.')->group(function() {
 
     Route::get('/Stores/', 'HomeController@Stores')->name('stores');
     Route::get('/Stores/Detail/', 'HomeController@StoresDetail')->name('stores.detail');
+
+    Route::get('/Farmers/', 'HomeController@Farmers')->name('farmer');
+    Route::get('/Farmers/Detail/', 'HomeController@FarmersDetail')->name('farmer.detail');
 });

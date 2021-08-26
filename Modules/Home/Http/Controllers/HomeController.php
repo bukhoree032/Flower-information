@@ -42,6 +42,18 @@ class HomeController extends Controller
     {
         return view('home::stores.store_detail');
     }
+
+    // ----------- farmer
+    
+    public function Farmers()
+    {
+        return view('home::farmers.farmer');
+    }
+
+    public function FarmersDetail()
+    {
+        return view('home::farmers.farmer_detail');
+    }
     
     /**
      * Store a newly created resource in storage.

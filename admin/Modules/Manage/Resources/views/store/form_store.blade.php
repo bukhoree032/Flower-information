@@ -3,15 +3,13 @@
 
 {{-- Content --}}
 @section('content')
-
-    {{-- Dashboard 1 --}}
-
+    
     <div class="row">
         <div class="col-lg-6 col-xxl-12">
             <!--begin::Card-->
             <div class="card card-custom gutter-b example example-compact">
                 <div class="card-header">
-                    <h3 class="card-title">3 Columns Form Layout</h3>
+                    <h3 class="card-title">แบบสอบถามร้านค้า</h3>
                     <div class="card-toolbar">
                         <div class="example-tools justify-content-center">
                             <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
@@ -20,197 +18,311 @@
                     </div>
                 </div>
                 <!--begin::Form-->
-                <form class="form">
+                <form action="{{ route('manage.insert.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-lg-4">
-                                <label>Full Name:</label>
-                                <input type="email" class="form-control" placeholder="Enter full name" />
-                                <span class="form-text text-muted">Please enter your full name</span>
+                            <div class="col-lg-12"><b>ข้อมูลเจ้าของร้าน</b></div>
+                            <div class="col-lg-5">
+                                <label style="margin-top: 10px"><b>ชื่อร้าน:</b></label>
+                                <input type="text" class="form-control" name="STORE_NAME"/>
                             </div>
-                            <div class="col-lg-4">
-                                <label>Email:</label>
-                                <input type="email" class="form-control" placeholder="Enter email" />
-                                <span class="form-text text-muted">Please enter your email</span>
+                            <div class="col-lg-7"></div>
+                            <div class="col-lg-2">
+                                <label style="margin-top: 10px"><b>คำนำหน้า:</b></label>
+                                <select class="form-control" id="exampleSelect1" name="STORE_OWNER_PREFIX">
+                                    <option>นาย</option>
+                                    <option>นาง</option>
+                                    <option>นางสาว</option>
+                                </select>
                             </div>
-                            <div class="col-lg-4">
-                                <label>Username:</label>
+                            <div class="col-lg-5">
+                                <label style="margin-top: 10px"><b>ชื่อ-นามสกุลเจ้าของร้าน:</b></label>
+                                <input type="text" class="form-control" name="STORE_OWNER_NAME" />
+                            </div>
+                            <div class="col-lg-5">
+                                <label style="margin-top: 10px"><b>เบอร์ติดต่อ:</b></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="la la-user"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="" />
+                                    <input type="text" class="form-control" placeholder="" name="STORE_PHONE"/>
                                 </div>
-                                <span class="form-text text-muted">Please enter your username</span>
+                            </div>
+                            <div class="col-lg-2">
+                                <label style="margin-top: 10px"><b>ที่อยู่เลขที่:</b></label>
+                                <input type="text" class="form-control" name="STORE_NUMBER" />
+                            </div>
+                            <div class="col-lg-2">
+                                <label style="margin-top: 10px"><b>หมู่:</b></label>
+                                <input type="text" class="form-control"  name="STORE_VILLAGE"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <label style="margin-top: 10px"><b>ตำบล:</b></label>
+                                <span class="text-danger">*</span></label>
+                                <select class="form-control" id="exampleSelect1" name="STORE_SUB_DISTRICT">
+                                    <option>นาย</option>
+                                    <option>นาง</option>
+                                    <option>นางสาว</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label style="margin-top: 10px"><b>อำเภอ:</b></label>
+                                <span class="text-danger">*</span></label>
+                                <select class="form-control" id="exampleSelect1" name="STORE_DISTRICT">
+                                    <option>นาย</option>
+                                    <option>นาง</option>
+                                    <option>นางสาว</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label style="margin-top: 10px"><b>จังหวัด:</b></label>
+                                <span class="text-danger">*</span></label>
+                                <select class="form-control" id="exampleSelect1" name="STORE_PROVINCE">
+                                    <option>นาย</option>
+                                    <option>นาง</option>
+                                    <option>นางสาว</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label style="margin-top: 10px"><b>lat:</b></label>
+                                <input type="text" class="form-control"  name="STORE_LAT"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <label style="margin-top: 10px"><b>long:</b></label>
+                                <input type="text" class="form-control"  name="LONG"/>
                             </div>
                         </div>
+                        <!-- Select2 CSS -->
+                        {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" /> --}}
+                        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+                        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
                         <div class="form-group row">
+                            <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
                             <div class="col-lg-4">
-                                <label>Contact:</label>
-                                <input type="email" class="form-control" placeholder="Enter contact number" />
-                                <span class="form-text text-muted">Please enter your contact</span>
+                                <label style="margin-top: 10px"><b>ดอกไม้ที่ขาย:</b></label><br>
+                                <select id="single_f" class="js-example-basic-multiple" name="STORE_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple">
+                                    <option>Java</option>
+                                    <option>Javascript</option>
+                                    <option>PHP</option>
+                                    <option>Visual Basic</option>
+                                </select>
                             </div>
-                            <div class="col-lg-4">
-                                <label>Fax:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="la la-info-circle"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Fax number" />
+                            <div class="col-lg-4 form-main-f" >
+                                <label style="margin-top: 10px"><b>ดอกไม้ที่ขาย อื่น ๆ:</b></label>
+                                <div id="boxes">
+                                    <input id="file1" type="text" class="form-control" name="STORE_FLOWER_OTHER[]" style="margin-top: 5px"/>
                                 </div>
-                                <span class="form-text text-muted">Please enter fax</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Address:</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter your address" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="la la-map-marker"></i>
-                                        </span>
+                                <label>.</label><br>
+                                <a class="btn btn-primary add-more-btn btn-sm" id="addbutton">+</a>
+                            </div>
+                            <div class="col-lg-4">
+                                <label style="margin-top: 10px"><b>กลุ่มลูกค้า:</b></label>
+                                <select id="single_c" class="js-example-basic-multiple" name="STORE_CUSTOMER_GROUP[]"  style="width: 100%" multiple="multiple">
+                                    <option>ลูกค้ารายย่อย</option>
+                                    <option>บุคคลทั่วไป</option>
+                                    <option>โรงแรม</option>
+                                    <option>สถาบันการศึกษา</option>
+                                    <option>ร้านอาหาร</option>
+                                    <option>บริษัท/ห้างร้าน</option>
+                                    <option>หน่วยงานราชการ</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label style="margin-top: 10px"><b>กลุ่มลูกค้า อื่น ๆ:</b></label>
+                                <div id="boxesg">
+                                    <input type="text" class="form-control" name="STORE_CUSTOMER_GROUP_OTHER[]" style="margin-top: 5px"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label>.</label><br>
+                                <a class="btn btn-primary add-more-btn btn-sm" id="addbuttong">+</a>
+                            </div>
+                            <div class="col-lg-12">
+                                <label style="margin-top: 10px"><b>ทำเลที่ตั้งร้านมีผลต่อยอดขายหรือไม่:</b></label>
+                                <div class="checkbox-list">
+                                    <div class="radio-list">
+                                        <label class="radio">
+                                        <input type="radio" value="1" name="STORE_LOCATION_AFFECT_SALE">
+                                        <span></span>ไม่มี</label>
+                                        <label class="radio">
+                                        <input type="radio" value="2" name="STORE_LOCATION_AFFECT_SALE">
+                                        <span></span>มีน้อย</label>
+                                        <label class="radio">
+                                        <input type="radio" value="3" name="STORE_LOCATION_AFFECT_SALE">
+                                        <span></span>มีปานกลาง</label>
+                                        <label class="radio">
+                                        <input type="radio" value="4" name="STORE_LOCATION_AFFECT_SALE">
+                                        <span></span>มีมาก</label>
                                     </div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your address</span>
                             </div>
+                            <div class="col-lg-12">
+                                <label style="margin-top: 10px"><b>ภาวการณ์แข่งขันในปัจจุบัน:</b></label>
+                                <div class="radio-list">
+                                    <label class="radio">
+                                    <input type="radio" value="1" name="STORE_COMPETE">
+                                    <span></span>ไม่มี</label>
+                                    <label class="radio">
+                                    <input type="radio" value="2" name="STORE_COMPETE">
+                                    <span></span>มีน้อย</label>
+                                    <label class="radio">
+                                    <input type="radio" value="3" name="STORE_COMPETE">
+                                    <span></span>มีปานกลาง</label>
+                                    <label class="radio">
+                                    <input type="radio" value="4" name="STORE_COMPETE">
+                                    <span></span>มีมาก</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="radio-list">
+                                    <label style="margin-top: 10px"><b>รูปแบบการส่ง:</b></label>
+                                    <label class="radio">
+                                    <input type="radio" value="1" name="STORE_SEND">
+                                    <span></span>รถยนต์</label>
+                                    <label class="radio">
+                                    <input type="radio" value="2" name="STORE_SEND">
+                                    <span></span>รถไฟ</label>
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div id="boxess">
+                                                <input type="text" class="form-control" name="STORE_SEND_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            {{-- <label>.</label><br> --}}
+                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-12">
+                                <label style="margin-top: 10px"><b>รูปแบบการขาย:</b></label>
+                                <div class="radio-list">
+                                    <label class="radio">
+                                    <input type="radio" value="1" name="STORE_SELL">
+                                    <span></span>ขายหน้าร้านโดยตรง</label>
+                                    <label class="radio">
+                                    <input type="radio" value="2" name="STORE_SELL">
+                                    <span></span>ลูกค้าโทรศัพท์สั่งซื้อ</label>
+                                    <label class="radio">
+                                    <input type="radio" value="3" name="STORE_SELL">
+                                    <span></span>ขายออนไลน์ เพจร้าน</label>
+                                    <label class="radio">
+                                    <input type="radio" value="4" name="STORE_SELL">
+                                    <span></span>ทั้ง 3 วิธี</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <label style="margin-top: 10px"><b>เงื่อนไขในการขายดอกไม้:</b></label>
+                                <div class="radio-list">
+                                    <label class="radio">
+                                    <input type="radio" value="1" name="STORE_CONDITION_SELL">
+                                    <span></span>ขายเงินสด</label>
+                                    <label class="radio">
+                                    <input type="radio" value="2" name="STORE_CONDITION_SELL">
+                                    <span></span>ขายเงินเชื่อ</label>
+                                    <label class="radio">
+                                    <input type="radio" value="3" name="STORE_CONDITION_SELL">
+                                    <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div id="boxesc">
+                                                <input type="text" class="form-control" name="STORE_CONDITION_SELL_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            {{-- <label>.</label><br> --}}
+                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonc" style="margin-top: 5px">+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7"></div>
+                            <div class="col-lg-5">
+                                <label style="margin-top: 10px"><b>วิธีการจ่ายเงินของลูกค้า:</b></label>
+                                <div class="radio-list">
+                                    <label class="radio">
+                                    <input type="radio" value="1" name="STORE_CUSTOMER_PAYS">
+                                    <span></span>ขายเงินสด</label>
+                                    <label class="radio">
+                                    <input type="radio" value="2" name="STORE_CUSTOMER_PAYS">
+                                    <span></span>ขายเงินเชื่อ</label>
+                                    <label class="radio">
+                                    <input type="radio" value="3" name="STORE_CUSTOMER_PAYS">
+                                    <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div id="boxesp">
+                                                <input type="text" class="form-control" name="STORE_CUSTOMER_PAYS_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            {{-- <label>.</label><br> --}}
+                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonp" style="margin-top: 5px">+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7"></div>
+                            <div class="col-lg-5">
+                                <label style="margin-top: 10px"><b>การส่งเสริมการขาย(โปรโมชัน):</b></label>
+                                <div class="radio-list">
+                                    <label class="radio">
+                                    <input type="radio" value="1" name="STORE_PROMOTION">
+                                    <span></span>ไม่มี</label>
+                                    <label class="radio">
+                                    <input type="radio" value="2" name="STORE_PROMOTION">
+                                    <span></span>มีการให้ส่วนลด</label>
+                                    <label class="radio">
+                                    <input type="radio" value="3" name="STORE_PROMOTION">
+                                    <span></span>มีการแถม</label>
+                                    <label class="radio">
+                                    <input type="radio" value="4" name="STORE_PROMOTION">
+                                    <span></span>Social Media</label>
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div id="boxespr">
+                                                <input type="text" class="form-control" name="STORE_PROMOTION_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonpr" style="margin-top: 5px">+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7"></div>
+                            <div class="col-lg-5">
+                                <label style="margin-top: 10px"><b>จำนวนแรงงานที่ใช้ในร้าน:</b></label>
+                                <div class="radio-list">
+                                    <label class="radio">
+                                    <input type="radio" value="1" name="STORE_LABOR">
+                                    <span></span>1-3 คน</label>
+                                    <label class="radio">
+                                    <input type="radio" value="2" name="STORE_LABOR">
+                                    <span></span>4-6 คน</label>
+                                    <label class="radio">
+                                    <input type="radio" value="3" name="STORE_LABOR">
+                                    <span></span>7 คนขึ้นไป</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-7"></div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-lg-4">
-                                <label>Postcode:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="la la-bookmark-o"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Enter your postcode" />
-                                </div>
-                                <span class="form-text text-muted">Please enter your postcode</span>
-                            </div>
-                            <div class="col-lg-4">
-                                <label>User Group:</label>
-                                <div class="radio-inline">
-                                    <label class="radio radio-solid">
-                                    <input type="radio" name="example_2" checked="checked" value="2" />
-                                    <span></span>Sales Person</label>
-                                    <label class="radio radio-solid">
-                                    <input type="radio" name="example_2" value="2" />
-                                    <span></span>Customer</label>
-                                </div>
-                                <span class="form-text text-muted">Please select user group</span>
-                            </div>
-                        </div>
-                        <!-- begin: Example Code-->
-                        <div class="example-code mt-10">
-                            <ul class="example-nav nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-2x">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#example_code_html_3">HTML</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="example_code_html_3" role="tabpanel">
-                                    <div class="example-highlight">
-                                        <pre style="height:400px">
-                                            <code class="language-html">
-                                                &lt;form class="form"&gt;
-                                                &lt;div class="card-body"&gt;
-                                                &lt;div class="form-group row"&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;Full Name:&lt;/label&gt;
-                                                    &lt;input type="email" class="form-control" placeholder="Enter full name"/&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please enter your full name&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;Email:&lt;/label&gt;
-                                                    &lt;input type="email" class="form-control" placeholder="Enter email"/&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please enter your email&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;Username:&lt;/label&gt;
-                                                    &lt;div class="input-group"&gt;
-                                                    &lt;div class="input-group-prepend"&gt;&lt;span class="input-group-text"&gt;&lt;i class="la la-user"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
-                                                    &lt;input type="text" class="form-control" placeholder=""/&gt;
-                                                    &lt;/div&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please enter your username&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="form-group row"&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;Contact:&lt;/label&gt;
-                                                    &lt;input type="email" class="form-control" placeholder="Enter contact number"/&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please enter your contact&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;Fax:&lt;/label&gt;
-                                                    &lt;div class="input-group"&gt;
-                                                    &lt;div class="input-group-prepend"&gt;&lt;span class="input-group-text"&gt;&lt;i class="la la-info-circle"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
-                                                    &lt;input type="text" class="form-control" placeholder="Fax number"/&gt;
-                                                    &lt;/div&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please enter fax&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;Address:&lt;/label&gt;
-                                                    &lt;div class="input-group"&gt;
-                                                    &lt;input type="text" class="form-control" placeholder="Enter your address"/&gt;
-                                                    &lt;div class="input-group-append"&gt;&lt;span class="input-group-text"&gt;&lt;i class="la la-map-marker"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
-                                                    &lt;/div&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please enter your address&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="form-group row"&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;Postcode:&lt;/label&gt;
-                                                    &lt;div class="input-group"&gt;
-                                                    &lt;div class="input-group-append"&gt;&lt;span class="input-group-text"&gt;&lt;i class="la la-bookmark-o"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
-                                                    &lt;input type="text" class="form-control" placeholder="Enter your postcode"/&gt;
-                                                    &lt;/div&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please enter your postcode&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="col-lg-4"&gt;
-                                                    &lt;label&gt;User Group:&lt;/label&gt;
-                                                    &lt;div class="radio-inline"&gt;
-                                                    &lt;label class="radio radio-solid"&gt;
-                                                    &lt;input type="radio" name="example_2" checked="checked" value="2"/&gt;
-                                                    &lt;span&gt;&lt;/span&gt;
-                                                    Sales Person
-                                                    &lt;/label&gt;
-                                                    &lt;label class="radio radio-solid"&gt;
-                                                    &lt;input type="radio" name="example_2" value="2"/&gt;
-                                                    &lt;span&gt;&lt;/span&gt;
-                                                    Customer
-                                                    &lt;/label&gt;
-                                                    &lt;/div&gt;
-                                                    &lt;span class="form-text text-muted"&gt;Please select user group&lt;/span&gt;
-                                                &lt;/div&gt;
-                                                &lt;/div&gt;
-                                                &lt;/div&gt;
-                                                &lt;div class="card-footer"&gt;
-                                                &lt;div class="row"&gt;
-                                                &lt;div class="col-lg-4"&gt;&lt;/div&gt;
-                                                &lt;div class="col-lg-8"&gt;
-                                                    &lt;button type="reset" class="btn btn-primary mr-2"&gt;Submit&lt;/button&gt;
-                                                    &lt;button type="reset" class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
-                                                &lt;/div&gt;
-                                                &lt;/div&gt;
-                                                &lt;/div&gt;
-                                                &lt;/form&gt;
-                                                </code>
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end: Example Code-->
+                       
                     </div>
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-lg-4"></div>
                             <div class="col-lg-8">
-                                <button type="reset" class="btn btn-primary mr-2">Submit</button>
-                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                                <button class="btn btn-primary mr-2">บันทึก</button>
+                                <button type="reset" class="btn btn-secondary">ยกเลิก</button>
                             </div>
                         </div>
                     </div>
@@ -225,8 +337,57 @@
 
 {{-- Scripts Section --}}
 @section('scripts')
-    <script src="{{ asset('js/pages/widgets.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/datatable/sc_datatable.js') }}" type="text/javascript"></script>
+<script>
+    let addbutton = document.getElementById("addbutton");
+    addbutton.addEventListener("click", function() {
+    let boxes = document.getElementById("boxes");
+    let clone = boxes.firstElementChild.cloneNode(true);
+    boxes.appendChild(clone);
+    });
+
+    let addbuttong = document.getElementById("addbuttong");
+    addbuttong.addEventListener("click", function() {
+    let boxes = document.getElementById("boxesg");
+    let clone = boxes.firstElementChild.cloneNode(true);
+    boxes.appendChild(clone);
+    });
+
+    let addbuttons = document.getElementById("addbuttons");
+    addbuttons.addEventListener("click", function() {
+    let boxes = document.getElementById("boxess");
+    let clone = boxes.firstElementChild.cloneNode(true);
+    boxes.appendChild(clone);
+    });
+
+    let addbuttonc = document.getElementById("addbuttonc");
+    addbuttonc.addEventListener("click", function() {
+    let boxes = document.getElementById("boxesc");
+    let clone = boxes.firstElementChild.cloneNode(true);
+    boxes.appendChild(clone);
+    });
+
+    let addbuttonp = document.getElementById("addbuttonp");
+    addbuttonp.addEventListener("click", function() {
+    let boxes = document.getElementById("boxesp");
+    let clone = boxes.firstElementChild.cloneNode(true);
+    boxes.appendChild(clone);
+    });
+
+    let addbuttonpr = document.getElementById("addbuttonpr");
+    addbuttonpr.addEventListener("click", function() {
+    let boxes = document.getElementById("boxespr");
+    let clone = boxes.firstElementChild.cloneNode(true);
+    boxes.appendChild(clone);
+    });
+</script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+
+    {{-- <script src="{{ asset('js/pages/widgets.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('js/datatable/sc_datatable.js') }}" type="text/javascript"></script> --}}
     
     <!--begin::Global Theme Bundle(used by all pages)-->
     <script src="{{ asset('plugins/global/plugins.bundle.js') }}" type="text/javascript"></script>
@@ -240,4 +401,5 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="{{ asset('js/pages/crud/datatables/data-sources/html.js') }}" type="text/javascript"></script>
     <!--end::Page Scripts-->
+    {{-- <script src="{{ asset('js/pages/crud/forms/widgets/select.js') }}" type="text/javascript"></script> --}}
 @endsection
