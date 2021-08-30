@@ -31,6 +31,17 @@ class FlowerController extends Controller
 
         return view('manage::flower.form_flower', compact('page_title', 'page_description'));
     }
+    
+    /**
+     * Show the form for creating a new resource.
+     * @return Renderable
+     */
+    public function CreateFlower(Request $request)
+    {
+        $data=$request->all();
+        \DB::table('flowers')->insert([$data,]);
+        return redirect()->route('index.flower');
+    }
 
     /**
      * Store a newly created resource in storage.

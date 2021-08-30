@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('pages/manage_flower', 'FlowerController@index');
+Route::get('pages/manage_flower', 'FlowerController@index')->name('index.flower');
 
 Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/create-flower', 'FlowerController@create')->name('create.flower');
+    Route::post('/pages/create-flower/insert/', 'FlowerController@CreateFlower')->name('insert.flower');
 });
 
 Route::get('pages/manage_farme', 'FarmeController@index');
@@ -26,6 +27,8 @@ Route::prefix('manage')->name('manage.')->group(function() {
 Route::get('pages/manage_store', 'StoreController@index');
 
 Route::prefix('manage')->name('manage.')->group(function() {
-    Route::get('/pages/create-store', 'StoreController@create')->name('create.store');
-    Route::post('/pages/create-insert', 'StoreController@CreateStore')->name('insert.store');
+
+    Route::get('/pages/create-store/Store1/', 'StoreController@create')->name('create.store');
+    Route::post('/pages/create-insert/Store2/', 'StoreController@CreateStore')->name('insert.store');
+    Route::post('/pages/create-insert/', 'StoreController@CreateStore2')->name('insert.store2');
 });

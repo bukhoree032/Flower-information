@@ -42,7 +42,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Page Vendors Styles(used by this page)-->
 		<link href="{{ asset('js/datatable/datatable.cssplugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Page Vendors Styles-->
-       
+        <link href="{{ asset('css/selecttwo.css') }}" rel="stylesheet" type="text/css" />
 
         {{-- Includable CSS --}}
         @yield('styles')

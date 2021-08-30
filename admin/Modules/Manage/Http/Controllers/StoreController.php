@@ -44,4 +44,13 @@ class StoreController extends Controller
 
         return view('manage::store.form_store_part2');
     }
+    
+    public function CreateStore2(Request $request)
+    {
+        dd($request);
+        // $page_title = 'เพิ่มข้อมูลร้านค้า';
+        // $page_description = '';
+
+        return view('manage::store.form_store_part2');
+    }
 }

@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <!--begin::Form-->
-                <form action="{{ route('manage.insert.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('manage.insert.store2') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
@@ -42,30 +42,30 @@
                                             <td>1</td>
                                             <td>ดาวเรือง</td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[1][PER_TIME][QUANTITY]">
+                                                <select name="S_VOLUME[1][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[1][PER_WEEK][QUANTITY]">
+                                                <select name="S_VOLUME[1][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[1][PER_MONTH][QUANTITY]">
+                                                <select name="S_VOLUME[1][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -73,30 +73,30 @@
                                             <td>2</td>
                                             <td>เบญจมาศ</td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[2][PER_TIME][QUANTITY]">
+                                                <select name="S_VOLUME[2][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[2][PER_WEEK][QUANTITY]">
+                                                <select name="S_VOLUME[2][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[2][PER_MONTH][QUANTITY]">
+                                                <select name="S_VOLUME[2][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -104,30 +104,30 @@
                                             <td>3</td>
                                             <td>แกลดิโอสัส</td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[3][PER_TIME][QUANTITY]">
+                                                <select name="S_VOLUME[3][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[3][PER_WEEK][QUANTITY]">
+                                                <select name="S_VOLUME[3][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_VOLUME[3][PER_MONTH][QUANTITY]">
+                                                <select name="S_VOLUME[3][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -153,30 +153,30 @@
                                             <td>1</td>
                                             <td>ดาวเรือง</td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[1][PER_TIME][QUANTITY]">
+                                                <select name="S_REMAINING[1][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[1][PER_WEEK][QUANTITY]">
+                                                <select name="S_REMAINING[1][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[1][PER_MONTH][QUANTITY]">
+                                                <select name="S_REMAINING[1][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -184,30 +184,30 @@
                                             <td>2</td>
                                             <td>เบญจมาศ</td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[2][PER_TIME][QUANTITY]">
+                                                <select name="S_REMAINING[2][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[2][PER_WEEK][QUANTITY]">
+                                                <select name="S_REMAINING[2][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[2][PER_MONTH][QUANTITY]">
+                                                <select name="S_REMAINING[2][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -215,30 +215,30 @@
                                             <td>3</td>
                                             <td>แกลดิโอสัส</td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[3][PER_TIME][QUANTITY]">
+                                                <select name="S_REMAINING[3][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[3][PER_WEEK][QUANTITY]">
+                                                <select name="S_REMAINING[3][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text">
-                                                <select name="cars" id="cars">
-                                                    <option value="volvo">หน่วย</option>
-                                                    <option value="saab">ช่อ</option>
-                                                    <option value="mercedes">ดอก</option>
-                                                    <option value="audi">กิโล</option>
+                                                <input type="text" name="S_REMAINING[3][PER_MONTH][QUANTITY]">
+                                                <select name="S_REMAINING[3][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -250,21 +250,21 @@
                                 <div class="radio-list">
                                     <label style="margin-top: 10px"><b>สาเหตุที่ทำให้คงเหลือใช้การไม่ได้ คือ:</b></label>
                                     <label class="radio">
-                                    <input type="radio" value="1" name="STORE_SEND">
+                                    <input type="radio" value="1" name="S_REMAINING_CAUSE">
                                     <span></span>จัดเก็บไม่ดี</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="STORE_SEND">
+                                    <input type="radio" value="2" name="S_REMAINING_CAUSE">
                                     <span></span>ขายปริมาณมากเกินไป</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="STORE_SEND">
+                                    <input type="radio" value="3" name="S_REMAINING_CAUSE">
                                     <span></span>คุณภาพดอกไม้ไม่ดี ขายไม่ได้</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="STORE_SEND">
+                                    <input type="radio" value="4" name="S_REMAINING_CAUSE">
                                     <span></span>การหีบห่อในการขนส่ง</label>
                                     <div class="row">
                                         <div class="col-lg-10">
                                             <div id="boxess">
-                                                <input type="text" class="form-control" name="STORE_SEND_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                                <input type="text" class="form-control" name="S_REMAINING_CAUSE_OTHER" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
@@ -275,7 +275,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <label style="margin-top: 10px"><b>วิธีการตั้งรา ในการขายโดยเฉลี่ย:</b></label>
+                                <label style="margin-top: 10px"><b>วิธีการตั้งราคา ในการขายโดยเฉลี่ย:</b></label>
                                 <!--begin: Datatable-->
                                 <table class="table table-bordered table-hover table-checkable"  style="margin-top: 13px !important">
                                     <thead>
@@ -292,39 +292,39 @@
                                             <td>1</td>
                                             <td>ดาวเรือง</td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[1][FLOWER]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[1][BOUQUET]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[1][KILO]"> บาท
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>เบญจมาศ</td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[2][FLOWER]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[2][BOUQUET]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[2][KILO]"> บาท
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>แกลดิโอสัส</td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[3][FLOWER]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[3][BOUQUET]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text"> บาท
+                                                <input type="text" name="S_SET_PRICE[3][KILO]"> บาท
                                             </td>
                                         </tr>
                                     </tbody>
@@ -347,42 +347,42 @@
                                             <td>1</td>
                                             <td>ดอกไม้</td>
                                             <td>
-                                                <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[FLOWER]" class="form-control" id="" cols="30" rows="3"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>ไม้ใบ</td>
                                             <td>
-                                                <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[FOLIAGE_PLANT]" class="form-control" id="" cols="30" rows="3"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>การจำหน่าย</td>
                                             <td>
-                                                <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[SELL]" class="form-control" id="" cols="30" rows="3"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
                                             <td>ราคา</td>
                                             <td>
-                                                <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[PRICE]" class="form-control" id="" cols="30" rows="3"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td>การจำหน่าย</td>
+                                            <td>ลูกค้า</td>
                                             <td>
-                                                <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[CUSTOMER]" class="form-control" id="" cols="30" rows="3"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
                                             <td>อื่น</td>
                                             <td>
-                                                <textarea name="" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[OTHER]" class="form-control" id="" cols="30" rows="3"></textarea>
                                             </td>
                                         </tr>
                                     </tbody>
