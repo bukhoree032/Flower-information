@@ -3,7 +3,7 @@
 
 {{-- Content --}}
 @section('content')
-    
+    {{-- @dd($result['result']) --}}
     <div class="row">
         <div class="col-lg-6 col-xxl-12">
             <!--begin::Card-->
@@ -105,10 +105,9 @@
                             <div class="col-lg-4">
                                 <label style="margin-top: 10px"><b>ดอกไม้ที่ขาย:</b></label><br>
                                 <select id="single_f" class="js-example-basic-multiple" name="S_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple">
-                                    <option>Java</option>
-                                    <option>Javascript</option>
-                                    <option>PHP</option>
-                                    <option>Visual Basic</option>
+                                    @foreach ($result['result'] as $item)
+                                    <option value="{{ $item->id }}">{{ $item->F_NAME }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-lg-4 form-main-f" >
@@ -155,9 +154,9 @@
                                             <div class="col-lg-6">
                                                 <select id="single_pa" class="js-example-basic-multiple" name="S_SOURCE[1][PROVINCE]" style="width: 100%;" >
                                                     <option>-- จังหวัด --</option>
-                                                    <option>Javascript</option>
-                                                    <option>PHP</option>
-                                                    <option>Visual Basic</option>
+                                                    <option>ยะลา</option>
+                                                    <option>นราธิวาส</option>
+                                                    <option>ปัตตานี</option>
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">

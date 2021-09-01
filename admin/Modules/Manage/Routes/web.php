@@ -30,5 +30,5 @@ Route::prefix('manage')->name('manage.')->group(function() {
 
     Route::get('/pages/create-store/Store1/', 'StoreController@create')->name('create.store');
     Route::post('/pages/create-insert/Store2/', 'StoreController@CreateStore')->name('insert.store');
-    Route::post('/pages/create-insert/', 'StoreController@CreateStore2')->name('insert.store2');
+    Route::post('/pages/create-insert/{id}/', 'StoreController@CreateStore2')->name('insert.store2');
 });

@@ -17,8 +17,9 @@
                         </div>
                     </div>
                 </div>
+                {{-- @dd($result['id']) --}}
                 <!--begin::Form-->
-                <form action="{{ route('manage.insert.store2') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('manage.insert.store2',$result['id']) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
@@ -264,7 +265,7 @@
                                     <div class="row">
                                         <div class="col-lg-10">
                                             <div id="boxess">
-                                                <input type="text" class="form-control" name="S_REMAINING_CAUSE_OTHER" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                                <input type="text" class="form-control" name="S_REMAINING_CAUSE_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">

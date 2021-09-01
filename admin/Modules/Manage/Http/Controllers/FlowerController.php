@@ -5,9 +5,16 @@ namespace Modules\Manage\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Manage\Repositories\Repository as Repository;
 
 class FlowerController extends Controller
 {
+    protected $Repository;
+
+    public function __construct(Repository $Repository)
+    {
+        $this->Repository = $Repository;
+    }
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -16,8 +23,12 @@ class FlowerController extends Controller
     {
         $page_title = 'ดอกไม้';
         $page_description = '';
-
-        return view('manage::flower.manage_flower', compact('page_title', 'page_description'));
+        $page = compact('page_title', 'page_description');
+        
+        $db = "flowers";
+        $data['result'] = $this->Repository->show($db);
+        // dd($page);
+        return view('manage::flower.manage_flower',compact('page_title', 'page_description'),$data);
     }
 
     /**
@@ -39,7 +50,7 @@ class FlowerController extends Controller
     public function CreateFlower(Request $request)
     {
         $data=$request->all();
-        \DB::table('flowers')->insert([$data,]);
+        $data['result'] = $this->Repository->insert($data,'classModelFlowers');
         return redirect()->route('index.flower');
     }
 
