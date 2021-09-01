@@ -24,7 +24,7 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/create-farme', 'FarmeController@create')->name('create.farme');
 });
 
-Route::get('pages/manage_store', 'StoreController@index');
+Route::get('pages/manage_store', 'StoreController@index')->name('index.store');
 
 Route::prefix('manage')->name('manage.')->group(function() {
 

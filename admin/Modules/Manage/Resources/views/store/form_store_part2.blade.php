@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- @dd($result['id']) --}}
+                {{-- @dd($resultID['resultflower']) --}}
                 <!--begin::Form-->
                 <form action="{{ route('manage.insert.store2',$result['id']) }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -39,12 +39,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($resultID['resultflower'] as $item => $valuw)
                                         <tr>
-                                            <td>1</td>
-                                            <td>ดาวเรือง</td>
+                                            <td>{{ $item+1 }}</td>
+                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[1][PER_TIME][QUANTITY]">
-                                                <select name="S_VOLUME[1][PER_TIME][UNIT]" id="cars">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
@@ -52,8 +53,8 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[1][PER_WEEK][QUANTITY]">
-                                                <select name="S_VOLUME[1][PER_WEEK][UNIT]" id="cars">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
@@ -61,77 +62,16 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[1][PER_MONTH][QUANTITY]">
-                                                <select name="S_VOLUME[1][PER_MONTH][UNIT]" id="cars">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>เบญจมาศ</td>
-                                            <td>
-                                                <input type="text" name="S_VOLUME[2][PER_TIME][QUANTITY]">
-                                                <select name="S_VOLUME[2][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_VOLUME[2][PER_WEEK][QUANTITY]">
-                                                <select name="S_VOLUME[2][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_VOLUME[2][PER_MONTH][QUANTITY]">
-                                                <select name="S_VOLUME[2][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>แกลดิโอสัส</td>
-                                            <td>
-                                                <input type="text" name="S_VOLUME[3][PER_TIME][QUANTITY]">
-                                                <select name="S_VOLUME[3][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_VOLUME[3][PER_WEEK][QUANTITY]">
-                                                <select name="S_VOLUME[3][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_VOLUME[3][PER_MONTH][QUANTITY]">
-                                                <select name="S_VOLUME[3][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                        </tr>
+                                        </tr>    
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
@@ -150,12 +90,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($resultID['resultflower'] as $item => $valuw)
                                         <tr>
-                                            <td>1</td>
-                                            <td>ดาวเรือง</td>
+                                            <td>{{ $item+1 }}</td>
+                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[1][PER_TIME][QUANTITY]">
-                                                <select name="S_REMAINING[1][PER_TIME][UNIT]" id="cars">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
@@ -163,8 +104,8 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[1][PER_WEEK][QUANTITY]">
-                                                <select name="S_REMAINING[1][PER_WEEK][UNIT]" id="cars">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
@@ -172,8 +113,8 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[1][PER_MONTH][QUANTITY]">
-                                                <select name="S_REMAINING[1][PER_MONTH][UNIT]" id="cars">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
@@ -181,68 +122,7 @@
                                                 </select>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>เบญจมาศ</td>
-                                            <td>
-                                                <input type="text" name="S_REMAINING[2][PER_TIME][QUANTITY]">
-                                                <select name="S_REMAINING[2][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_REMAINING[2][PER_WEEK][QUANTITY]">
-                                                <select name="S_REMAINING[2][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_REMAINING[2][PER_MONTH][QUANTITY]">
-                                                <select name="S_REMAINING[2][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>แกลดิโอสัส</td>
-                                            <td>
-                                                <input type="text" name="S_REMAINING[3][PER_TIME][QUANTITY]">
-                                                <select name="S_REMAINING[3][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_REMAINING[3][PER_WEEK][QUANTITY]">
-                                                <select name="S_REMAINING[3][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_REMAINING[3][PER_MONTH][QUANTITY]">
-                                                <select name="S_REMAINING[3][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
@@ -289,45 +169,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($resultID['resultflower'] as $item => $valuw)
                                         <tr>
-                                            <td>1</td>
-                                            <td>ดาวเรือง</td>
+                                            <td>{{ $item+1 }}</td>
+                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[1][FLOWER]"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[1][BOUQUET]"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]"> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[1][KILO]"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]"> บาท
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>เบญจมาศ</td>
-                                            <td>
-                                                <input type="text" name="S_SET_PRICE[2][FLOWER]"> บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_SET_PRICE[2][BOUQUET]"> บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_SET_PRICE[2][KILO]"> บาท
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>แกลดิโอสัส</td>
-                                            <td>
-                                                <input type="text" name="S_SET_PRICE[3][FLOWER]"> บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_SET_PRICE[3][BOUQUET]"> บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="S_SET_PRICE[3][KILO]"> บาท
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
