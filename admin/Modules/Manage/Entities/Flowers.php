@@ -22,6 +22,9 @@ class Flowers extends Model
         'F_GENERAL_INFORMATION',
         'F_PLANT',
         'F_PROPAGATION',
-        'F_UTILIZATION'
+        'F_UTILIZATION',
+        'file',
+        'file_multiple',
+        '_token'
     ];
 }

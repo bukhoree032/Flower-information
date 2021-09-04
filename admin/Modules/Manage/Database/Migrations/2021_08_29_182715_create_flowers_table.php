@@ -29,11 +29,13 @@ class CreateFlowersTable extends Migration
             $table->string('F_PLANT')->nullable();
             $table->string('F_PROPAGATION')->nullable();
             $table->string('F_UTILIZATION')->nullable();
+            $table->string('file')->nullable();
+            $table->string('file_multiple')->nullable();
             $table->string('_token')->nullable();
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

@@ -44,6 +44,9 @@ class Stores extends Model
         'S_REMAINING_CAUSE',
         'S_REMAINING_CAUSE_OTHER',
         'S_SET_PRICE',
-        'S_PROBLEM'
+        'S_PROBLEM',
+        'file',
+        'file_multiple',
+        '_token'
     ];
 }

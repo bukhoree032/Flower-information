@@ -4,8 +4,6 @@
 {{-- Content --}}
 @section('content')
 
-    {{-- Dashboard 1 --}}
-
     <div class="row">
         <div class="col-lg-6 col-xxl-12">
             <!--begin::Card-->
@@ -85,6 +83,31 @@
                                 <label>การใช้ประโยชน์:</label>
                                 <textarea name="F_UTILIZATION" class="form-control" id="" cols="30" rows="3"></textarea>
                             </div>
+                            <div class="col-lg-12" style="margin-top: 20px">
+                                <div class="file-input">
+                                    <input class="choose" type="file" name="file" accept="image/*">
+                                    <span class="button">อัปโหลดรูปหน้าปก</span>
+                                    {{-- <span class="label">เลือกไฟล์</span> --}}
+                                </div>
+                                <div class="" style="border: 1px solid #f1f1f1">
+                                    <img id="preview" src="">
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="margin-top: 20px">
+                                <div class="grid-x grid-padding-x">
+                                    <div class="small-10 small-offset-1 medium-8 medium-offset-2 cell">
+                                      {{-- <h1>Multiple Image File Upload with Preview</h1> --}}
+                                        <p>
+                                          <label for="upload_imgs" class="button hollow">เพิ่มรูปภาพดอกไม้ทั้งหมด +</label>
+                                          <input class="show-for-sr" type="file" id="upload_imgs" name="file_multiple[]" multiple/>
+                                        </p>
+                                        <div class="quote-imgs-thumbs quote-imgs-thumbs--hidden" id="img_preview" aria-live="polite"></div>
+                                        {{-- <p>
+                                          <input class="button large expanded" type="submit" name="submit" value="Upload Images"/>
+                                        </p> --}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -122,4 +145,61 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="{{ asset('js/pages/crud/datatables/data-sources/html.js') }}" type="text/javascript"></script>
     <!--end::Page Scripts-->
+    <script>
+        var imgUpload = document.getElementById('upload_imgs')
+  , imgPreview = document.getElementById('img_preview')
+  , imgUploadForm = document.getElementById('img-upload-form')
+  , totalFiles
+  , previewTitle
+  , previewTitleText
+  , img;
+
+imgUpload.addEventListener('change', previewImgs, false);
+imgUploadForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert('Images Uploaded! (not really, but it would if this was on your website)');
+}, false);
+
+function previewImgs(event) {
+  totalFiles = imgUpload.files.length;
+  
+  if(!!totalFiles) {
+    imgPreview.classList.remove('quote-imgs-thumbs--hidden');
+    previewTitle = document.createElement('p');
+    previewTitle.style.fontWeight = 'bold';
+    previewTitleText = document.createTextNode(totalFiles + ' Total Images Selected');
+    previewTitle.appendChild(previewTitleText);
+    imgPreview.appendChild(previewTitle);
+  }
+  
+  for(var i = 0; i < totalFiles; i++) {
+    img = document.createElement('img');
+    img.src = URL.createObjectURL(event.target.files[i]);
+    img.classList.add('img-preview-thumb');
+    imgPreview.appendChild(img);
+  }
+}
+    </script>
+    <script>
+        const readURL = (input) => {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      $('#preview').attr('src', e.target.result)
+    }
+    reader.readAsDataURL(input.files[0])
+  }
+}
+$('.choose').on('change', function() {
+	readURL(this)
+  let i
+  if ($(this).val().lastIndexOf('\\')) {
+    i = $(this).val().lastIndexOf('\\') + 1
+  } else {
+    i = $(this).val().lastIndexOf('/') + 1
+  }
+  const fileName = $(this).val().slice(i)
+  $('.label').text(fileName)
+})
+    </script>
 @endsection

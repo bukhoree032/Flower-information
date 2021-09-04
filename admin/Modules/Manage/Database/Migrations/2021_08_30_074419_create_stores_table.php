@@ -52,6 +52,9 @@ class CreateStoresTable extends Migration
             $table->string('S_REMAINING_CAUSE_OTHER')->nullable();
             $table->string('S_SET_PRICE')->nullable();
             $table->string('S_PROBLEM')->nullable();
+            $table->string('file')->nullable();
+            $table->string('file_multiple')->nullable();
+            $table->string('_token')->nullable();
 
             $table->timestamps();
         });
