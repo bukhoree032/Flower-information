@@ -43,8 +43,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="{{ asset('js/datatable/datatable.cssplugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Page Vendors Styles-->
         <link href="{{ asset('css/selecttwo.css') }}" rel="stylesheet" type="text/css" />
-
+        {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
         {{-- Includable CSS --}}
+        
         @yield('styles')
     </head>
 

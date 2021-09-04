@@ -41,8 +41,11 @@ class StoreController extends Controller
         $page_title = 'เพิ่มข้อมูลร้านค้า';
         $page_description = '';
 
-        $db = "flowers";
-        $data['result'] = $this->Repository->show($db);
+        $data['result'] = $this->Repository->show('flowers');
+        $data['resultAmphures'] = $this->Repository->show('amphures');
+        $data['resultProvinces'] = $this->Repository->show('provinces');
+        $data['resultDistricts'] = $this->Repository->districts('provinces');
+        // dd($data);
         return view('manage::store.form_store', compact('page_title', 'page_description'),$data);
     }
 
@@ -52,10 +55,13 @@ class StoreController extends Controller
      */
     public function CreateStore(Request $request)
     {
-   
+        // dd($request['S_SUB_DISTRICT']);
         $page_title = 'เพิ่มข้อมูลร้านค้า';
         $page_description = '';
-
+        $datajount['resultID'] = $this->Repository->ProvinceJoin($request['S_SUB_DISTRICT']);
+        // dd($datajount['resultID']['result'][0]->id_provinces);
+        $request['S_DISTRICT'] = $datajount['resultID']['result'][0]->id_amphures;
+        $request['S_PROVINCE'] = $datajount['resultID']['result'][0]->id_provinces;
         $request['S_FLOWER'] = serialize($request['S_FLOWER']);
         $request['S_FLOWER_OTHER'] = serialize($request['S_FLOWER_OTHER']);
         $request['S_CUSTOMER_GROUP'] = serialize($request['S_CUSTOMER_GROUP']);
@@ -78,7 +84,7 @@ class StoreController extends Controller
     {
         $page_title = 'เพิ่มข้อมูลร้านค้า';
         $page_description = '';
-        
+
         $request['S_VOLUME'] = serialize($request['S_VOLUME']);
         $request['S_REMAINING'] = serialize($request['S_REMAINING']);
         $request['S_REMAINING_CAUSE_OTHER'] = serialize($request['S_REMAINING_CAUSE_OTHER']);

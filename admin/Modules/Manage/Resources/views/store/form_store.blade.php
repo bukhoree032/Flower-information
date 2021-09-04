@@ -3,6 +3,7 @@
 
 {{-- Content --}}
 @section('content')
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
     {{-- @dd($result['result']) --}}
     <div class="row">
         <div class="col-lg-6 col-xxl-12">
@@ -60,22 +61,21 @@
                                 <label style="margin-top: 10px"><b>หมู่:</b></label>
                                 <input type="text" class="form-control"  name="S_VILLAGE"/>
                             </div>
-                            <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>จังหวัด:</b></label>
+                            {{-- @dd($resultDistricts['result']) --}}
+                            <div class="col-lg-6">
+                                <label style="margin-top: 10px"><b>ตำบล/อำเภอ/จังหวัด:</b></label>
                                 <span class="text-danger">*</span></label>
-                                <select class="form-control" id="exampleSelect1" name="S_SUB_DISTRICT">
-                                    <option>นาย</option>
-                                    <option>นาง</option>
-                                    <option>นางสาว</option>
+                                <select id="pro" class="js-example-basic-multiple" name="S_SUB_DISTRICT" style="width: 100%;" required>
+                                    <option selected>-- จังหวัด --</option>
+                                    @foreach ($resultDistricts['result'] as $item => $value)
+                                        <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }} อำเภอ{{ $value->name_amphures }} จังหวัด{{ $value->name_provinces }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="col-lg-4">
+                            {{-- <div class="col-lg-4">
                                 <label style="margin-top: 10px"><b>อำเภอ:</b></label>
                                 <span class="text-danger">*</span></label>
-                                <select class="form-control" id="exampleSelect1" name="S_DISTRICT">
-                                    <option>นาย</option>
-                                    <option>นาง</option>
-                                    <option>นางสาว</option>
+                                <select class="form-control" id="dis" name="S_DISTRICT">
                                 </select>
                             </div>
                             <div class="col-lg-4">
@@ -86,7 +86,7 @@
                                     <option>นาง</option>
                                     <option>นางสาว</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-4">
                                 <label style="margin-top: 10px"><b>lat:</b></label>
                                 <input type="text" class="form-control"  name="S_LAT"/>
@@ -154,17 +154,17 @@
                                             <div class="col-lg-6">
                                                 <select id="single_pa" class="js-example-basic-multiple" name="S_SOURCE[1][PROVINCE]" style="width: 100%;" >
                                                     <option>-- จังหวัด --</option>
-                                                    <option>ยะลา</option>
-                                                    <option>นราธิวาส</option>
-                                                    <option>ปัตตานี</option>
+                                                    @foreach ($resultProvinces['result'] as $item => $value)
+                                                        <option value="{{ $value->id }}">{{ $value->name_th }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <select id="single_da" class="js-example-basic-multiple" name="S_SOURCE[1][DISTRICT]" style="width: 100%;" >
                                                     <option>-- อำเภอ --</option>
-                                                    <option>Javascript</option>
-                                                    <option>PHP</option>
-                                                    <option>Visual Basic</option>
+                                                    @foreach ($resultAmphures['result'] as $item => $value)
+                                                        <option value="{{ $value->id }}">{{ $value->name_th }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -379,11 +379,12 @@
             <!--end::Card-->      
         </div>
     </div>
-
+    
 @endsection
 
 {{-- Scripts Section --}}
 @section('scripts')
+
 <script>
     let addbutton = document.getElementById("addbutton");
     addbutton.addEventListener("click", function() {

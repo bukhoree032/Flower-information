@@ -32,3 +32,10 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::post('/pages/create-insert/Store2/', 'StoreController@CreateStore')->name('insert.store');
     Route::post('/pages/create-insert/{id}/', 'StoreController@CreateStore2')->name('insert.store2');
 });
+
+Route::prefix('search')->name('search.')->group(function() {
+
+    Route::post('/dis/', 'SearchController@amp')->name('amp');
+    // Route::post('/pages/create-insert/Store2/', 'StoreController@CreateStore')->name('insert.store');
+    // Route::post('/pages/create-insert/{id}/', 'StoreController@CreateStore2')->name('insert.store2');
+});

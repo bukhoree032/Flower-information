@@ -43,6 +43,41 @@ class Repository
      * @param $id
      * @return mixed
      */
+    public function districts()
+    {
+        $data['result'] = \DB::table('districts')
+                        ->join('amphures', 'districts.amphure_id', '=', 'amphures.id')
+                        ->join('provinces', 'amphures.province_id', '=', 'provinces.id')
+                        ->where('provinces.id','>=', 74)
+                        ->where('provinces.id','<=', 76)
+                        ->select('districts.id as id_districts','districts.name_th as name_districts','amphures.id as id_amphures','amphures.name_th as name_amphures','provinces.id as id_provinces','provinces.name_th as name_provinces')
+                        
+                        ->get();
+        return $data;
+    }
+
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function ProvinceJoin($id)
+    {
+        $data['result'] = \DB::table('districts')
+                        ->join('amphures', 'districts.amphure_id', '=', 'amphures.id')
+                        ->join('provinces', 'amphures.province_id', '=', 'provinces.id')
+                        ->where('districts.id', $id)
+                        ->select('districts.id as id_districts','districts.name_th as name_districts','amphures.id as id_amphures','amphures.name_th as name_amphures','provinces.id as id_provinces','provinces.name_th as name_provinces')
+                        
+                        ->get();
+        // $insert = $this->$db::create($data);
+        return $data;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function insert($data,$db)
     {
         $insert = $this->$db::create($data);

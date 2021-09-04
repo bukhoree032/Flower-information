@@ -70,34 +70,7 @@
                 {{-- @dd($result['result']) --}}
                 <div class="card-body">
                     <!--begin: Datatable-->
-                    <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
-                        <thead>
-                            <tr>
-                                <th>ลำดับ</th>
-                                <th>ชื่อร้าน</th>
-                                <th>ชื่อ-นามสกุล</th>
-                                <th>ที่อยู่</th>
-                                {{-- <th>lat/long</th> --}}
-                                <th>เวลาเพิ่ม</th>
-                                <th>เวลาแก้ไข</th>
-                                <th>จัดการ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($result['result'] as $item =>$value)
-                            <tr>
-                                <td>{{ $item+1 }}</td>
-                                <td>{{ $value->S_NAME }}</td>
-                                <td>{{ $value->S_OWNER_NAME }}</td>
-                                <td>{{ $value->S_NUMBER }} ม.{{ $value->S_VILLAGE }} ต.{{ $value->S_SUB_DISTRICT }} อ.{{ $value->S_DISTRICT }} จ.{{ $value->S_PROVINCE }}</td>
-                                {{-- <td>{{ $value->S_LAT }},{{ $value->S_LONG }}</td> --}}
-                                <td>{{ $value->created_at }}</td>
-                                <td>{{ $value->updated_at }}</td>
-                                <td><i class="fas fa-eye"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
-                            </tr>    
-                            @endforeach
-                        </tbody>
-                    </table>
+                    
                     <!--end: Datatable-->
                 </div>
             </div>
