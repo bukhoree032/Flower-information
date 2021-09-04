@@ -147,59 +147,59 @@
     <!--end::Page Scripts-->
     <script>
         var imgUpload = document.getElementById('upload_imgs')
-  , imgPreview = document.getElementById('img_preview')
-  , imgUploadForm = document.getElementById('img-upload-form')
-  , totalFiles
-  , previewTitle
-  , previewTitleText
-  , img;
+        , imgPreview = document.getElementById('img_preview')
+        , imgUploadForm = document.getElementById('img-upload-form')
+        , totalFiles
+        , previewTitle
+        , previewTitleText
+        , img;
 
-imgUpload.addEventListener('change', previewImgs, false);
-imgUploadForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  alert('Images Uploaded! (not really, but it would if this was on your website)');
-}, false);
+        imgUpload.addEventListener('change', previewImgs, false);
+        imgUploadForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Images Uploaded! (not really, but it would if this was on your website)');
+        }, false);
 
-function previewImgs(event) {
-  totalFiles = imgUpload.files.length;
-  
-  if(!!totalFiles) {
-    imgPreview.classList.remove('quote-imgs-thumbs--hidden');
-    previewTitle = document.createElement('p');
-    previewTitle.style.fontWeight = 'bold';
-    previewTitleText = document.createTextNode(totalFiles + ' Total Images Selected');
-    previewTitle.appendChild(previewTitleText);
-    imgPreview.appendChild(previewTitle);
-  }
-  
-  for(var i = 0; i < totalFiles; i++) {
-    img = document.createElement('img');
-    img.src = URL.createObjectURL(event.target.files[i]);
-    img.classList.add('img-preview-thumb');
-    imgPreview.appendChild(img);
-  }
-}
+        function previewImgs(event) {
+        totalFiles = imgUpload.files.length;
+        
+        if(!!totalFiles) {
+            imgPreview.classList.remove('quote-imgs-thumbs--hidden');
+            previewTitle = document.createElement('p');
+            previewTitle.style.fontWeight = 'bold';
+            previewTitleText = document.createTextNode(totalFiles + ' Total Images Selected');
+            previewTitle.appendChild(previewTitleText);
+            imgPreview.appendChild(previewTitle);
+        }
+        
+        for(var i = 0; i < totalFiles; i++) {
+            img = document.createElement('img');
+            img.src = URL.createObjectURL(event.target.files[i]);
+            img.classList.add('img-preview-thumb');
+            imgPreview.appendChild(img);
+        }
+        }
     </script>
     <script>
-        const readURL = (input) => {
-  if (input.files && input.files[0]) {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      $('#preview').attr('src', e.target.result)
-    }
-    reader.readAsDataURL(input.files[0])
-  }
-}
-$('.choose').on('change', function() {
-	readURL(this)
-  let i
-  if ($(this).val().lastIndexOf('\\')) {
-    i = $(this).val().lastIndexOf('\\') + 1
-  } else {
-    i = $(this).val().lastIndexOf('/') + 1
-  }
-  const fileName = $(this).val().slice(i)
-  $('.label').text(fileName)
-})
+                const readURL = (input) => {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader()
+            reader.onload = (e) => {
+            $('#preview').attr('src', e.target.result)
+            }
+            reader.readAsDataURL(input.files[0])
+        }
+        }
+        $('.choose').on('change', function() {
+            readURL(this)
+        let i
+        if ($(this).val().lastIndexOf('\\')) {
+            i = $(this).val().lastIndexOf('\\') + 1
+        } else {
+            i = $(this).val().lastIndexOf('/') + 1
+        }
+        const fileName = $(this).val().slice(i)
+        $('.label').text(fileName)
+        })
     </script>
 @endsection
