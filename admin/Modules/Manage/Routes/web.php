@@ -22,6 +22,7 @@ Route::get('pages/manage_farme', 'FarmeController@index');
 
 Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/create-farme', 'FarmeController@create')->name('create.farme');
+    Route::post('/pages/create-insert/Farme/', 'FarmeController@CreateFarme')->name('insert.farme');
 });
 
 Route::get('pages/manage_store', 'StoreController@index')->name('index.store');
