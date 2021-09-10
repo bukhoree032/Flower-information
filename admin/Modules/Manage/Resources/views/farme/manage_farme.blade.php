@@ -68,59 +68,34 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    {{-- @dd($result) --}}
                     <!--begin: Datatable-->
                     <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
                         <thead>
                             <tr>
                                 <th>ลำดับ</th>
+                                <th>ชื่อร้าน</th>
                                 <th>ชื่อ-นามสกุล</th>
                                 <th>ที่อยู่</th>
-                                <th>ดอกไม้ที่ขาย</th>
-                                <th>กลุ่มลูกค้า</th>
+                                {{-- <th>lat/long</th> --}}
                                 <th>เวลาเพิ่ม</th>
                                 <th>เวลาแก้ไข</th>
-                                <th>สถานะ</th>
-                                <th>ประเภท</th>
                                 <th>จัดการ</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($result['result'] as $item =>$value)
                             <tr>
-                                <td>1</td>
-                                <td>นายกูรอบาฮา ลานง</td>
-                                <td>12 ม.10 ต.สะเตง อ.เมือง จ.ยะลา 95000</td>
-                                <td>São Félix do Xingu</td>
-                                <td>698 Oriole Pass</td>
-                                <td>10/15/2017</td>
-                                <td>10/15/2017</td>
-                                <td>ปกติ</td>
-                                <th>1</th>
-                                <td nowrap="nowrap"></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>นายสมชาย ลานง</td>
-                                <td>12 ม.10 ต.สะเตง อ.เมือง จ.ยะลา 95000</td>
-                                <td>Bình Minh</td>
-                                <td>8998 Delaware Court</td>
-                                <td>4/24/2016</td>
-                                <td>10/15/2017</td>
-                                <td>ปกติ</td>
-                                <th>1</th>
-                                <td nowrap="nowrap"></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>นายแดง ลานง</td>
-                                <td>12 ม.10 ต.สะเตง อ.เมือง จ.ยะลา 95000</td>
-                                <td>Palagao Norte</td>
-                                <td>91796 Sutteridge Road</td>
-                                <td>7/11/2017</td>
-                                <td>10/15/2017</td>
-                                <td>ปกติ</td>
-                                <th>1</th>
-                                <td nowrap="nowrap"></td>
-                            </tr>
+                                <td>{{ $item+1 }}</td>
+                                <td>{{ $value->FA_GROUPNAME }}</td>
+                                <td>{{ $value->FA_NAME }}</td>
+                                <td>{{ $value->FA_HOUSENUMBER }} ม.{{ $value->FA_MOO }} ต.{{ $value->FA_SUB_DISTRICT }} อ.{{ $value->FA_DISTRICT }} จ.{{ $value->FA_PROVINCE }}</td>
+                                {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
+                                <td>{{ $value->created_at }}</td>
+                                <td>{{ $value->updated_at }}</td>
+                                <td><i class="fas fa-eye"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                            </tr>    
+                            @endforeach
                         </tbody>
                     </table>
                     <!--end: Datatable-->

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Manage\Entities\Stores;
 use Modules\Manage\Entities\Flowers;
+use Modules\Manage\Entities\Farmes;
 
 class Repository 
 {
@@ -14,6 +15,7 @@ class Repository
     {
         $this->classModelStores = Stores::class;
         $this->classModelFlowers = Flowers::class;
+        $this->classModelFarmes = Farmes::class;
     }
 
     /**
@@ -33,6 +35,7 @@ class Repository
      */
     public function ShowId($id,$db)
     {
+        // dd("aaaa");
         $data['result'] = \DB::table($db)
                         ->where('id',$id)
                         ->get();
@@ -80,6 +83,7 @@ class Repository
      */
     public function insert($data,$db)
     {
+        // dd($data,$db);
         $insert = $this->$db::create($data);
         return $insert;
     }

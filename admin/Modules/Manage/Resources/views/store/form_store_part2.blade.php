@@ -19,7 +19,7 @@
                 </div>
                 {{-- @dd($resultID['resultflower']) --}}
                 <!--begin::Form-->
-                <form action="{{ route('manage.insert.store2',$result['id']) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('manage.insert.store2',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">

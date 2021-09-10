@@ -66,17 +66,17 @@
                         </div>
                         <div class="col-lg-4">
                             <label>พิกัด (ละติจูด):</label>
-                            <input type="email" class="form-control" name="FA_LAT" placeholder="ป้อนพิกัด (ละติจูด)" />
+                            <input type="text" class="form-control" name="FA_LAT" placeholder="ป้อนพิกัด (ละติจูด)" />
                             <span class="form-text text-muted">กรุณาป้อนพิกัด (ละติจูด)</span>
                         </div>
                         <div class="col-lg-4">
                             <label>พิกัด (ลองติจูด):</label>
-                            <input type="email" class="form-control" name="FA_LONG" placeholder="พิกัด (ลองติจูด)" />
+                            <input type="text" class="form-control" name="FA_LONG" placeholder="พิกัด (ลองติจูด)" />
                             <span class="form-text text-muted">กรุณาพิกัด (ลองติจูด)</span>
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
                             <div class="file-input">
-                                <input class="choose" type="file" name="file" accept="image/*">
+                                {{-- <input class="choose" type="file" name="file" accept="image/*"> --}}
                                 <span class="button">อัปโหลดรูปหน้าปก</span>
                                 {{-- <span class="label">เลือกไฟล์</span> --}}
                             </div>
@@ -89,8 +89,8 @@
                                 <div class="small-10 small-offset-1 medium-8 medium-offset-2 cell">
                                   {{-- <h1>Multiple Image File Upload with Preview</h1> --}}
                                     <p>
-                                      <label for="upload_imgs" class="button hollow">เพิ่มรูปภาพร้านทั้งหมด +</label>
-                                      <input class="show-for-sr" type="file" id="upload_imgs" name="file_multiple[]" multiple/>
+                                      <label for="upload_imgs" class="button hollow">เพิ่มรูปภาพสวนทั้งหมด +</label>
+                                      {{-- <input class="show-for-sr" type="file" id="upload_imgs" name="file_multiple[]" multiple/> --}}
                                     </p>
                                     <div class="quote-imgs-thumbs quote-imgs-thumbs--hidden" id="img_preview" aria-live="polite"></div>
                                     {{-- <p>
@@ -203,7 +203,7 @@
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div id="boxesp">
-                                        <input type="text" class="form-control" name="FA_CUSTOMER_PAYS_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                        <input type="text" class="form-control" name="FA_CUSTOMER_PAYFA_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -218,25 +218,25 @@
                         <label style="margin-top: 10px"><b>การส่งเสริมการขาย(โปรโมชัน):</b></label>
                         <div class="radio-list">
                             <label class="radio">
-                            <input type="radio" value="1" name="S_PROMOTION">
+                            <input type="radio" value="1" name="FA_PROMOTION">
                             <span></span>ไม่มี</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="S_PROMOTION">
+                            <input type="radio" value="2" name="FA_PROMOTION">
                             <span></span>มีการให้ส่วนลด</label>
                             <label class="radio">
-                            <input type="radio" value="3" name="S_PROMOTION">
+                            <input type="radio" value="3" name="FA_PROMOTION">
                             <span></span>มีการแถม</label>
                             <label class="radio">
-                            <input type="radio" value="4" name="S_PROMOTION">
+                            <input type="radio" value="4" name="FA_PROMOTION">
                             <span></span>Social Media</label>
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div id="boxespr">
-                                        <input type="text" class="form-control" name="S_PROMOTION_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                        <input type="text" class="form-control" name="FA_PROMOTION_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
-                                    <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonpr" style="margin-top: 5px">+</a>
+                                    {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonpr" style="margin-top: 5px">+</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -246,13 +246,13 @@
                         <label style="margin-top: 10px"><b>จำนวนแรงงานที่ใช้ในร้าน:</b></label>
                         <div class="radio-list">
                             <label class="radio">
-                            <input type="radio" value="1" name="S_LABOR">
+                            <input type="radio" value="1" name="FA_LABOR">
                             <span></span>1-3 คน</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="S_LABOR">
+                            <input type="radio" value="2" name="FA_LABOR">
                             <span></span>4-6 คน</label>
                             <label class="radio">
-                            <input type="radio" value="3" name="S_LABOR">
+                            <input type="radio" value="3" name="FA_LABOR">
                             <span></span>7 คนขึ้นไป</label>
                         </div>
                     </div>
@@ -261,8 +261,8 @@
                     <div class="row">
                         <div class="col-lg-4"></div>
                         <div class="col-lg-8">
-                            <button class="btn btn-primary mr-2">Submit</button>
-                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                            <button class="btn btn-primary mr-2">บันทึก</button>
+                            <button type="reset" class="btn btn-secondary">ยกเลิก</button>
                         </div>
                     </div>
                 </div>

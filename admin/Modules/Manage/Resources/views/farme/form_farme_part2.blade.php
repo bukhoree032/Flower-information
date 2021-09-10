@@ -17,9 +17,9 @@
                         </div>
                     </div>
                 </div>
-                {{-- @dd($resultID['resultflower']) --}}
+                {{-- @dd($resultID['result'][0]->id) --}}
                 <!--begin::Form-->
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('manage.insert.farme2',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
@@ -39,56 +39,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($resultID['resultflower'] as $item => $valuw) --}}
+                                        @foreach ($resultID['resultflower'] as $item => $valuw)
                                         <tr>
                                             <td>
-                                                {{-- {{ $item+1 }} --}} 1
+                                                {{ $item+1 }} 
                                             </td>
                                             <td>
-                                                {{-- {{ $resultID['resultflower'][$item][0]->F_NAME }} --}} ดาวเรือน
+                                                {{ $resultID['resultflower'][$item][0]->F_NAME }} 
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
-                                                </select> --}}
-                                                <input type="text" name="FA_REMAINING[][PER_MONTH][QUANTITY]">
-                                                <select name="FA_REMAINING[][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
-                                                </select> --}}
-                                                <input type="text" name="FA_REMAINING[][PER_MONTH][QUANTITY]">
-                                                <select name="FA_REMAINING[][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select> --}}
-                                                <input type="text" name="FA_REMAINING[][PER_MONTH][QUANTITY]">
-                                                <select name="FA_REMAINING[][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
@@ -96,7 +75,7 @@
                                                 </select>
                                             </td>
                                         </tr>    
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
@@ -115,56 +94,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($resultID['resultflower'] as $item => $valuw) --}}
+                                        @foreach ($resultID['resultflower'] as $item => $valuw)
                                         <tr>
                                             <td>
-                                                {{-- {{ $item+1 }} --}} 1
+                                                {{ $item+1 }} 
                                             </td>
                                             <td>
-                                                {{-- {{ $resultID['resultflower'][$item][0]->F_NAME }} --}} ดาวเรือน
+                                                {{ $resultID['resultflower'][$item][0]->F_NAME }} 
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
                                                 <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
-                                                </select> --}}
-                                                <input type="text" name="FA_REMAINING[][PER_MONTH][QUANTITY]">
-                                                <select name="FA_REMAINING[][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
                                                 <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
-                                                </select> --}}
-                                                <input type="text" name="FA_REMAINING[][PER_MONTH][QUANTITY]">
-                                                <select name="FA_REMAINING[][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
                                                 <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select> --}}
-                                                <input type="text" name="FA_REMAINING[][PER_MONTH][QUANTITY]">
-                                                <select name="FA_REMAINING[][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
@@ -172,7 +130,7 @@
                                                 </select>
                                             </td>
                                         </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
@@ -200,7 +158,7 @@
                                         </div>
                                         <div class="col-lg-2">
                                             {{-- <label>.</label><br> --}}
-                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a>
+                                            {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -219,28 +177,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($resultID['resultflower'] as $item => $valuw) --}}
+                                        @foreach ($resultID['resultflower'] as $item => $valuw)
                                         <tr>
                                             <td>
-                                                {{-- {{ $item+1 }} --}} 1
+                                                {{ $item+1 }} 
                                             </td>
                                             <td>
-                                                {{-- {{ $resultID['resultflower'][$item][0]->F_NAME }} --}} ดาวเรือน
+                                                {{ $resultID['resultflower'][$item][0]->F_NAME }} 
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]"> บาท --}}
-                                                <input type="text" name="FA_SET_PRICE[][FLOWER]"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]"> บาท
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]"> บาท --}}
-                                                <input type="text" name="FA_SET_PRICE[][FLOWER]"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]"> บาท
                                             </td>
                                             <td>
-                                                {{-- <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]"> บาท --}}
-                                                <input type="text" name="FA_SET_PRICE[][FLOWER]"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]"> บาท
                                             </td>
                                         </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
