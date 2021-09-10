@@ -74,8 +74,21 @@ class StoreController extends Controller
         
         $datas = $request->all();
         $data['result'] = $this->Repository->insert($datas,'classModelStores');
+        // dd($data['result']['id']);
+        // $data['resultID'] = $this->StoresRepository->ShowId($data['result']['id'],'stores');
+
+        // return view('manage::store.form_store_part2',compact('page_title', 'page_description'),$data);
+        return redirect()->route('manage.create.store2',$data['result']['id']);
+    }
+
+    public function FormStore2($id)
+    {
+        // dd($id);
+        $page_title = 'เพิ่มข้อมูลร้านค้า';
+        $page_description = '';
         
-        $data['resultID'] = $this->StoresRepository->ShowId($data['result']['id'],'stores');
+        
+        $data['resultID'] = $this->StoresRepository->ShowId($id,'stores');
 
         return view('manage::store.form_store_part2',compact('page_title', 'page_description'),$data);
     }
