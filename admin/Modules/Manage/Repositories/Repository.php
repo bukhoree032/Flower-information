@@ -107,26 +107,6 @@ class Repository
      */
     public function insert($request,$db)
     {
-        
-        $uploade = new UploadeFileController();
-        if (!empty($request['file'])) {
-            $request['file'] = $uploade->uploadImage(
-                $request['file'],
-                'flowers',
-                Str::random(5)
-            );
-        }
-        if (!empty($request->file_multiple)) {
-            foreach ($request->file_multiple as $key => $value) {
-                $file_multiple[$key] = $uploade->uploadImage(
-                    $value,
-                    'flowers',
-                    Str::random(5)
-                );
-            }
-            $request['file_multiple'] = serialize($file_multiple);
-        }
-        dd($request);
         $insert = $this->$db::create($request);
         return $insert;
     }

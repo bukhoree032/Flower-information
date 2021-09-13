@@ -58,6 +58,24 @@ class StoreController extends UploadeFileController
      */
     public function CreateStore(Request $request)
     {
+        $uploade = new UploadeFileController();
+        if (!empty($request['files'])) {
+            $request['file'] = $uploade->uploadImage(
+                $request['files'],
+                'flowers',
+                Str::random(5)
+            );
+        }
+        if (!empty($request['file_multiples'])) {
+            foreach ($request['file_multiples'] as $key => $value) {
+                $file_multiple[$key] = $uploade->uploadImage(
+                    $value,
+                    'flowers',
+                    Str::random(5)
+                );
+            }
+            $request['file_multiple'] = serialize($file_multiple);
+        }
         $page_title = 'เพิ่มข้อมูลร้านค้า';
         $page_description = '';
         $datajount['resultID'] = $this->Repository->ProvinceJoin($request['S_SUB_DISTRICT']);
@@ -74,8 +92,8 @@ class StoreController extends UploadeFileController
         $request['S_CUSTOMER_PAYS_OTHER'] = serialize($request['S_CUSTOMER_PAYS_OTHER']);
         $request['S_PROMOTION_OTHER'] = serialize($request['S_PROMOTION_OTHER']);
 
-        $data['result'] = $this->Repository->insert($request,'classModelStores');
-
+        $data['result'] = $this->Repository->insert($request->all(),'classModelStores');
+        
         return redirect()->route('manage.create.store2',$data['result']['id']);
     }
 
