@@ -89,11 +89,11 @@
                                 <td>{{ $item+1 }}</td>
                                 <td>{{ $value->FA_GROUPNAME }}</td>
                                 <td>{{ $value->FA_NAME }}</td>
-                                <td>{{ $value->FA_HOUSENUMBER }} ม.{{ $value->FA_MOO }} ต.{{ $value->FA_SUB_DISTRICT }} อ.{{ $value->FA_DISTRICT }} จ.{{ $value->FA_PROVINCE }}</td>
+                                <td>{{ $value->FA_HOUSENUMBER }} ม.{{ $value->FA_MOO }} ต.{{ $value->name_dis }} อ.{{ $value->name_amp }} จ.{{ $value->name_prv }}</td>
                                 {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
                                 <td>{{ $value->created_at }}</td>
                                 <td>{{ $value->updated_at }}</td>
-                                <td><i class="fas fa-eye"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
                             </tr>    
                             @endforeach
                         </tbody>

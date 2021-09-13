@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- Dashboard 1 --}}
-
+@dd($resultDistricts)
 <div class="row">
     <div class="col-lg-6 col-xxl-12">
         <!--begin::Card-->

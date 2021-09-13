@@ -27,7 +27,7 @@ class StoreController extends Controller
         $page_description = '';
 
         $db = "stores";
-        $data['result'] = $this->Repository->show($db);
+        $data['result'] = $this->Repository->index($db);
 
         return view('manage::store.manage_store', compact('page_title', 'page_description'),$data);
     }
@@ -109,5 +109,18 @@ class StoreController extends Controller
 
         // return view('manage::store.form_store_part2');
         return redirect()->route('index.store');
+    }
+
+    
+    public function PageDetailStore($id)
+    {
+        $page_title = 'เพิ่มข้อมูลร้านค้า';
+        $page_description = '';
+
+        
+        $data['result'] = $this->Repository->ShowId($id,'stores');
+        dd($data);
+
+        return view('manage::store.detail_store',compact('page_title', 'page_description'),$data);
     }
 }

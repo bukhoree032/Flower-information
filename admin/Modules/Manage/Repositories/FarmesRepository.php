@@ -25,11 +25,12 @@ class FarmesRepository
     public function index($db)
     {
         $data['result'] = \DB::table($db)
-                        ->join('districts',$db.'.S_SUB_DISTRICT','=','districts.id')
+                        ->select($db.'.id as id_db',$db.'.*','districts.name_th as name_dis','amphures.name_th as name_amp','provinces.name_th as name_prv','districts.*','amphures.*','provinces.*')
+                        ->join('districts',$db.'.FA_SUB_DISTRICT','=','districts.id')
                         ->join('amphures','districts.amphure_id','=','amphures.id')
                         ->join('provinces','amphures.province_id','=','provinces.id')
                         ->get();
-        dd($data);
+        // dd($data);
         return $data;
     }
 

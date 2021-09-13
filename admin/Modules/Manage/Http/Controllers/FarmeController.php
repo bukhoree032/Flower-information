@@ -28,8 +28,8 @@ class FarmeController extends Controller
         $page_description = '';
 
         $db = "farmes";
-        $data['result'] = $this->FarmesRepository->index($db);
-        dd($data);
+        $data['result'] = $this->Repository->index($db);
+        // dd($data);
 
         // dd($data);
         return view('manage::farme.manage_farme', compact('page_title', 'page_description'),$data);
@@ -124,5 +124,17 @@ class FarmeController extends Controller
         $data['result'] = $this->Repository->update($datas,$id,'farmes');
         
         return redirect()->route('index.farme');
+    }
+
+    public function PageDetailFarme($id)
+    {
+        $page_title = 'เพิ่มข้อมูลร้านค้า';
+        $page_description = '';
+
+        
+        $data['result'] = $this->Repository->ShowId($id,'farmes');
+        dd($data);
+        
+        return view('manage::farme.detail_farme',compact('page_title', 'page_description'),$data);
     }
 }

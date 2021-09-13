@@ -54,6 +54,29 @@ class FlowerController extends Controller
         return redirect()->route('index.flower');
     }
 
+    public function PageDetailFlower($id)
+    {
+        $page_title = 'รายละเอียดข้อมูลดอกไม้';
+        $page_description = '';
+
+        
+        $data['result'] = $this->Repository->ShowId($id,'flowers');
+        // dd($data);
+        
+        return view('manage::flower.detail_flower', compact('page_title', 'page_description'),$data);
+    }
+    
+    public function PageEditFlower($id)
+    {
+        $page_title = 'แก้ไขข้อมูลดอกไม้';
+        $page_description = '';
+
+        
+        $data['result'] = $this->Repository->ShowId($id,'flowers');
+        // dd($data);
+        
+        return view('manage::flower.edit_flower', compact('page_title', 'page_description'),$data);
+    }
     /**
      * Store a newly created resource in storage.
      * @param Request $request

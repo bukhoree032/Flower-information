@@ -46,7 +46,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{ asset('css/input-file.css') }}" rel="stylesheet" type="text/css" />
         {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
         {{-- Includable CSS --}}
-        
+        <style>
+            .pointer {cursor: pointer;}
+        </style>
         @yield('styles')
     </head>
 

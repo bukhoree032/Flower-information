@@ -22,6 +22,7 @@ class StoresRepository
      */
     public function show($db)
     {
+        // dd("aaaaaa");
         $data['result'] = \DB::table($db)
                         ->get();
         return $data;

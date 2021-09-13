@@ -89,11 +89,11 @@
                                 <td>{{ $item+1 }}</td>
                                 <td>{{ $value->S_NAME }}</td>
                                 <td>{{ $value->S_OWNER_NAME }}</td>
-                                <td>{{ $value->S_NUMBER }} ม.{{ $value->S_VILLAGE }} ต.{{ $value->S_SUB_DISTRICT }} อ.{{ $value->S_DISTRICT }} จ.{{ $value->S_PROVINCE }}</td>
+                                <td>{{ $value->S_NUMBER }} ม.{{ $value->S_VILLAGE }} ต.{{ $value->name_dis }} อ.{{ $value->name_amp }} จ.{{ $value->name_prv }}</td>
                                 {{-- <td>{{ $value->S_LAT }},{{ $value->S_LONG }}</td> --}}
                                 <td>{{ $value->created_at }}</td>
                                 <td>{{ $value->updated_at }}</td>
-                                <td><i class="fas fa-eye"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_store',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
                             </tr>    
                             @endforeach
                         </tbody>
