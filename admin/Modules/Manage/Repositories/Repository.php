@@ -107,7 +107,7 @@ class Repository
      */
     public function insert($request,$db)
     {
-        $insert = $this->$db::create($request);
+        $insert = $this->$db::create($request->all());
         return $insert;
     }
 
