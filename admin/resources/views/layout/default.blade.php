@@ -44,6 +44,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Page Vendors Styles-->
         <link href="{{ asset('css/selecttwo.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/input-file.css') }}" rel="stylesheet" type="text/css" />
+        <!-- upload file -->
+        <link href="{{ asset('css/upload_file/upload_file.css') }}" rel="stylesheet" type="text/css" />
+        <!-- upload file -->
         {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
         {{-- Includable CSS --}}
         <style>

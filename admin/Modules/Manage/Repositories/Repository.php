@@ -9,6 +9,9 @@ use Modules\Manage\Entities\Stores;
 use Modules\Manage\Entities\Flowers;
 use Modules\Manage\Entities\Farmes;
 
+use Illuminate\Support\Str;
+use App\Http\Controllers\UploadeFileController;
+
 class Repository 
 {
     public function __construct()
@@ -102,10 +105,29 @@ class Repository
      * @param $id
      * @return mixed
      */
-    public function insert($data,$db)
+    public function insert($request,$db)
     {
-        // dd($data,$db);
-        $insert = $this->$db::create($data);
+        
+        $uploade = new UploadeFileController();
+        if (!empty($request['file'])) {
+            $request['file'] = $uploade->uploadImage(
+                $request['file'],
+                'flowers',
+                Str::random(5)
+            );
+        }
+        if (!empty($request->file_multiple)) {
+            foreach ($request->file_multiple as $key => $value) {
+                $file_multiple[$key] = $uploade->uploadImage(
+                    $value,
+                    'flowers',
+                    Str::random(5)
+                );
+            }
+            $request['file_multiple'] = serialize($file_multiple);
+        }
+        dd($request);
+        $insert = $this->$db::create($request);
         return $insert;
     }
 

@@ -8,7 +8,10 @@ use Illuminate\Routing\Controller;
 use Modules\Manage\Repositories\Repository as Repository;
 use Modules\Manage\Repositories\StoresRepository as StoresRepository;
 
-class StoreController extends Controller
+use Illuminate\Support\Str;
+use App\Http\Controllers\UploadeFileController;
+
+class StoreController extends UploadeFileController
 {
     protected $Repository;
 
@@ -55,13 +58,12 @@ class StoreController extends Controller
      */
     public function CreateStore(Request $request)
     {
-        // dd($request['S_SUB_DISTRICT']);
         $page_title = 'เพิ่มข้อมูลร้านค้า';
         $page_description = '';
         $datajount['resultID'] = $this->Repository->ProvinceJoin($request['S_SUB_DISTRICT']);
-        // dd($datajount['resultID']['result'][0]->id_provinces);
-        $request['S_DISTRICT'] = $datajount['resultID']['result'][0]->id_amphures;
-        $request['S_PROVINCE'] = $datajount['resultID']['result'][0]->id_provinces;
+        
+        $request['S_DISTRICT'] = $datajount['resultID']['result'][0]->id_amphures ?? null;
+        $request['S_PROVINCE'] = $datajount['resultID']['result'][0]->id_provinces ?? null;
         $request['S_FLOWER'] = serialize($request['S_FLOWER']);
         $request['S_FLOWER_OTHER'] = serialize($request['S_FLOWER_OTHER']);
         $request['S_CUSTOMER_GROUP'] = serialize($request['S_CUSTOMER_GROUP']);
@@ -71,13 +73,9 @@ class StoreController extends Controller
         $request['S_CONDITION_SELL_OTHER'] = serialize($request['S_CONDITION_SELL_OTHER']);
         $request['S_CUSTOMER_PAYS_OTHER'] = serialize($request['S_CUSTOMER_PAYS_OTHER']);
         $request['S_PROMOTION_OTHER'] = serialize($request['S_PROMOTION_OTHER']);
-        
-        $datas = $request->all();
-        $data['result'] = $this->Repository->insert($datas,'classModelStores');
-        // dd($data['result']['id']);
-        // $data['resultID'] = $this->StoresRepository->ShowId($data['result']['id'],'stores');
 
-        // return view('manage::store.form_store_part2',compact('page_title', 'page_description'),$data);
+        $data['result'] = $this->Repository->insert($request,'classModelStores');
+
         return redirect()->route('manage.create.store2',$data['result']['id']);
     }
 

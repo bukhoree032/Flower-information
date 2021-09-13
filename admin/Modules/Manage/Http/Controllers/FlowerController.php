@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Manage\Repositories\Repository as Repository;
 
-class FlowerController extends Controller
+use Illuminate\Support\Str;
+use App\Http\Controllers\UploadeFileController;
+
+class FlowerController extends UploadeFileController
 {
     protected $Repository;
 
@@ -49,8 +52,25 @@ class FlowerController extends Controller
      */
     public function CreateFlower(Request $request)
     {
-        $data=$request->all();
-        $data['result'] = $this->Repository->insert($data,'classModelFlowers');
+        $uploade = new UploadeFileController();
+        if (!empty($request->file)) {
+            $request['file'] = $uploade->uploadImage(
+                $request->file,
+                'flowers',
+                Str::random(5)
+            );
+        }
+        if (!empty($request->file_multiple)) {
+            foreach ($request->file_multiple as $key => $value) {
+                $file_multiple[$key] = $uploade->uploadImage(
+                    $value,
+                    'flowers',
+                    Str::random(5)
+                );
+            }
+            $request['file_multiple'] = serialize($file_multiple);
+        }
+        $data['result'] = $this->Repository->insert($request,'classModelFlowers');
         return redirect()->route('index.flower');
     }
 

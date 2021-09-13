@@ -75,28 +75,15 @@
                             <span class="form-text text-muted">กรุณาพิกัด (ลองติจูด)</span>
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
-                            <div class="file-input">
-                                {{-- <input class="choose" type="file" name="file" accept="image/*"> --}}
-                                <span class="button">อัปโหลดรูปหน้าปก</span>
-                                {{-- <span class="label">เลือกไฟล์</span> --}}
-                            </div>
-                            <div class="" style="border: 1px solid #f1f1f1">
-                                <img id="preview" src="">
+                            <div class="field" align="left">
+                                <label class="button hollow">อัปโหลดรูปหน้าปก +</label>
+                                <input type="file" id="file" name="file" />
                             </div>
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
-                            <div class="grid-x grid-padding-x">
-                                <div class="small-10 small-offset-1 medium-8 medium-offset-2 cell">
-                                  {{-- <h1>Multiple Image File Upload with Preview</h1> --}}
-                                    <p>
-                                      <label for="upload_imgs" class="button hollow">เพิ่มรูปภาพสวนทั้งหมด +</label>
-                                      {{-- <input class="show-for-sr" type="file" id="upload_imgs" name="file_multiple[]" multiple/> --}}
-                                    </p>
-                                    <div class="quote-imgs-thumbs quote-imgs-thumbs--hidden" id="img_preview" aria-live="polite"></div>
-                                    {{-- <p>
-                                      <input class="button large expanded" type="submit" name="submit" value="Upload Images"/>
-                                    </p> --}}
-                                </div>
+                            <div class="field" align="left">
+                                <label class="button hollow">เพิ่มรูปภาพดอกไม้ทั้งหมด +</label>
+                                <input type="file" id="files" name="file_multiple[]" multiple />
                             </div>
                         </div>
                     </div>
@@ -355,4 +342,7 @@
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{ asset('js/pages/crud/datatables/data-sources/html.js') }}" type="text/javascript"></script>
 <!--end::Page Scripts-->
+<!-- upload file -->
+<script src="{{ asset('js/upload_file/upload_file.js') }}" type="text/javascript"></script>
+<!-- upload file -->
 @endsection
