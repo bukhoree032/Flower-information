@@ -6,7 +6,7 @@
 <style>
   #img-preview {
   display: none;
-  width: 155px;
+  width: 100%;
   border: 2px dashed #333;  
   margin-bottom: 20px;
 }
@@ -21,6 +21,7 @@
   overflow: hidden;
 }
 [type="file"] + label {
+  width: 100%;
   font-family: sans-serif;
   background: #f44336;
   padding: 10px 30px;
@@ -129,7 +130,7 @@ p a {color:#000;}
                                     <img src="https://tex1712.github.io/repo/gallery/images/img_1.jpg" alt="" style="width: 100%">
                                     {{-- <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button> --}}
                                     <input type="file" id="choose-file" name="choose-file" accept="image/*" />
-                                    <label for="choose-file">Choose File</label>
+                                    <label for="choose-file">เลือกไฟล์ใหม่</label>
                                 </div>
                                 <div class="col-lg-4">
                                      
