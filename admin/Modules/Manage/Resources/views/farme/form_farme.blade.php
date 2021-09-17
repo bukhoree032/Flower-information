@@ -81,15 +81,18 @@
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
                             <div class="field" align="left">
-                                <label class="button hollow">เพิ่มรูปภาพดอกไม้ทั้งหมด +</label>
-                                <input type="file" id="files" name="file_multiples[]" multiple />
+                                <input type="file" style="display:none" id="upload-image" name="file_multiples[]" multiple="multiple"></input>
+                                <div id="upload" class="drop-area">
+                                    เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                </div>
+                                <div id="thumbnail"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
                     <div class="col-lg-4">
                         <label style="margin-top: 10px"><b>ดอกไม้ที่ผลิต:</b></label><br>
-                        <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple">
+                        <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                             @foreach ($result['result'] as $item)
                             <option value="{{ $item->id }}">{{ $item->F_NAME }}</option>
                             @endforeach

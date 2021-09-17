@@ -71,7 +71,7 @@ class FlowerController extends UploadeFileController
             }
             $request['file_multiple'] = serialize($file_multiples);
         }
-        $data['result'] = $this->Repository->insert($request,'classModelFlowers');
+        $data['result'] = $this->Repository->insert($request->all(),'classModelFlowers');
         return redirect()->route('index.flower');
     }
 

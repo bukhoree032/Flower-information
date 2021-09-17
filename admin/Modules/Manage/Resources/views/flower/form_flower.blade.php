@@ -39,7 +39,7 @@
                             <div class="col-lg-4">
                                 <label>ประเภทดอกไม้:</label>
                                 <select class="form-control" id="exampleSelect1" name="F_TYPE">
-                                    <option >-- เลือก --</option>
+                                    <option value="">-- เลือก --</option>
                                     <option value="1">ไม้ใบ</option>
                                     <option value="2">ไม้ดอก</option>
                                 </select>
@@ -91,8 +91,11 @@
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
-                                    <label class="button hollow">เพิ่มรูปภาพดอกไม้ทั้งหมด +</label>
-                                    <input type="file" id="files" name="file_multiples[]" multiple />
+                                    <input type="file" style="display:none" id="upload-image" name="file_multiples[]" multiple="multiple"></input>
+                                    <div id="upload" class="drop-area">
+                                        เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                    </div>
+                                    <div id="thumbnail"></div>
                                 </div>
                             </div>
                         </div>

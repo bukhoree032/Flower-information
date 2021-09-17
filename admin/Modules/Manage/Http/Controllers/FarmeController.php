@@ -92,7 +92,7 @@ class FarmeController extends UploadeFileController
         $request['FA_CUSTOMER_PAYFA_OTHER'] = serialize($request['FA_CUSTOMER_PAYFA_OTHER']);
         $request['FA_PROMOTION_OTHER'] = serialize($request['FA_PROMOTION_OTHER']);
 
-        $data['resulta'] = $this->Repository->insert($request,'classModelFarmes');
+        $data['resulta'] = $this->Repository->insert($request->all(),'classModelFarmes');
 
         $data['resultID'] = $this->FarmesRepository->ShowId($data['resulta']['id'],'farmes');
 

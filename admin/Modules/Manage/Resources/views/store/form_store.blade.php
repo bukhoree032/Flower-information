@@ -33,6 +33,7 @@
                             <div class="col-lg-2">
                                 <label style="margin-top: 10px"><b>คำนำหน้า:</b></label>
                                 <select class="form-control" id="exampleSelect1" name="S_OWNER_PREFIX">
+                                    <option value="">-- คำนำหน้า --</option>
                                     <option value="นาย">นาย</option>
                                     <option value="นาง">นาง</option>
                                     <option value="นางสาว">นางสาว</option>
@@ -40,7 +41,7 @@
                             </div>
                             <div class="col-lg-5">
                                 <label style="margin-top: 10px"><b>ชื่อ-นามสกุลเจ้าของร้าน:</b></label>
-                                <input type="text" class="form-control" name="S_OWNER_NAME" />
+                                <input type="text" class="form-control" name="S_OWNER_NAME">
                             </div>
                             <div class="col-lg-5">
                                 <label style="margin-top: 10px"><b>เบอร์ติดต่อ:</b></label>
@@ -50,7 +51,7 @@
                                             <i class="la la-user"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="" name="S_PHONE"/>
+                                    <input type="text" class="form-control" placeholder="" name="S_PHONE">
                                 </div>
                             </div>
                             <div class="col-lg-2">
@@ -62,31 +63,16 @@
                                 <input type="text" class="form-control"  name="S_VILLAGE"/>
                             </div>
                             {{-- @dd($resultDistricts['result']) --}}
-                            <div class="col-lg-6">
+                            <div class="col-lg-8">
                                 <label style="margin-top: 10px"><b>ตำบล/อำเภอ/จังหวัด:</b></label>
                                 <span class="text-danger">*</span></label>
                                 <select id="pro" class="js-example-basic-multiple" name="S_SUB_DISTRICT" style="width: 100%;" required>
-                                    <option selected>-- จังหวัด --</option>
+                                    <option value="" selected>-- จังหวัด --</option>
                                     @foreach ($resultDistricts['result'] as $item => $value)
                                         <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            {{-- <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>อำเภอ:</b></label>
-                                <span class="text-danger">*</span></label>
-                                <select class="form-control" id="dis" name="S_DISTRICT">
-                                </select>
-                            </div>
-                            <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>ตำบล:</b></label>
-                                <span class="text-danger">*</span></label>
-                                <select class="form-control" id="exampleSelect1" name="S_PROVINCE">
-                                    <option>นาย</option>
-                                    <option>นาง</option>
-                                    <option>นางสาว</option>
-                                </select>
-                            </div> --}}
                             <div class="col-lg-4">
                                 <label style="margin-top: 10px"><b>lat:</b></label>
                                 <input type="text" class="form-control"  name="S_LAT"/>
@@ -103,8 +89,11 @@
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
-                                    <label class="button hollow">เพิ่มรูปภาพดอกไม้ทั้งหมด +</label>
-                                    <input type="file" id="files" name="file_multiples[]" multiple />
+                                    <input type="file" style="display:none" id="upload-image" name="file_multiples[]" multiple="multiple"></input>
+                                    <div id="upload" class="drop-area">
+                                        เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                    </div>
+                                    <div id="thumbnail"></div>
                                 </div>
                             </div>
                         </div>
@@ -114,25 +103,15 @@
                         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
                         <div class="form-group row">
                             <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <label style="margin-top: 10px"><b>ดอกไม้ที่ขาย:</b></label><br>
-                                <select id="single_f" class="js-example-basic-multiple" name="S_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple">
+                                <select id="single_f" class="js-example-basic-multiple" name="S_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                                     @foreach ($result['result'] as $item)
                                     <option value="{{ $item->id }}">{{ $item->F_NAME }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-lg-4 form-main-f" >
-                                <label style="margin-top: 10px"><b>ดอกไม้ที่ขาย อื่น ๆ:</b></label>
-                                <div id="boxes">
-                                    <input id="file1" type="text" class="form-control" name="S_FLOWER_OTHER[]" style="margin-top: 5px"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <label>.</label><br>
-                                <a class="btn btn-primary add-more-btn btn-sm" id="addbutton">+</a>
-                            </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <label style="margin-top: 10px"><b>กลุ่มลูกค้า:</b></label>
                                 <select id="single_c" class="js-example-basic-multiple" name="S_CUSTOMER_GROUP[]"  style="width: 100%" multiple="multiple">
                                     <option>ลูกค้ารายย่อย</option>
@@ -143,16 +122,6 @@
                                     <option>บริษัท/ห้างร้าน</option>
                                     <option>หน่วยงานราชการ</option>
                                 </select>
-                            </div>
-                            <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>กลุ่มลูกค้า อื่น ๆ:</b></label>
-                                <div id="boxesg">
-                                    <input type="text" class="form-control" name="S_CUSTOMER_GROUP_OTHER[]" style="margin-top: 5px"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <label>.</label><br>
-                                <a class="btn btn-primary add-more-btn btn-sm" id="addbuttong">+</a>
                             </div>
                             <div class="col-lg-6">
                                 <label style="margin-top: 10px"><b>แหล่งที่มาของดอกไม้:</b></label>
@@ -253,10 +222,6 @@
                                                 <input type="text" class="form-control" name="S_SEND_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2">
-                                            {{-- <label>.</label><br> --}}
-                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -296,10 +261,6 @@
                                                 <input type="text" class="form-control" name="S_CONDITION_SELL_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2">
-                                            {{-- <label>.</label><br> --}}
-                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonc" style="margin-top: 5px">+</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -321,10 +282,6 @@
                                             <div id="boxesp">
                                                 <input type="text" class="form-control" name="S_CUSTOMER_PAYS_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            {{-- <label>.</label><br> --}}
-                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonp" style="margin-top: 5px">+</a>
                                         </div>
                                     </div>
                                 </div>
@@ -350,9 +307,6 @@
                                             <div id="boxespr">
                                                 <input type="text" class="form-control" name="S_PROMOTION_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonpr" style="margin-top: 5px">+</a>
                                         </div>
                                     </div>
                                 </div>
