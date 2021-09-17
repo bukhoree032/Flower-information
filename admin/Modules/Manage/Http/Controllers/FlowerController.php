@@ -53,22 +53,23 @@ class FlowerController extends UploadeFileController
     public function CreateFlower(Request $request)
     {
         $uploade = new UploadeFileController();
-        if (!empty($request->file)) {
+        if (!empty($request['files'])) {
             $request['file'] = $uploade->uploadImage(
-                $request->file,
+                $request['files'],
                 'flowers',
                 Str::random(5)
             );
         }
-        if (!empty($request->file_multiple)) {
-            foreach ($request->file_multiple as $key => $value) {
-                $file_multiple[$key] = $uploade->uploadImage(
+        
+        if (!empty($request['file_multiples'])) {
+            foreach ($request['file_multiples'] as $key => $value) {
+                $file_multiples[$key] = $uploade->uploadImage(
                     $value,
                     'flowers',
                     Str::random(5)
                 );
             }
-            $request['file_multiple'] = serialize($file_multiple);
+            $request['file_multiple'] = serialize($file_multiples);
         }
         $data['result'] = $this->Repository->insert($request,'classModelFlowers');
         return redirect()->route('index.flower');
