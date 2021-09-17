@@ -85,17 +85,20 @@
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
-                                    <label class="button hollow">อัปโหลดรูปหน้าปก +</label>
-                                    <input type="file" id="file" name="files" />
+                                    <input type="file" style="display:none" id="upload-image" name="files" multiple="multiple"></input>
+                                    <div id="upload" class="drop-area">
+                                        อัปโหลดรูปหน้าปก +
+                                    </div>
+                                    <div id="thumbnail"></div>
                                 </div>
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
-                                    <input type="file" style="display:none" id="upload-image" name="file_multiples[]" multiple="multiple"></input>
-                                    <div id="upload" class="drop-area">
+                                    <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
+                                    <div id="uploads" class="drop-areas">
                                         เพิ่มรูปภาพดอกไม้ทั้งหมด +
                                     </div>
-                                    <div id="thumbnail"></div>
+                                    <div id="thumbnails"></div>
                                 </div>
                             </div>
                         </div>
@@ -137,5 +140,6 @@
 <!--end::Page Scripts-->
 
 <script src="{{ asset('js/upload_file/upload_file.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/upload_file/upload_file_multiples.js') }}" type="text/javascript"></script>
 
 @endsection

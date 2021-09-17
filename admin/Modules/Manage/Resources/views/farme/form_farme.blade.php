@@ -81,11 +81,20 @@
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
                             <div class="field" align="left">
-                                <input type="file" style="display:none" id="upload-image" name="file_multiples[]" multiple="multiple"></input>
+                                <input type="file" style="display:none" id="upload-image" name="files" multiple="multiple"></input>
                                 <div id="upload" class="drop-area">
-                                    เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                    อัปโหลดรูปหน้าปก +
                                 </div>
                                 <div id="thumbnail"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="margin-top: 20px">
+                            <div class="field" align="left">
+                                <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
+                                <div id="uploads" class="drop-areas">
+                                    เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                </div>
+                                <div id="thumbnails"></div>
                             </div>
                         </div>
                     </div>
@@ -272,65 +281,6 @@
         $('.js-example-basic-multiple').select2();
     });
 </script>
-<script>
-    var imgUpload = document.getElementById('upload_imgs')
-    , imgPreview = document.getElementById('img_preview')
-    , imgUploadForm = document.getElementById('img-upload-form')
-    , totalFiles
-    , previewTitle
-    , previewTitleText
-    , img;
-
-    imgUpload.addEventListener('change', previewImgs, false);
-    imgUploadForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Images Uploaded! (not really, but it would if this was on your website)');
-    }, false);
-
-    function previewImgs(event) {
-    totalFiles = imgUpload.files.length;
-    
-    if(!!totalFiles) {
-        imgPreview.classList.remove('quote-imgs-thumbs--hidden');
-        previewTitle = document.createElement('p');
-        previewTitle.style.fontWeight = 'bold';
-        previewTitleText = document.createTextNode(totalFiles + ' Total Images Selected');
-        previewTitle.appendChild(previewTitleText);
-        imgPreview.appendChild(previewTitle);
-    }
-    
-    for(var i = 0; i < totalFiles; i++) {
-        img = document.createElement('img');
-        img.src = URL.createObjectURL(event.target.files[i]);
-        img.classList.add('img-preview-thumb');
-        imgPreview.appendChild(img);
-    }
-    }
-</script>
-<script>
-    const readURL = (input) => {
-    if (input.files && input.files[0]) {
-        const reader = new FileReader()
-        reader.onload = (e) => {
-        $('#preview').attr('src', e.target.result)
-        }
-        reader.readAsDataURL(input.files[0])
-    }
-    }
-    $('.choose').on('change', function() {
-        readURL(this)
-    let i
-    if ($(this).val().lastIndexOf('\\')) {
-        i = $(this).val().lastIndexOf('\\') + 1
-    } else {
-        i = $(this).val().lastIndexOf('/') + 1
-    }
-    const fileName = $(this).val().slice(i)
-    $('.label').text(fileName)
-    })
-</script>
-{{-- <script src="{{ asset('js/pages/widgets.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/datatable/sc_datatable.js') }}" type="text/javascript"></script> --}}
 
 <!--begin::Global Theme Bundle(used by all pages)-->
 <script src="{{ asset('plugins/global/plugins.bundle.js') }}" type="text/javascript"></script>
@@ -346,5 +296,6 @@
 <!--end::Page Scripts-->
 <!-- upload file -->
 <script src="{{ asset('js/upload_file/upload_file.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/upload_file/upload_file_multiples.js') }}" type="text/javascript"></script>
 <!-- upload file -->
 @endsection
