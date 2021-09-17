@@ -146,37 +146,37 @@ p a {color:#000;}
                             <th >รูปทั้งหมด</th>
                             <td> 
                                 <div class="row">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower1">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_1.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower1')">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower2">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_2.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower2')">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower3">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_3.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower3')">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower4">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_4.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower4')">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower5">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_5.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower5')">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower6">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_6.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower6')">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower7">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_7.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower7')">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3" id="flower8">
                                         <img src="https://tex1712.github.io/repo/gallery/images/img_8.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower8')">ลบรูป</button>
                                     </div>
                                 </div>
                             </td>
@@ -195,6 +195,11 @@ p a {color:#000;}
 
 {{-- Scripts Section --}}
 @section('scripts')
+<script>
+  function myFunction(data) {
+    document.getElementById(data).style.display = "none";
+  }
+</script>
 <script>
   const chooseFile = document.getElementById("choose-file");
 const imgPreview = document.getElementById("img-preview");
