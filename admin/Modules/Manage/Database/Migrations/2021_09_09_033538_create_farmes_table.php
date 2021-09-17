@@ -16,7 +16,7 @@ class CreateFarmesTable extends Migration
         Schema::create('farmes', function (Blueprint $table) {
             $table->id();
 
-            $table->string('FA_GROUPNAME')->nullable();
+            $table->text('FA_GROUPNAME')->nullable();
             $table->string('FA_NAME')->nullable();
             $table->string('FA_HOUSENUMBER')->nullable();
             $table->string('FA_MOO')->nullable();
@@ -26,28 +26,28 @@ class CreateFarmesTable extends Migration
             $table->string('FA_PHONE')->nullable();
             $table->string('FA_LAT')->nullable();
             $table->string('FA_LONG')->nullable();
-            $table->string('FA_FLOWER')->nullable();
-            $table->string('FA_CUSTOMER_GROUP')->nullable();
-            $table->string('FA_SEND')->nullable();
-            $table->string('FA_SEND_OTHER')->nullable();
-            $table->string('FA_SELL')->nullable();
-            $table->string('FA_CONDITION_SELL')->nullable();
-            $table->string('FA_CONDITION_SELL_OTHER')->nullable();
-            $table->string('FA_CUSTOMER_PAYS')->nullable();
-            $table->string('FA_CUSTOMER_PAYS_OTHER')->nullable();
-            $table->string('FA_PROMOTION')->nullable();
-            $table->string('FA_PROMOTION_OTHER')->nullable();
-            $table->string('FA_LABOR')->nullable();
-            $table->string('FA_VOLUME')->nullable();
-            $table->string('FA_REMAINING')->nullable();
-            $table->string('FA_REMAINING_CAUSE')->nullable();
-            $table->string('FA_REMAINING_CAUSE_OTHER')->nullable();
-            $table->string('FA_SET_PRICE')->nullable();
-            $table->string('FA_PROBLEM')->nullable();
+            $table->text('FA_FLOWER')->nullable();
+            $table->text('FA_CUSTOMER_GROUP')->nullable();
+            $table->text('FA_SEND')->nullable();
+            $table->text('FA_SEND_OTHER')->nullable();
+            $table->text('FA_SELL')->nullable();
+            $table->text('FA_CONDITION_SELL')->nullable();
+            $table->text('FA_CONDITION_SELL_OTHER')->nullable();
+            $table->text('FA_CUSTOMER_PAYS')->nullable();
+            $table->text('FA_CUSTOMER_PAYS_OTHER')->nullable();
+            $table->text('FA_PROMOTION')->nullable();
+            $table->text('FA_PROMOTION_OTHER')->nullable();
+            $table->text('FA_LABOR')->nullable();
+            $table->text('FA_VOLUME')->nullable();
+            $table->text('FA_REMAINING')->nullable();
+            $table->text('FA_REMAINING_CAUSE')->nullable();
+            $table->text('FA_REMAINING_CAUSE_OTHER')->nullable();
+            $table->text('FA_SET_PRICE')->nullable();
+            $table->text('FA_PROBLEM')->nullable();
 
-            $table->string('file')->nullable();
-            $table->string('file_multiple')->nullable();
-            $table->string('_token')->nullable();
+            $table->text('file')->nullable();
+            $table->text('file_multiple')->nullable();
+            $table->text('_token')->nullable();
             
             $table->timestamps();
         });
