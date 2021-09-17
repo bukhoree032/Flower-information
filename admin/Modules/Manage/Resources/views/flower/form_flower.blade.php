@@ -86,13 +86,13 @@
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
                                     <label class="button hollow">อัปโหลดรูปหน้าปก +</label>
-                                    <input type="file" id="file" name="file" />
+                                    <input type="file" id="file" name="files" />
                                 </div>
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
                                     <label class="button hollow">เพิ่มรูปภาพดอกไม้ทั้งหมด +</label>
-                                    <input type="file" id="files" name="file_multiple[]" multiple />
+                                    <input type="file" id="files" name="file_multiples[]" multiple />
                                 </div>
                             </div>
                         </div>
