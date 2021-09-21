@@ -86,7 +86,7 @@ class FlowerController extends UploadeFileController
         if(isset($data['result']->file_multiple)){
             $data['result']->file_multiple = unserialize($data['result']->file_multiple);
         }
-        
+
         return view('manage::flower.detail_flower', compact('page_title', 'page_description'),$data);
     }
     
@@ -96,6 +96,10 @@ class FlowerController extends UploadeFileController
         $page_description = '';
 
         $data['result'] = $this->Repository->ShowId($id,'flowers');
+
+        if(isset($data['result']->file_multiple)){
+            $data['result']->file_multiple = unserialize($data['result']->file_multiple);
+        }
 
         return view('manage::flower.edit_flower', compact('page_title', 'page_description'),$data);
     }
