@@ -48,7 +48,7 @@ class StoreController extends UploadeFileController
         $data['resultAmphures'] = $this->Repository->show('amphures');
         $data['resultProvinces'] = $this->Repository->show('provinces');
         $data['resultDistricts'] = $this->Repository->districts('provinces');
-        // dd($data);
+
         return view('manage::store.form_store', compact('page_title', 'page_description'),$data);
     }
 
@@ -126,8 +126,61 @@ class StoreController extends UploadeFileController
         // return view('manage::store.form_store_part2');
         return redirect()->route('index.store');
     }
-
     
+    public function PageEditStore($id)
+    {
+        $page_title = 'แก้ไขข้อมูลดอกไม้';
+        $page_description = '';
+
+        $data['result'] = $this->Repository->ShowId($id,'stores');
+        $data['flowers'] = $this->Repository->show('flowers');
+        $data['resultAmphures'] = $this->Repository->show('amphures');
+        $data['resultProvinces'] = $this->Repository->show('provinces');
+        $data['resultDistricts'] = $this->Repository->districts('provinces');
+
+        if(isset($data['result']->S_FLOWER)){
+            $data['result']->S_FLOWER = unserialize($data['result']->S_FLOWER);
+        }
+        if(isset($data['result']->S_CUSTOMER_GROUP)){
+            $data['result']->S_CUSTOMER_GROUP = unserialize($data['result']->S_CUSTOMER_GROUP);
+        }
+        if(isset($data['result']->S_SOURCE)){
+            $data['result']->S_SOURCE = unserialize($data['result']->S_SOURCE);
+        }
+        if(isset($data['result']->S_SEND_OTHER)){
+            $data['result']->S_SEND_OTHER = unserialize($data['result']->S_SEND_OTHER);
+        }
+        if(isset($data['result']->S_CONDITION_SELL_OTHER)){
+            $data['result']->S_CONDITION_SELL_OTHER = unserialize($data['result']->S_CONDITION_SELL_OTHER);
+        }
+        if(isset($data['result']->S_CUSTOMER_PAYS_OTHER)){
+            $data['result']->S_CUSTOMER_PAYS_OTHER = unserialize($data['result']->S_CUSTOMER_PAYS_OTHER);
+        }
+        if(isset($data['result']->S_PROMOTION_OTHER)){
+            $data['result']->S_PROMOTION_OTHER = unserialize($data['result']->S_PROMOTION_OTHER);
+        }
+        if(isset($data['result']->S_VOLUME)){
+            $data['result']->S_VOLUME = unserialize($data['result']->S_VOLUME);
+        }
+        if(isset($data['result']->S_REMAINING)){
+            $data['result']->S_REMAINING = unserialize($data['result']->S_REMAINING);
+        }
+        if(isset($data['result']->S_REMAINING_CAUSE_OTHER)){
+            $data['result']->S_REMAINING_CAUSE_OTHER = unserialize($data['result']->S_REMAINING_CAUSE_OTHER);
+        }
+        if(isset($data['result']->S_SET_PRICE)){
+            $data['result']->S_SET_PRICE = unserialize($data['result']->S_SET_PRICE);
+        }
+        if(isset($data['result']->S_PROBLEM)){
+            $data['result']->S_PROBLEM = unserialize($data['result']->S_PROBLEM);
+        }
+        if(isset($data['result']->file_multiple)){
+            $data['result']->file_multiple = unserialize($data['result']->file_multiple);
+        }
+
+        return view('manage::store.edit_store', compact('page_title', 'page_description'),$data);
+    }
+
     public function PageDetailStore($id)
     {
         $page_title = 'เพิ่มข้อมูลร้านค้า';
@@ -135,7 +188,6 @@ class StoreController extends UploadeFileController
 
         
         $data['result'] = $this->Repository->ShowId($id,'stores');
-        dd($data);
 
         return view('manage::store.detail_store',compact('page_title', 'page_description'),$data);
     }

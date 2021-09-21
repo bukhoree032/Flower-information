@@ -32,13 +32,13 @@ class Repository
         }elseif($db == "stores"){
             $colum_dis = "S_SUB_DISTRICT";
         }
-        $data['result'] = \DB::table($db)
+        $data = \DB::table($db)
                         ->select($db.'.id as id_db',$db.'.*','districts.name_th as name_dis','amphures.name_th as name_amp','provinces.name_th as name_prv','districts.*','amphures.*','provinces.*')
                         ->join('districts',$db.'.'.$colum_dis,'=','districts.id')
                         ->join('amphures','districts.amphure_id','=','amphures.id')
                         ->join('provinces','amphures.province_id','=','provinces.id')
                         ->get();
-        // dd($data);
+
         return $data;
     }
 
