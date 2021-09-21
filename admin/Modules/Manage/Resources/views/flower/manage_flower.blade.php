@@ -85,7 +85,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($result['result'] as $item => $value)
+                            @foreach ($result as $item => $value)
                             <tr>
                                 <td>{{ $item+1 }}</td>
                                 <td>{{ $value->F_NAME }}</td>

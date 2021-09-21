@@ -59,7 +59,7 @@ p a {color:#000;}
                         
                     </div>
                 </div>
-                {{-- @dd($result['result'][0]) --}}
+                {{-- @dd($result) --}}
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
@@ -71,63 +71,70 @@ p a {color:#000;}
                         <tbody>
                           <tr>
                             <th >ชื่อดอกไม้</th>
-                            <td><textarea name="F_NAME" class="form-control" rows="1" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NAME }} @endisset </textarea name=""> </td>
+                            <td><textarea name="F_NAME" class="form-control" rows="1" >@isset($result->F_NAME) {{ $result->F_NAME }} @endisset </textarea> </td>
                           </tr>
                           <tr>
                             <th >ชื่อสามัญ</th>
-                            <td><textarea name="F_COMMON_NAME" class="form-control" rows="1" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_COMMON_NAME }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_COMMON_NAME" class="form-control" rows="1" >@isset($result->F_COMMON_NAME) {{ $result->F_COMMON_NAME }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >ชื่อวิทยาศาสตร์</th>
-                            <td><textarea name="F_SCIENTIFIC_NAME" class="form-control" rows="1" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_SCIENTIFIC_NAME }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_SCIENTIFIC_NAME" class="form-control" rows="1" >@isset($result->F_SCIENTIFIC_NAME) {{ $result->F_SCIENTIFIC_NAME }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >ชื่ออื่นๆ</th>
-                            <td><textarea name="F_OTHER_NAME" class="form-control" rows="1" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_OTHER_NAME }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_OTHER_NAME" class="form-control" rows="1" >{{ $result->F_OTHER_NAME }}</textarea> </td>
                           </tr>
                           <tr>
                             <th >ประเภทดอกไม้</th>
-                            <td><textarea name="F_TYPE" class="form-control" rows="1" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_TYPE }} @endisset</textarea name=""> </td>
+                              <td>
+                                <select class="form-control" name="F_TYPE">
+                                    <option value="" @if($result->F_TYPE == '') selected @endif>-- เลือก --</option>
+                                    <option value="1" @if($result->F_TYPE == '1') selected  @endif>ไม้ใบ</option>
+                                    <option value="2" @if($result->F_TYPE == '2') selected  @endif>ไม้ดอก</option>
+                                </select>
+                              </td>
                           </tr>
                           <tr>
                             <th >ลักษณะโดยรวม</th>
-                            <td><textarea name="F_OVERALL_APPEARANCE" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_OVERALL_APPEARANCE }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_OVERALL_APPEARANCE" class="form-control" rows="4" >@isset($result->F_OVERALL_APPEARANCE) {{ $result->F_OVERALL_APPEARANCE }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >ลักษณะต้น</th>
-                            <td><textarea name="F_NATURE_TRUNK" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NATURE_TRUNK }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_NATURE_TRUNK" class="form-control" rows="4" >@isset($result->F_NATURE_TRUNK) {{ $result->F_NATURE_TRUNK }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >ลักษณะใบ</th>
-                            <td><textarea name="F_NATURE_LEAF" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NATURE_LEAF }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_NATURE_LEAF" class="form-control" rows="4" >@isset($result->F_NATURE_LEAF) {{ $result->F_NATURE_LEAF }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >ลักษณะดอก</th>
-                            <td><textarea name="F_NATURE_FLOWER" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NATURE_FLOWER }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_NATURE_FLOWER" class="form-control" rows="4" >@isset($result->F_NATURE_FLOWER) {{ $result->F_NATURE_FLOWER }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >ข้อมูลทั่วไป</th>
-                            <td><textarea name="F_GENERAL_INFMATION" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_GENERAL_INFORMATION }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_GENERAL_INFMATION" class="form-control" rows="4" >@isset($result->F_GENERAL_INFORMATION) {{ $result->F_GENERAL_INFORMATION }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >การปลูกเลี้ยง</th>
-                            <td><textarea name="F_PLANT" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_PLANT }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_PLANT" class="form-control" rows="4" >@isset($result->F_PLANT) {{ $result->F_PLANT }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >การขยายพันธุ์</th>
-                            <td><textarea name="F_PROPAGATION" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_PROPAGATION }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_PROPAGATION" class="form-control" rows="4" >@isset($result->F_PROPAGATION) {{ $result->F_PROPAGATION }} @endisset</textarea> </td>
                           </tr>
                           <tr>
                             <th >การใช้ประโยชน์</th>
-                            <td><textarea name="F_UTILIZATION" class="form-control" rows="4" id="comment">@isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_UTILIZATION }} @endisset</textarea name=""> </td>
+                            <td><textarea name="F_UTILIZATION" class="form-control" rows="4" >@isset($result->F_UTILIZATION) {{ $result->F_UTILIZATION }} @endisset</textarea> </td>
                           </tr>
+                          {{-- @dd($result->file); --}}
                           <tr>
                             <th >รูปปก</th>
                             <td>
                               <div class="row">
                                 <div class="col-lg-4">
                                     รูปเดิม
-                                    <img src="https://tex1712.github.io/repo/gallery/images/img_1.jpg" alt="" style="width: 100%">
+                                    <img src="{{$result->file}}" alt="" style="width: 100%">
                                     {{-- <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button> --}}
                                     <input type="file" id="choose-file" name="choose-file" accept="image/*" />
                                     <label for="choose-file">เลือกไฟล์ใหม่</label>
@@ -146,38 +153,12 @@ p a {color:#000;}
                             <th >รูปทั้งหมด</th>
                             <td> 
                                 <div class="row">
-                                    <div class="col-lg-3" id="flower1">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_1.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower1')">ลบรูป</button>
+                                  @foreach ($result->file_multiple as $key => $value)
+                                    <div class="col-lg-3" id="{{$key}}">
+                                        <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
+                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction({{$key}})">ลบรูป</button>
                                     </div>
-                                    <div class="col-lg-3" id="flower2">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_2.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower2')">ลบรูป</button>
-                                    </div>
-                                    <div class="col-lg-3" id="flower3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_3.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower3')">ลบรูป</button>
-                                    </div>
-                                    <div class="col-lg-3" id="flower4">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_4.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower4')">ลบรูป</button>
-                                    </div>
-                                    <div class="col-lg-3" id="flower5">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_5.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower5')">ลบรูป</button>
-                                    </div>
-                                    <div class="col-lg-3" id="flower6">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_6.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower6')">ลบรูป</button>
-                                    </div>
-                                    <div class="col-lg-3" id="flower7">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_7.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower7')">ลบรูป</button>
-                                    </div>
-                                    <div class="col-lg-3" id="flower8">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_8.jpg" alt="" style="width: 100%; margin-top: 5px">
-                                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction('flower8')">ลบรูป</button>
-                                    </div>
+                                  @endforeach
                                 </div>
                             </td>
                           </tr>

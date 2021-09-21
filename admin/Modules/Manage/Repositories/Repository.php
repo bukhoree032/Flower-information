@@ -48,7 +48,7 @@ class Repository
      */
     public function show($db)
     {
-        $data['result'] = \DB::table($db)
+        $data = \DB::table($db)
                         ->get();
         return $data;
     }
@@ -59,10 +59,9 @@ class Repository
      */
     public function ShowId($id,$db)
     {
-        // dd("aaaa");
-        $data['result'] = \DB::table($db)
+        $data = \DB::table($db)
                         ->where('id',$id)
-                        ->get();
+                        ->get()['0'];
         return $data;
     }
 
@@ -72,7 +71,7 @@ class Repository
      */
     public function districts()
     {
-        $data['result'] = \DB::table('districts')
+        $data = \DB::table('districts')
                         ->join('amphures', 'districts.amphure_id', '=', 'amphures.id')
                         ->join('provinces', 'amphures.province_id', '=', 'provinces.id')
                         ->where('provinces.id','>=', 74)
@@ -90,7 +89,7 @@ class Repository
      */
     public function ProvinceJoin($id)
     {
-        $data['result'] = \DB::table('districts')
+        $data = \DB::table('districts')
                         ->join('amphures', 'districts.amphure_id', '=', 'amphures.id')
                         ->join('provinces', 'amphures.province_id', '=', 'provinces.id')
                         ->where('districts.id', $id)
@@ -117,7 +116,7 @@ class Repository
      */
     public function update($data,$id,$db)
     {
-        $data['update'] = \DB::table($db)
+        $data = \DB::table($db)
               ->where('id', $id)
               ->update($data);
         // $insert = $this->$db::update($data);

@@ -12,7 +12,7 @@ class Flowers extends Model
         'id',
         'F_NAME',
         'F_COMMON_NAME',
-        'F_SCIENTIFIC_NAMEH',
+        'F_SCIENTIFIC_NAME',
         'F_OTHER_NAME',
         'F_TYPE',
         'F_OVERALL_APPEARANCE',
