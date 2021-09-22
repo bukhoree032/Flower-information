@@ -1,4 +1,4 @@
-@extends('home::layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -8,41 +8,47 @@
           <!-- card left -->
           <div class = "product-imgs">
             <div class = "img-display">
-              <div class = "img-showcase">
-                <img src = "{{ $result->file }}" alt = "shoe image">
+              <div class = "img-showcase" style="width: 50%;">
+                <img src = "{{ $result->file }}" >
                 @foreach($result->file_multiple as $key => $value)
-                    <img src = "{{ $value }}" alt = "shoe image">
+                    @if($key < '5')
+                        <img src = "{{ $value }}"  >
+                    @endif
                 @endforeach
               </div>
             </div>
             <div class = "img-select">
+                <div class = "img-item">
+                    <a href = "#" data-id = "1">
+                        <img src = "{{ $result->file }}" >
+                    </a>
+                </div>
                 @foreach($result->file_multiple as $key => $value)
-                    <div class = "img-item">
-                        <a href = "#" data-id = "{{$key}}">
-                          <img src = "{{ $value }}" alt = "shoe image">
-                        </a>
-                      </div>
+                    @if($key < '4')
+                        <div class = "img-item">
+                            <a href = "#" data-id = "{{$key+2}}">
+                            <img src = "{{ $value }}" >
+                            </a>
+                        </div>
+                    @endif
                 @endforeach
             </div>
           </div>
           <!-- card right -->
           <div class = "product-content">
-            <h2 class = "product-title">{{ $result->F_NAME }}</h2>
+            <h2 class = "product-title">{{ $result->F_NAME ?? 'ไม่มีข้อมูล'}}</h2>
                 <div class = "product-detail">
-                    <h3>ชื่อวิทยาศาสตร์: {{ $result->F_NAME }}</h3>
+                    <h3>ชื่อวิทยาศาสตร์: {{ $result->F_SCIENTIFIC_NAME ?? 'ไม่มีข้อมูล'}}</h3>
 
-                    <h3>ชื่อสามัญ: {{ $result->F_NAME }}</h3>
+                    <h3>ชื่อสามัญ: {{ $result->F_COMMON_NAME ?? 'ไม่มีข้อมูล'}}</h3>
                     
-                    <h3>ชื่ออื่น: {{ $result->F_NAME }}</h3>
+                    <h3>ชื่ออื่น: {{ $result->F_OTHER_NAME ?? 'ไม่มีข้อมูล'}}</h3>
+                    
+                    <h3>ประเภทดอกไม้: {{ $result->F_TYPE ?? 'ไม่มีข้อมูล'}}</h3>
                     <h3>ลักษณะทางพฤกษศาสตร์: </h3>
-                    <p><b>ต้น</b> {{ $result->F_NAME }}</p>
-                    <p><b>ใบ</b> {{ $result->F_NAME }}</p>
-                    <p><b>ดอก</b> {{ $result->F_NAME }}</p>
-
-                    <h3>ข้อมูลทั่วไป: </h3>
-                    <p><b>ต้น</b> {{ $result->F_NAME }}</p>
-                    <p><b>ใบ</b> {{ $result->F_NAME }}</p>
-                    <p><b>ดอก</b> {{ $result->F_NAME }}</p>
+                    <p><b>ต้น</b> {{ $result->F_NATURE_TRUNK ?? 'ไม่มีข้อมูล'}}</p>
+                    <p><b>ใบ</b> {{ $result->F_NATURE_TRUNK ?? 'ไม่มีข้อมูล'}}</p>
+                    <p><b>ดอก</b> {{ $result->F_NATURE_TRUNK ?? 'ไม่มีข้อมูล'}}</p>
                 </div>
         
             </div>
@@ -52,94 +58,36 @@
 <section style="background-color: #f1f1f1">
     <div class="container">
         <div style="background-color: #ffff; padding : 10px">
-            <h3>การปลูกเลี้ยงและการใช้ประโยชน์</h3>
+            <h3>ข้อมูลทั่วไป: </h3>
+            <p><b>ลักษณะโดยรวม</b> {{ $result->F_OVERALL_APPEARANCE ?? 'ไม่มีข้อมูล'}}</p>
+            <p><b>ข้อมูลทั่วไป</b> {{ $result->F_GENERAL_INFORMATION ?? 'ไม่มีข้อมูล'}}</p>
+            
+            <h3>การปลูกเลี้ยงและการใช้ประโยชน์ :</h3>
+            
+            <p><b>การปลูกเลี้ยง</b> {{ $result->F_PLANT ?? 'ไม่มีข้อมูล'}}</p>
     
-            <h3>การปลูกเลี้ยง</h3>
-            <p>{{ $result->F_NAME }}</p>
+            <p><b>การขยายพันธุ์</b> {{ $result->F_PROPAGATION ?? 'ไม่มีข้อมูล'}}</p>
     
-            <h3>การขยายพันธุ์</h3>
-            <p>{{ $result->F_NAME }}</p>
-    
-            <h3>การใช้ประโยชน์</h3>
-            <p>{{ $result->F_NAME }}</p>
-    
+            <p><b>การใช้ประโยชน์</b> {{ $result->F_UTILIZATION ?? 'ไม่มีข้อมูล'}}</p>
             <h4 class = "product-title">รูปภาพเพิ่มเติม:</h4>
              <!--Gallery -->
             <div id="gallery" class="Gallery">
             {{-- <div class="container-fluid margin-r-l"> --}}
                 <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
-                        <div class="Gallery-box">
-                            <figure>
-                                <a href="{{ asset('fonend/images/1.jpg') }}" class="fancybox" rel="ligthbox">
-                                <img  src="{{ asset('fonend/images/1.jpg') }}" class="zoom img-fluid "  alt="">
-                                </a>
-                                <span class="hoverle">
-                                <a href="{{ asset('fonend/images/1.jpg') }}" class="fancybox" rel="ligthbox">View</a>
-                                </span>  
-                            </figure>
+                    @foreach($result->file_multiple as $key => $value)
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
+                            <div class="Gallery-box" style="width: 264px">
+                                <figure>
+                                    <a href="{{ $value }}" class="fancybox" rel="ligthbox" style="width: 264px">
+                                    <img  src="{{ $value }}" class="zoom img-fluid ">
+                                    </a>
+                                    <span class="hoverle">
+                                    <a href="{{ $value }}" class="fancybox" rel="ligthbox">View</a>
+                                    </span>  
+                                </figure>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
-                        <div class="Gallery-box">
-                            <figure>
-                                <a href="{{ asset('fonend/images/2.jpg') }}" class="fancybox" rel="ligthbox">
-                                <img  src="{{ asset('fonend/images/2.jpg') }}" class="zoom img-fluid "  alt="">
-                                </a>
-                                <span class="hoverle">
-                                <a href="{{ asset('fonend/images/1.jpg') }}" class="fancybox" rel="ligthbox">View</a>
-                                </span>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 thumb">
-                        <div class="Gallery-box">
-                            <figure>
-                                <a href="{{ asset('fonend/images/3.jpg') }}" class="fancybox" rel="ligthbox">
-                                <img  src="{{ asset('fonend/images/3.jpg') }}" class="zoom img-fluid "  alt="">
-                                </a>
-                                <span class="hoverle">
-                                <a href="{{ asset('fonend/images/3.jpg') }}" class="fancybox" rel="ligthbox">View</a>
-                                </span>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
-                        <div class="Gallery-box">
-                            <figure>
-                                <a href="{{ asset('fonend/images/4.jpg') }}" class="fancybox" rel="ligthbox">
-                                <img  src="{{ asset('fonend/images/4.jpg') }}" class="zoom img-fluid "  alt="">
-                                </a>
-                                <span class="hoverle">
-                                <a href="{{ asset('fonend/images/4.jpg') }}" class="fancybox" rel="ligthbox">View</a>
-                                </span> 
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
-                        <div class="Gallery-box">
-                            <figure>
-                                <a href="{{ asset('fonend/images/5.jpg') }}" class="fancybox" rel="ligthbox">
-                                <img  src="{{ asset('fonend/images/5.jpg') }}" class="zoom img-fluid "  alt="">
-                                </a>
-                                <span class="hoverle">
-                                <a href="{{ asset('fonend/images/5.jpg') }}" class="fancybox" rel="ligthbox">View</a>
-                                </span> 
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                        <div class="Gallery-box">
-                            <figure>
-                                <a href="{{ asset('fonend/images/6.jpg') }}" class="fancybox" rel="ligthbox">
-                                <img  src="{{ asset('fonend/images/6.jpg') }}" class="zoom img-fluid "  alt="">
-                                </a>
-                                <span class="hoverle">
-                                <a href="{{ asset('fonend/images/6.jpg') }}" class="fancybox" rel="ligthbox">View</a>
-                                </span>
-                            </figure>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
      <!-- end Gallery -->

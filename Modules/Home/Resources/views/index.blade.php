@@ -1,4 +1,4 @@
-@extends('home::layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -92,7 +92,7 @@
           @foreach($result as $key => $value)
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.flower.detail',$value->id) }}'">
                <div class="plants-box"  style="cursor: pointer;">
-                  <figure><img src="{{ $value->file }}" alt="img" style="height: 200px"/></figure>
+                  <figure><img src="{{ $value->file }}" alt="img" style="height: 150px"/></figure>
                   <h3>{{ $value->F_NAME }}</h3>
                   @php $value->F_OVERALL_APPEARANCE = __substr($value->F_OVERALL_APPEARANCE,'65') @endphp
                   <p><b>ลักษณะ :</b> {{ $value->F_OVERALL_APPEARANCE }}</p>
