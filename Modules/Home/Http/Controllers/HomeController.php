@@ -56,6 +56,8 @@ class HomeController extends Controller
     
     public function Stores()
     {
+        $db = "stores";
+        $data = $this->Repository->Show($db);
         return view('home::stores.store');
     }
 
