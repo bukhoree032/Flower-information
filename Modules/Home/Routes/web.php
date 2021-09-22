@@ -19,6 +19,8 @@ Route::prefix('home')->name('home.')->group(function() {
     Route::get('/Stores/', 'HomeController@Stores')->name('stores');
     Route::get('/Stores/Detail/{id}/', 'HomeController@StoresDetail')->name('stores.detail');
 
-    Route::get('/Farmers/', 'HomeController@Farmers')->name('farmer');
-    Route::get('/Farmers/Detail/', 'HomeController@FarmersDetail')->name('farmer.detail');
+    Route::get('/Farmers/', 'FarmController@index')->name('farmer');
+    Route::get('/Farmers/Detail/', 'FarmController@store')->name('farmer.detail');
+    Route::get('/Farmers/Detail1/', 'FarmController@edit')->name('farmer.detail1');
+    Route::get('/Farmers/Detail2/', 'FarmController@update')->name('farmer.detail2');
 });

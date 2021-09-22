@@ -1,4 +1,4 @@
-@extends('home::layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -79,62 +79,7 @@
                     <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by ฃ </p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.flower.detail') }}'">
-                    <div class="plants-box">
-                        <figure><img src="https://ออกแบบร้าน.com/wp-content/uploads/2019/12/024-5-1024x683.jpg" alt="img" class="img_store"/></figure>
-                        <h3> ชื่อกลุ่ม</h3>
-                        <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by ...</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="https://pbs.twimg.com/media/EDcQxByUwAAE8SE.jpg" alt="img" class="img_store"/></figure>
-                        <h3> ชื่อกลุ่ม</h3>
-                        <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by   </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="https://iconsiam-aws-s3-prod.s3.ap-southeast-1.amazonaws.com/assets/JS2VVWW0UKLM0_02.jpg" alt="img" class="img_store"/></figure>
-                        <h3> ชื่อกลุ่ม</h3>
-                        <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by ฃ </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="https://ออกแบบร้าน.com/wp-content/uploads/2019/12/024-5-1024x683.jpg" alt="img" class="img_store"/></figure>
-                        <h3> ชื่อกลุ่ม</h3>
-                        <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by  </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="https://pbs.twimg.com/media/EDcQxByUwAAE8SE.jpg" alt="img" class="img_store"/></figure>
-                        <h3> ชื่อกลุ่ม</h3>
-                        <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="https://iconsiam-aws-s3-prod.s3.ap-southeast-1.amazonaws.com/assets/JS2VVWW0UKLM0_02.jpg" alt="img" class="img_store"/></figure>
-                        <h3> ชื่อกลุ่ม</h3>
-                        <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by  </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                    <figure><img src="https://pbs.twimg.com/media/EDcQxByUwAAE8SE.jpg" alt="img" class="img_store"/></figure>
-                    <h3> ชื่อกลุ่ม</h3>
-                    <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by   </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                    <figure><img src="https://iconsiam-aws-s3-prod.s3.ap-southeast-1.amazonaws.com/assets/JS2VVWW0UKLM0_02.jpg" alt="img" class="img_store"/></figure>
-                    <h3> ชื่อกลุ่ม</h3>
-                    <p><b>ที่อยู่ :</b> It is a long established fact that a reader will be distracted by ฃ </p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
