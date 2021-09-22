@@ -79,8 +79,8 @@
                                 <th>ชื่ออื่นๆ</th>
                                 <th>ประเภทดอกไม้</th>
                                 {{-- <th>ลักษณะ</th> --}}
-                                <th>เวลาเพิ่ม</th>
-                                <th>เวลาแก้ไข</th>
+                                {{-- <th>เวลาเพิ่ม</th>
+                                <th>เวลาแก้ไข</th> --}}
                                 <th>จัดการ</th>
                             </tr>
                         </thead>
@@ -89,13 +89,16 @@
                             <tr>
                                 <td>{{ $item+1 }}</td>
                                 <td>{{ $value->F_NAME }}</td>
+                                @php $value->F_COMMON_NAME = __substr($value->F_COMMON_NAME,'30') @endphp
                                 <td>{{ $value->F_COMMON_NAME }}</td>
+                                @php $value->F_SCIENTIFIC_NAME = __substr($value->F_SCIENTIFIC_NAME,'30') @endphp
                                 <td>{{ $value->F_SCIENTIFIC_NAME }}</td>
+                                @php $value->F_OTHER_NAME = __substr($value->F_OTHER_NAME,'40') @endphp
                                 <td>{{ $value->F_OTHER_NAME }}</td>
                                 <td>{{ $value->F_TYPE }}</td>
                                 {{-- <td>{{ $value->F_OVERALL_APPEARANCE }}</td> --}}
-                                <td>{{ $value->created_at }}</td>
-                                <th>{{ $value->updated_at }}</th>
+                                {{-- <td>{{ $value->created_at }}</td>
+                                <th>{{ $value->updated_at }}</th> --}}
                                 <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_flower',$value->id) }}'"></i> <i class="fas fa-edit pointer" onclick="window.location='{{ route('manage.page.edit_flower',$value->id) }}'" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
                             </tr>    
                             @endforeach
