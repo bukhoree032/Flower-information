@@ -85,7 +85,7 @@
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
-                                    <input type="file" style="display:none" id="upload-image" name="files" multiple="multiple"></input>
+                                    <input type="file" style="display:none" id="upload-image" name="files"></input>
                                     <div id="upload" class="drop-area">
                                         อัปโหลดรูปหน้าปก +
                                     </div>

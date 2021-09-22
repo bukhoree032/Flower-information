@@ -9,55 +9,40 @@
           <div class = "product-imgs">
             <div class = "img-display">
               <div class = "img-showcase">
-                <img src = "{{ asset('fonend/images/1.jpg') }}" alt = "shoe image">
-                <img src = "{{ asset('fonend/images/2.jpg') }}" alt = "shoe image">
-                <img src = "{{ asset('fonend/images/3.jpg') }}" alt = "shoe image">
-                <img src = "{{ asset('fonend/images/4.jpg') }}" alt = "shoe image">
+                <img src = "{{ $result->file }}" alt = "shoe image">
+                @foreach($result->file_multiple as $key => $value)
+                    <img src = "{{ $value }}" alt = "shoe image">
+                @endforeach
               </div>
             </div>
             <div class = "img-select">
-              <div class = "img-item">
-                <a href = "#" data-id = "1">
-                  <img src = "{{ asset('fonend/images/1.jpg') }}" alt = "shoe image">
-                </a>
-              </div>
-              <div class = "img-item">
-                <a href = "#" data-id = "2">
-                  <img src = "{{ asset('fonend/images/2.jpg') }}" alt = "shoe image">
-                </a>
-              </div>
-              <div class = "img-item">
-                <a href = "#" data-id = "3">
-                  <img src = "{{ asset('fonend/images/3.jpg') }}" alt = "shoe image">
-                </a>
-              </div>
-              <div class = "img-item">
-                <a href = "#" data-id = "4">
-                  <img src = "{{ asset('fonend/images/4.jpg') }}" alt = "shoe image">
-                </a>
-              </div>
+                @foreach($result->file_multiple as $key => $value)
+                    <div class = "img-item">
+                        <a href = "#" data-id = "{{$key}}">
+                          <img src = "{{ $value }}" alt = "shoe image">
+                        </a>
+                      </div>
+                @endforeach
             </div>
           </div>
           <!-- card right -->
           <div class = "product-content">
-            <h2 class = "product-title">ชื่อดอกไม้</h2>
+            <h2 class = "product-title">{{ $result->F_NAME }}</h2>
                 <div class = "product-detail">
-                    <h3>ชื่อวิทยาศาสตร์: Rhynchospora nervosa (Vahl) Boeckeler </h3>
+                    <h3>ชื่อวิทยาศาสตร์: {{ $result->F_NAME }}</h3>
 
-                    <h3>ชื่อสามัญ: Star grass </h3>
+                    <h3>ชื่อสามัญ: {{ $result->F_NAME }}</h3>
                     
-                    <h3>ชื่ออื่น: – </h3>
-                    
-                    <h3>วงศ์: CYPERACEAE </h3>
-                <h3>ลักษณะทางพฤกษศาสตร์: </h3>
-                <p><b>ต้น</b> ไม้น้ำ อายุหลายปี สูง 30-50 เซนติเมตร มีเหง้าเล็กๆ ใต้ดิน ลำต้นเหนือดินเป็นเหลี่ยมที่เกิดจากกาบใบซ้อนกันแน่น แตกเป็นกอ</p>
-                <p><b>ใบ</b> ใบเดี่ยว เรียงสลับ รูปใบหอกแคบ กว้าง 2-3 เซนติเมตร ยาว 20-25 เซนติเมตร ปลายเรียวแหลม โคนตัด ขอบเรียบ แผ่นใบสีเขียว</p>
-                <p><b>ดอก</b> ดอกเป็นช่อแบบช่อกระจุก ออกตามปลายยอด ดอกย่อยขนาดเล็ก ดอกสีขาว มีกาบรองช่อดอกเรียวแหลมสีขาวปลายสีเขียว ออกดอกตลอดปี</p>
+                    <h3>ชื่ออื่น: {{ $result->F_NAME }}</h3>
+                    <h3>ลักษณะทางพฤกษศาสตร์: </h3>
+                    <p><b>ต้น</b> {{ $result->F_NAME }}</p>
+                    <p><b>ใบ</b> {{ $result->F_NAME }}</p>
+                    <p><b>ดอก</b> {{ $result->F_NAME }}</p>
 
-                <h3>ข้อมูลทั่วไป: </h3>
-                <p><b>ต้น</b> ไม้น้ำ อายุหลายปี สูง 30-50 เซนติเมตร มีเหง้าเล็กๆ ใต้ดิน ลำต้นเหนือดินเป็นเหลี่ยมที่เกิดจากกาบใบซ้อนกันแน่น แตกเป็นกอ</p>
-                <p><b>ใบ</b> ใบเดี่ยว เรียงสลับ รูปใบหอกแคบ กว้าง 2-3 เซนติเมตร ยาว 20-25 เซนติเมตร ปลายเรียวแหลม โคนตัด ขอบเรียบ แผ่นใบสีเขียว</p>
-                <p><b>ดอก</b> ดอกเป็นช่อแบบช่อกระจุก ออกตามปลายยอด ดอกย่อยขนาดเล็ก ดอกสีขาว มีกาบรองช่อดอกเรียวแหลมสีขาวปลายสีเขียว ออกดอกตลอดปี</p>
+                    <h3>ข้อมูลทั่วไป: </h3>
+                    <p><b>ต้น</b> {{ $result->F_NAME }}</p>
+                    <p><b>ใบ</b> {{ $result->F_NAME }}</p>
+                    <p><b>ดอก</b> {{ $result->F_NAME }}</p>
                 </div>
         
             </div>
@@ -70,13 +55,13 @@
             <h3>การปลูกเลี้ยงและการใช้ประโยชน์</h3>
     
             <h3>การปลูกเลี้ยง</h3>
-            <p>ดินร่วนและดินเหนียว ปลูกในระดับน้ำ 10-15 เซนติเมตร ชอบแสงแดดปานกลางถึงแดดจัด </p>
+            <p>{{ $result->F_NAME }}</p>
     
             <h3>การขยายพันธุ์</h3>
-            <p>แยกกอ</p>
+            <p>{{ $result->F_NAME }}</p>
     
             <h3>การใช้ประโยชน์</h3>
-            <p>ปลูกประดับสวนน้ำ ริมบ่อน้ำ น้ำตก หรือปลูกในกระถาง</p>
+            <p>{{ $result->F_NAME }}</p>
     
             <h4 class = "product-title">รูปภาพเพิ่มเติม:</h4>
              <!--Gallery -->

@@ -13,7 +13,7 @@
 
 Route::prefix('home')->name('home.')->group(function() {
     Route::get('/', 'HomeController@index')->name('index');
-    Route::get('/Flower/Detail/', 'HomeController@FlowerDetail')->name('flower.detail');
+    Route::get('/Flower/Detail/{id}', 'HomeController@FlowerDetail')->name('flower.detail');
     Route::get('/Flower/Flowers/', 'HomeController@FlowerFlowers')->name('flower.flowers');
 
     Route::get('/Stores/', 'HomeController@Stores')->name('stores');

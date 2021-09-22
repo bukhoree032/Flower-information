@@ -5,25 +5,43 @@ namespace Modules\Home\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Home\Repositories\Repository as Repository;
 
 class HomeController extends Controller
 {
+    protected $Repository;
+
+    public function __construct(Repository $Repository)
+    {
+        $this->Repository = $Repository;
+    }
+    
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        return view('home::index');
+        $db = "flowers";
+        $data['result'] = $this->Repository->show($db);
+
+        return view('home::index',$data);
     }
 
     /**
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function FlowerDetail()
+    public function FlowerDetail($id)
     {
-        return view('home::flowers.flower_detail');
+        $db = "flowers";
+        $data['result'] = $this->Repository->ShowId($id,$db);
+
+        if(isset($data['result']->file_multiple)){
+            $data['result']->file_multiple = unserialize($data['result']->file_multiple);
+        }
+
+        return view('home::flowers.flower_detail',$data);
     }
 
     public function FlowerFlowers()
