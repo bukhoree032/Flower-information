@@ -62,12 +62,11 @@
                         </div>
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="{{ route('manage.create.store') }}" class="btn btn-primary font-weight-bolder">
-                        <i class="la la-plus"></i>เพิ่มร้านค้า</a>
+                        <a href="{{ route('index.flower') }}" class="btn btn-primary font-weight-bolder"><i class="la la-eye"></i>ดอกไม้</a>
                         <!--end::Button-->
                     </div>
                 </div>
-                {{-- @dd($result['result'][0]) --}}
+                {{-- @dd($result) --}}
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
@@ -79,70 +78,78 @@
                         <tbody>
                           <tr>
                             <th >ชื่อดอกไม้</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NAME }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_NAME }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ชื่อสามัญ</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_COMMON_NAME }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_COMMON_NAME }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ชื่อวิทยาศาสตร์</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_SCIENTIFIC_NAME }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_SCIENTIFIC_NAME }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ชื่ออื่นๆ</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_OTHER_NAME }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_OTHER_NAME }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ประเภทดอกไม้</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_TYPE }} @endisset</td>
+                              @if($result->F_TYPE == '')
+                                <td></td>
+                              @endif
+                              @if($result->F_TYPE == '1')
+                                <td>ไม้ใบ</td>
+                              @endif
+                              @if($result->F_TYPE == '2')
+                                <td>ไม้ดอก</td>
+                              @endif
                           </tr>
                           <tr>
                             <th >ลักษณะโดยรวม</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_OVERALL_APPEARANCE }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_OVERALL_APPEARANCE }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ลักษณะต้น</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NATURE_TRUNK }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_NATURE_TRUNK }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ลักษณะใบ</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NATURE_LEAF }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_NATURE_LEAF }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ลักษณะดอก</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_NATURE_FLOWER }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_NATURE_FLOWER }} @endisset</td>
                           </tr>
                           <tr>
                             <th >ข้อมูลทั่วไป</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_GENERAL_INFORMATION }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_GENERAL_INFORMATION }} @endisset</td>
                           </tr>
                           <tr>
                             <th >การปลูกเลี้ยง</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_PLANT }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_PLANT }} @endisset</td>
                           </tr>
                           <tr>
                             <th >การขยายพันธุ์</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_PROPAGATION }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_PROPAGATION }} @endisset</td>
                           </tr>
                           <tr>
                             <th >การใช้ประโยชน์</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->F_UTILIZATION }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->F_UTILIZATION }} @endisset</td>
                           </tr>
                           <tr>
                             <th >เวลาเพิ่ม</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->created_at }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->created_at }} @endisset</td>
                           </tr>
                           <tr>
                             <th >เวลาอัพเดต</th>
-                            <td> @isset($result['result'][0]->F_NAME) {{ $result['result'][0]->updated_at }} @endisset</td>
+                            <td> @isset($result->F_NAME) {{ $result->updated_at }} @endisset</td>
                           </tr>
                           <tr>
                             <th >รูปปก</th>
                             <td>
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_1.jpg" alt="" style="width: 100%">
+                                        <img src="{{$result->file}}" alt="" style="width: 100%">
                                     </div>
                                 </div>
                             </td>
@@ -151,30 +158,11 @@
                             <th >รูปทั้งหมด</th>
                             <td> 
                                 <div class="row">
+                                  @foreach ($result->file_multiple as $key => $value)
                                     <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_1.jpg" alt="" style="width: 100%">
+                                        <img src="{{$value}}" alt="" style="width: 100%">
                                     </div>
-                                    <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_2.jpg" alt="" style="width: 100%">
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_3.jpg" alt="" style="width: 100%">
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_4.jpg" alt="" style="width: 100%">
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_5.jpg" alt="" style="width: 100%">
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_6.jpg" alt="" style="width: 100%">
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_7.jpg" alt="" style="width: 100%">
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <img src="https://tex1712.github.io/repo/gallery/images/img_8.jpg" alt="" style="width: 100%">
-                                    </div>
+                                  @endforeach
                                 </div>
                             </td>
                           </tr>

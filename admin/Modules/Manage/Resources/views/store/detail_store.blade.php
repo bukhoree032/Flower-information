@@ -19,10 +19,9 @@
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
-                        <div class="dropdown dropdown-inline mr-2">
+                        {{-- <div class="dropdown dropdown-inline mr-2">
                             <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="la la-download"></i>รายงาน</button>
-                            <!--begin::Dropdown Menu-->
                             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                 <ul class="nav flex-column nav-hover">
                                     <li class="nav-header font-weight-bolder text-uppercase text-primary pb-2">Choose an option:</li>
@@ -58,12 +57,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!--end::Dropdown Menu-->
-                        </div>
+                        </div> --}}
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="{{ route('manage.create.store') }}" class="btn btn-primary font-weight-bolder">
-                        <i class="la la-plus"></i>เพิ่มร้านค้า</a>
+                        <a href="{{ route('index.store') }}" class="btn btn-primary font-weight-bolder">
+                        <i class="la la-eye"></i>ร้านค้า</a>
                         <!--end::Button-->
                     </div>
                 </div>

@@ -30,7 +30,7 @@ class FlowerController extends UploadeFileController
         
         $db = "flowers";
         $data['result'] = $this->Repository->show($db);
-        // dd($page);
+
         return view('manage::flower.manage_flower',compact('page_title', 'page_description'),$data);
     }
 
@@ -82,8 +82,11 @@ class FlowerController extends UploadeFileController
 
         
         $data['result'] = $this->Repository->ShowId($id,'flowers');
-        // dd($data);
-        
+
+        if(isset($data['result']->file_multiple)){
+            $data['result']->file_multiple = unserialize($data['result']->file_multiple);
+        }
+
         return view('manage::flower.detail_flower', compact('page_title', 'page_description'),$data);
     }
     
@@ -92,10 +95,12 @@ class FlowerController extends UploadeFileController
         $page_title = 'แก้ไขข้อมูลดอกไม้';
         $page_description = '';
 
-        
         $data['result'] = $this->Repository->ShowId($id,'flowers');
-        // dd($data);
-        
+
+        if(isset($data['result']->file_multiple)){
+            $data['result']->file_multiple = unserialize($data['result']->file_multiple);
+        }
+
         return view('manage::flower.edit_flower', compact('page_title', 'page_description'),$data);
     }
     /**

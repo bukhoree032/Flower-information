@@ -66,8 +66,8 @@ class UploadeFileController extends Controller
             throw new \Exception($message);
         }
 
-        $link = asset('');
-        return $path = preg_replace('/^public\//', '', $link.$file);
+        $link = asset('storage');
+        return $path = preg_replace('/^public\//', '', $link.'/'.$file);
     }
 
     public function uploadPDF($pdf, $path, $name_file)

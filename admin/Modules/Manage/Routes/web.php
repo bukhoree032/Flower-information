@@ -17,7 +17,7 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/create-flower', 'FlowerController@create')->name('create.flower');
     Route::post('/pages/create-flower/insert/', 'FlowerController@CreateFlower')->name('insert.flower');
 
-    Route::get('/pages/UpdateFlower/{id}/', 'FlowerController@PageEditFlower')->name('page.edit_flower');
+    Route::get('/pages/EditFlower/{id}/', 'FlowerController@PageEditFlower')->name('page.edit_flower');
     
     Route::get('/pages/DetailFlower/{id}/', 'FlowerController@PageDetailFlower')->name('page.detail_flower');
 });
@@ -41,6 +41,8 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::post('/pages/create-insert/Store2/', 'StoreController@CreateStore')->name('insert.store');
     Route::get('/pages/create-insert/CreateStore2/{id}/', 'StoreController@FormStore2')->name('create.store2');
     Route::post('/pages/create-insert/{id}/', 'StoreController@CreateStore2')->name('insert.store2');
+
+    Route::get('/pages/EditStore/{id}/', 'StoreController@PageEditStore')->name('page.edit_store');
 
     Route::get('/pages/DetailStore/{id}/', 'StoreController@PageDetailStore')->name('page.detail_store');
 });

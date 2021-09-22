@@ -32,13 +32,13 @@ class Repository
         }elseif($db == "stores"){
             $colum_dis = "S_SUB_DISTRICT";
         }
-        $data['result'] = \DB::table($db)
+        $data = \DB::table($db)
                         ->select($db.'.id as id_db',$db.'.*','districts.name_th as name_dis','amphures.name_th as name_amp','provinces.name_th as name_prv','districts.*','amphures.*','provinces.*')
                         ->join('districts',$db.'.'.$colum_dis,'=','districts.id')
                         ->join('amphures','districts.amphure_id','=','amphures.id')
                         ->join('provinces','amphures.province_id','=','provinces.id')
                         ->get();
-        // dd($data);
+
         return $data;
     }
 
@@ -48,7 +48,7 @@ class Repository
      */
     public function show($db)
     {
-        $data['result'] = \DB::table($db)
+        $data = \DB::table($db)
                         ->get();
         return $data;
     }
@@ -59,10 +59,9 @@ class Repository
      */
     public function ShowId($id,$db)
     {
-        // dd("aaaa");
-        $data['result'] = \DB::table($db)
+        $data = \DB::table($db)
                         ->where('id',$id)
-                        ->get();
+                        ->get()['0'];
         return $data;
     }
 
@@ -72,7 +71,7 @@ class Repository
      */
     public function districts()
     {
-        $data['result'] = \DB::table('districts')
+        $data = \DB::table('districts')
                         ->join('amphures', 'districts.amphure_id', '=', 'amphures.id')
                         ->join('provinces', 'amphures.province_id', '=', 'provinces.id')
                         ->where('provinces.id','>=', 74)
@@ -90,7 +89,7 @@ class Repository
      */
     public function ProvinceJoin($id)
     {
-        $data['result'] = \DB::table('districts')
+        $data = \DB::table('districts')
                         ->join('amphures', 'districts.amphure_id', '=', 'amphures.id')
                         ->join('provinces', 'amphures.province_id', '=', 'provinces.id')
                         ->where('districts.id', $id)
@@ -117,7 +116,7 @@ class Repository
      */
     public function update($data,$id,$db)
     {
-        $data['update'] = \DB::table($db)
+        $data = \DB::table($db)
               ->where('id', $id)
               ->update($data);
         // $insert = $this->$db::update($data);

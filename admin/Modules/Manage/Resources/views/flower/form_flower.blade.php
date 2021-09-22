@@ -38,10 +38,10 @@
                             </div>
                             <div class="col-lg-4">
                                 <label>ประเภทดอกไม้:</label>
-                                <select class="form-control" id="exampleSelect1" name="F_TYPE">
-                                    <option value="">-- เลือก --</option>
-                                    <option value="1">ไม้ใบ</option>
-                                    <option value="2">ไม้ดอก</option>
+                                <select class="form-control" name="F_TYPE">
+                                    <option value="" >-- เลือก --</option>
+                                    <option value="ไม้ใบ">ไม้ใบ</option>
+                                    <option value="ไม้ดอก">ไม้ดอก</option>
                                 </select>
                             </div>
                         </div>

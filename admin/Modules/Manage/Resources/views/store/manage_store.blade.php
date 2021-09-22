@@ -19,10 +19,9 @@
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
-                        <div class="dropdown dropdown-inline mr-2">
+                        {{-- <div class="dropdown dropdown-inline mr-2">
                             <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="la la-download"></i>รายงาน</button>
-                            <!--begin::Dropdown Menu-->
                             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                 <ul class="nav flex-column nav-hover">
                                     <li class="nav-header font-weight-bolder text-uppercase text-primary pb-2">Choose an option:</li>
@@ -58,8 +57,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!--end::Dropdown Menu-->
-                        </div>
+                        </div> --}}
                         <!--end::Dropdown-->
                         <!--begin::Button-->
                         <a href="{{ route('manage.create.store') }}" class="btn btn-primary font-weight-bolder">
@@ -84,7 +82,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($result['result'] as $item =>$value)
+                            @foreach ($result as $item =>$value)
                             <tr>
                                 <td>{{ $item+1 }}</td>
                                 <td>{{ $value->S_NAME }}</td>
@@ -93,7 +91,7 @@
                                 {{-- <td>{{ $value->S_LAT }},{{ $value->S_LONG }}</td> --}}
                                 <td>{{ $value->created_at }}</td>
                                 <td>{{ $value->updated_at }}</td>
-                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_store',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_store',$value->id_db) }}'"></i> <i class="fas fa-edit pointer" onclick="window.location='{{ route('manage.page.edit_store',$value->id_db) }}'" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
                             </tr>    
                             @endforeach
                         </tbody>
