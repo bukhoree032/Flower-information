@@ -61,7 +61,7 @@ class FarmeController extends UploadeFileController
 
         return view('manage::farme.form_farme', compact('page_title', 'page_description'),$data);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable
@@ -146,7 +146,7 @@ class FarmeController extends UploadeFileController
 
     public function PageDetailFarme($id)
     {
-        $page_title = 'เพิ่มข้อมูลร้านค้า';
+        $page_title = 'รายละเอียดข้อมูลเกษตกร หรือฟาร์ม';
         $page_description = '';
 
         

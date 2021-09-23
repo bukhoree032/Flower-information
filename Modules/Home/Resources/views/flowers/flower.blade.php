@@ -2,6 +2,28 @@
 
 @section('content')
 
+<style>
+    /* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    /* margin: 50px auto; */
+}
+
+/* Bootstrap 3 text input with search icon */
+
+.has-search .form-control-feedback {
+    right: initial;
+    left: 0;
+    color: #ccc;
+}
+
+.has-search .form-control {
+    padding-right: 12px;
+    padding-left: 34px;
+}
+
+</style>
 <section style="background-color: #faeaea">
     <!-- plant -->
     <div id="plant" class="plants" style="margin-top: 170px">
@@ -10,7 +32,15 @@
             <div class="col-md-12 ">
                 <div class="titlepage">
                     <h2>ข้อมูลดอกไม้</h2>
-                    <span>looking at its layout. The point of using Lorem Ipsumletters, as opposed to usingl</span>
+                    <center>
+                        <div class="main">
+                            <!-- Actual search box -->
+                            <div class="form-group has-feedback has-search">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                            <input type="text" class="form-control" placeholder="ค้นหา">
+                            </div>
+                        </div>
+                    </center>
                 </div>
             </div>
         </div>
