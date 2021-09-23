@@ -75,7 +75,7 @@
                             <tr>
                                 <th>ลำดับ</th>
                                 <th>ชื่อกลุ่ม</th>
-                                <th>ชื่อ-นามสกุล</th>
+                                {{-- <th>ชื่อ-นามสกุล</th> --}}
                                 <th>ที่อยู่</th>
                                 {{-- <th>lat/long</th> --}}
                                 <th>เวลาเพิ่ม</th>
@@ -88,8 +88,9 @@
                             <tr>
                                 <td>{{ $item+1 }}</td>
                                 <td>{{ $value->FA_GROUPNAME }}</td>
-                                <td>{{ $value->FA_NAME }}</td>
-                                <td>{{ $value->FA_HOUSENUMBER }} ม.{{ $value->FA_MOO }} ต.{{ $value->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $value->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $value->FA_SUB_DISTRICT[0]->name_provinces }}</td>
+                                {{-- <td>{{ $value->FA_NAME }}</td> --}}
+                                {{-- <td>{{ $value->FA_HOUSENUMBER }} ม.{{ $value->FA_MOO }} ต.{{ $value->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $value->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $value->FA_SUB_DISTRICT[0]->name_provinces }}</td> --}}
+                                <td>ต.{{ $value->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $value->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $value->FA_SUB_DISTRICT[0]->name_provinces }}</td>
                                 {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
                                 <td>{{ $value->created_at }}</td>
                                 <td>{{ $value->updated_at }}</td>
