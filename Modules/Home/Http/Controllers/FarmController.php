@@ -18,7 +18,16 @@ class FarmController extends Controller
 
     public function index()
     {
-        return view('home::farmers.farmer');
+        $db = "farmes";
+        $data['result'] = $this->Repository->show($db);
+
+        foreach ($data['result'] as $key => $value) {
+            if(isset($value->FA_SUB_DISTRICT)) {
+                $value->FA_SUB_DISTRICT = $this->Repository->ProvinceJoin($value->FA_SUB_DISTRICT);
+            }
+        }
+
+        return view('home::farmers.farmer',$data);
     }
     
     /**

@@ -15,10 +15,9 @@
                 <div class="row marginii">
                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                       <div class="carousel-caption ">
-                         <h1>Welcome To The <strong class="color">Nutrients Plants</strong></h1>
-                         <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">About</a>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">Contact US</a>
+                         <h1>ไม้ดอกเมืองหนาว </h1><h3><strong class="color">โครงการไม้ดอกเมืองหนาวอันเนื่องมาจากพระราชดำริ</strong></h3><h3><strong> อำเภอเบตง จังหวัดยะลา</strong></h3>
+                         <a class="btn btn-lg btn-primary" href="#" role="button">เกี่ยวกับ</a>
+                         <a class="btn btn-lg btn-primary" href="#" role="button">ติดต่อเรา</a>
                       </div>
                    </div>
                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -112,7 +111,7 @@
             <div class="col-md-12 ">
                <div class="titlepage">
                   <h2>ข่าวสารดอกไม้เมืองหนาว</h2>
-                  <span>looking at its layout. The point of using Lorem Ipsumletters, as opposed to usingl</span>
+                  <span></span>
                </div>
             </div>
          </div>
@@ -120,11 +119,15 @@
       <div class="container">
          <div class="row">
             <div class="col-md-6">
-               <div class="card1" style="width: 100%">
-                  <img src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg" alt="Avatar" style="width:100%">
+               <div class="card1" style="width: 100%; hight: 100%;">
+                  <img src="http://www.banrae.go.th/album/picture/b_0070815_120559.JPG" alt="Avatar" style="width:100%">
                   <div class="container" style="background-color: #fff">
-                    <h4><b>John Doe</b></h4> 
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a </p> 
+                     @php $data = 'ลงพื้นที่ติดตามกลุ่มเษตรกร ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                     @php $data = __substr($data,'50') @endphp
+                     <h4><b>{{ $data }}</b></h4> 
+                     @php $data = 'เมื่อวันที่ 8 เมษายน 2564 ศูนย์ส่งเสริมและพัฒนาท้องถิ่น มหาวิทยาลัยราชภัฎยะลา ได้ลงพื้นที่ติดตามกิจกรรม การเลี้ยงไก่เบตงเพื่อสร้างอาชีพ ประจำปี 2564 เพื่อติดตามกิจกรรมไก่เบตง พร้อมให้ความรู้เพิ่มเติมเกี่ยวกับการบำรุ่งไก่เบตง ในโครงการพัฒนาคุณภาพชีวิตและยกระดับรายได้ให้กับคนในชุมชนฐานราก ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                     @php $data = __substr($data,'155') @endphp
+                    <p>{{ $data }}</p> 
                   </div>
                 </div>
             </div>
@@ -133,9 +136,11 @@
                   <div class="col-sm-12">
                      <div class="blog-card">
                         <div class="meta">
-                        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                        <div class="photo" style="background-image: url(https://image.komkhaotuathai.com/uploads/images/contents/2021/05/iZVa6WPLUUDy2SgK_160719.jpg)"></div>
                         <ul class="details">
-                           <li class="author"><a href="#">John Doe</a></li>
+                           @php $data = 'ลงพื้นที่ติดตามกลุ่มเษตรกร ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                           @php $data = __substr($data,'20') @endphp
+                           <li class="author"><a href="#">{{ $data }}</a></li>
                            <li class="date">Aug. 24, 2015</li>
                            <li class="tags">
                               <ul>
@@ -148,17 +153,23 @@
                         </ul>
                         </div>
                         <div class="description">
-                        <h1>Learning to Code</h1>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum.</p>
+                           @php $data = 'ลงพื้นที่ฝึกอบรม พร้อมทั้งให้ความรู้ในการปลูกดอกไม้ ณ ศูนย์การเรียนรู้นาขั้นบันได ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส' @endphp
+                           @php $data = __substr($data,'20') @endphp
+                           <h1>{{ $data }}</h1>
+                           @php $data = 'เมื่อวันที่ 18-21 มีนาคม 2564 ผู้ช่วยศาสตราจารย์สุพร สุนทรนนท์ อาจารย์ผู้รับผิดชอบกิจกรรมการแปรรูปของที่ระลึกเพื่อการท่องเที่ยว พร้อมด้วยเจ้าหน้าที่ศูนย์ส่งเสริมและพัฒนาท้องถิ่น มหาวิทยาลัยราชภัฏยะลา ลงพื้นที่ฝึกอบรม พร้อมทั้งให้ความรู้ในการเขียนว่าวบุหลันและกลองบานอแก่ครัวเรือนเป้าหมายในพื้นที่ กิจกรรมพัฒนาคุณภาพชีวิตและยกระดับรายได้ให้กับคนในชุมชนฐานราก ด้านการเฝึกอบรมการแปรรูปของที่ระลึกเพื่อการท่องเที่ยว ภายใต้โครงการยุทธศาสตร์มหาวิทยาลัยราชภัฏเพื่อการพัฒนาท้องถิ่น ณ ศูนย์การเรียนรู้นาขั้นบันได  ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส' @endphp
+                           @php $data = __substr($data,'100') @endphp
+                           <p>{{ $data }}</p> 
                         </div>
                      </div>
                   </div>
                   <div class="col-sm-12">
                      <div class="blog-card">
                         <div class="meta">
-                        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                        <div class="photo" style="background-image: url(http://www.banrae.go.th/album/picture/b_2070815_120600.JPG)"></div>
                         <ul class="details">
-                           <li class="author"><a href="#">John Doe</a></li>
+                           @php $data = 'ลงพื้นที่ติดตามกลุ่มเษตรกร ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                           @php $data = __substr($data,'20') @endphp
+                           <li class="author"><a href="#">{{ $data }}</a></li>
                            <li class="date">Aug. 24, 2015</li>
                            <li class="tags">
                               <ul>
@@ -171,17 +182,23 @@
                         </ul>
                         </div>
                         <div class="description">
-                        <h1>Learning to Code</h1>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum.</p>
+                           @php $data = 'ลงพื้นที่ติดตามกลุ่มเษตรกร ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                           @php $data = __substr($data,'20') @endphp
+                           <h1>{{ $data }}</h1>
+                           @php $data = 'เมื่อวันที่ 8 เมษายน 2564 ศูนย์ส่งเสริมและพัฒนาท้องถิ่น มหาวิทยาลัยราชภัฎยะลา ได้ลงพื้นที่ติดตามกิจกรรม การเลี้ยงไก่เบตงเพื่อสร้างอาชีพ ประจำปี 2564 เพื่อติดตามกิจกรรมไก่เบตง พร้อมให้ความรู้เพิ่มเติมเกี่ยวกับการบำรุ่งไก่เบตง ในโครงการพัฒนาคุณภาพชีวิตและยกระดับรายได้ให้กับคนในชุมชนฐานราก ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                           @php $data = __substr($data,'70') @endphp
+                           <p>{{ $data }}</p> 
                         </div>
                      </div>
                   </div>
                   <div class="col-sm-12">
                      <div class="blog-card">
                         <div class="meta">
-                        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                        <div class="photo" style="background-image: url(https://thainews.prd.go.th/dc/transcode/image/2563/11/5/a1ff622a64edc1dabad036ce7b526d54_small.jpg)"></div>
                         <ul class="details">
-                           <li class="author"><a href="#">John Doe</a></li>
+                           @php $data = 'ลงพื้นที่ติดตามกลุ่มเษตรกร ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                           @php $data = __substr($data,'20') @endphp
+                           <li class="author"><a href="#">{{ $data }}</a></li>
                            <li class="date">Aug. 24, 2015</li>
                            <li class="tags">
                               <ul>
@@ -194,8 +211,12 @@
                         </ul>
                         </div>
                         <div class="description">
-                        <h1>Learning to Code</h1>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum.</p>
+                           @php $data = 'ลงพื้นที่ติดตามกลุ่มเษตรกร ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                           @php $data = __substr($data,'20') @endphp
+                           <h1>{{ $data }}</h1>
+                           @php $data = 'เมื่อวันที่ 8 เมษายน 2564 ศูนย์ส่งเสริมและพัฒนาท้องถิ่น มหาวิทยาลัยราชภัฎยะลา ได้ลงพื้นที่ติดตามกิจกรรม การเลี้ยงไก่เบตงเพื่อสร้างอาชีพ ประจำปี 2564 เพื่อติดตามกิจกรรมไก่เบตง พร้อมให้ความรู้เพิ่มเติมเกี่ยวกับการบำรุ่งไก่เบตง ในโครงการพัฒนาคุณภาพชีวิตและยกระดับรายได้ให้กับคนในชุมชนฐานราก ณ เทศบาลตำบลบุดี อำเภอเมือง จังหวัดยะลา' @endphp
+                           @php $data = __substr($data,'70') @endphp
+                           <p>{{ $data }}</p> 
                         </div>
                      </div>
                   </div>

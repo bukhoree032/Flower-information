@@ -9,7 +9,7 @@
           <div class = "product-imgs">
             <div class = "img-display">
               <div class = "img-showcase">
-                <img src = "https://www.technologychaoban.com/wp-content/uploads/2016/10/1-23-1024x768.jpg" alt = "shoe image">
+                <img src = "http://127.0.0.1:8000/storage/flowers/UJdrM_Xo83B.jpg" alt = "shoe image">
                 <img src = "https://www.loveyouflower.com/wp-content/uploads/2019/08/%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%A0%E0%B8%B2%E0%B8%9E.jpg" alt = "shoe image">
                 <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQE1I3dhU8Yt6f0L6rZeH7TfqaQ3ADT4i92Q&usqp=CAU" alt = "shoe image">
                 <img src = "https://24flowerphuket.yellowpages.co.th/sites/storage/files/users/b/9/a/9/b9a900f1-022e-454c-9116-d5559629b281/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B9%84%E0%B8%A1%E0%B9%89%20%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%20-%20%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%96%E0%B8%B9%E0%B8%81_0.jpg" alt = "shoe image">
@@ -40,9 +40,9 @@
           </div>
           <!-- card right -->
           <div class = "product-content">
-            <h2 class = "product-title">ชื่อกลุ่ม</h2>
+            <h2 class = "product-title">บ้านวังใหม่</h2>
                 <div class = "product-detail">
-                    <h3>ที่กลุ่ม: ที่อยู่: ตลาดสด เทศบาล เมือง ยะลา อ เมือง ยะลา 95000 </h3>
+                    <h3>ที่อยู่กลุ่ม: หมู่.1 ต.ธารโต อ.ธารโต จ.ยะลา</h3>
                     
                     <h3>ข้อมูลกลุ่ม: </h3>
                 <p>ร้านดอกไม้ทันสมัยอันดับ1 รับจัดช่อดอกไม้ กล่องดอกไม้ เเจกันดอกไม้ กระเช้าดอกไม้ พวงหรีด คัดสรรดอกสวยพรีเมี่ยม การันตีคุณภาพ มีชื่อเสียงด้วยประสบการณ์กว่า 10 ปี บริการสุดประทับใจ ประสบการณ์กว่า 10 ปี มีให้เลือกกว่า 1,000 เเบบ</p>
