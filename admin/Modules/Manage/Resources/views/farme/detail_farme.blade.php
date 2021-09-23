@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
-                        <div class="dropdown dropdown-inline mr-2">
+                        {{-- <div class="dropdown dropdown-inline mr-2">
                             <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="la la-download"></i>รายงาน</button>
                             <!--begin::Dropdown Menu-->
@@ -59,19 +59,68 @@
                                 </ul>
                             </div>
                             <!--end::Dropdown Menu-->
-                        </div>
+                        </div> --}}
                         <!--end::Dropdown-->
                         <!--begin::Button-->
                         <a href="{{ route('manage.create.store') }}" class="btn btn-primary font-weight-bolder">
-                        <i class="la la-plus"></i>เพิ่มร้านค้า</a>
+                        <i class="la la-eye"> </i>ร้านค้า</a>
                         <!--end::Button-->
                     </div>
                 </div>
                 {{-- @dd($result['result']) --}}
                 <div class="card-body">
-                    <!--begin: Datatable-->
-                    
-                    <!--end: Datatable-->
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col" style="width: 20%">เรื่อง</th>
+                            <th scope="col" style="width: 80%">รายละเอียด</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th >ชื่อกลุ่มเกษตรกร</th>
+                            <td> {{ $result->FA_GROUPNAME }}</td>
+                          </tr>
+                          <tr>
+                            <th >ชื่อหัวหน้ากลุ่มเกษตรกร</th>
+                            <td> {{ $result->FA_NAME }}</td>
+                          </tr>
+                          <tr>
+                            <th >ที่อยู่</th>
+                            <td> บ้านเลขที่.{{ $result->FA_HOUSENUMBER }} หมู่.{{ $result->FA_MOO }} ต.{{ $result->FA_HOUSENUMBER }}{{ $result->FA_HOUSENUMBER }}{{ $result->FA_HOUSENUMBER }}</td>
+                          </tr>
+                          <tr>
+                            <th >เบอร์ติดต่อ</th>
+                            <td> {{ $result->FA_PHONE }}</td>
+                          </tr>
+                          <tr>
+                            <th >พิกัด</th>
+                            <td> ละติจูด{{ $result->FA_LAT }} - ลองติจูด{{ $result->FA_LONG }}</td>
+                          </tr>
+                          <tr>
+                            <th >รูปปก</th>
+                            <td>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{$result->file}}" alt="" style="width: 100%">
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th >รูปทั้งหมด</th>
+                            <td> 
+                                <div class="row">
+                                  @foreach ($result->file_multiple as $key => $value)
+                                    <div class="col-lg-3">
+                                        <img src="{{$value}}" alt="" style="width: 100%">
+                                    </div>
+                                  @endforeach
+                                </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <!--end::Card-->                 

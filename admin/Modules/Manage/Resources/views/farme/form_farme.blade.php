@@ -48,7 +48,7 @@
                             <span class="text-danger">*</span></label>
                             <select id="pro" class="js-example-basic-multiple" name="FA_SUB_DISTRICT" style="width: 100%;" required>
                                 <option selected>-- จังหวัด --</option>
-                                @foreach ($resultDistricts['result'] as $item => $value)
+                                @foreach ($resultDistricts as $item => $value)
                                     <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option>
                                 @endforeach
                             </select>
@@ -75,13 +75,7 @@
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
                             <div class="field" align="left">
-                                <label class="button hollow">อัปโหลดรูปหน้าปก +</label>
-                                <input type="file" id="file" name="files" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12" style="margin-top: 20px">
-                            <div class="field" align="left">
-                                <input type="file" style="display:none" id="upload-image" name="files" multiple="multiple"></input>
+                                <input type="file" style="display:none" id="upload-image" name="files"></input>
                                 <div id="upload" class="drop-area">
                                     อัปโหลดรูปหน้าปก +
                                 </div>
@@ -102,8 +96,8 @@
                     <div class="col-lg-4">
                         <label style="margin-top: 10px"><b>ดอกไม้ที่ผลิต:</b></label><br>
                         <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
-                            @foreach ($result['result'] as $item)
-                            <option value="{{ $item->id }}">{{ $item->F_NAME }}</option>
+                            @foreach ($result as $item)
+                                <option value="{{ $item->id }}">{{ $item->F_NAME }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -147,16 +141,16 @@
                         <label style="margin-top: 10px"><b>รูปแบบการขาย:</b></label>
                         <div class="radio-list">
                             <label class="radio">
-                            <input type="radio" value="1" name="FA_SELL">
+                            <input type="radio" value="ขายหน้าร้านโดยตรง" name="FA_SELL">
                             <span></span>ขายหน้าร้านโดยตรง</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="FA_SELL">
+                            <input type="radio" value="ลูกค้าโทรศัพท์สั่งซื้อ" name="FA_SELL">
                             <span></span>ลูกค้าโทรศัพท์สั่งซื้อ</label>
                             <label class="radio">
-                            <input type="radio" value="3" name="FA_SELL">
+                            <input type="radio" value="ขายออนไลน์ เพจร้าน" name="FA_SELL">
                             <span></span>ขายออนไลน์ เพจร้าน</label>
                             <label class="radio">
-                            <input type="radio" value="4" name="FA_SELL">
+                            <input type="radio" value="ทั้ง 3 วิธี" name="FA_SELL">
                             <span></span>ทั้ง 3 วิธี</label>
                         </div>
                     </div>
@@ -164,13 +158,13 @@
                         <label style="margin-top: 10px"><b>เงื่อนไขในการขายดอกไม้:</b></label>
                         <div class="radio-list">
                             <label class="radio">
-                            <input type="radio" value="1" name="FA_CONDITION_SELL">
+                            <input type="radio" value="ขายเงินสด" name="FA_CONDITION_SELL">
                             <span></span>ขายเงินสด</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="FA_CONDITION_SELL">
+                            <input type="radio" value="ขายเงินเชื่อ" name="FA_CONDITION_SELL">
                             <span></span>ขายเงินเชื่อ</label>
                             <label class="radio">
-                            <input type="radio" value="3" name="FA_CONDITION_SELL">
+                            <input type="radio" value="ทั้งขายเงินสดและขายเงินเชื่อ" name="FA_CONDITION_SELL">
                             <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
                             <div class="row">
                                 <div class="col-lg-10">
@@ -190,13 +184,13 @@
                         <label style="margin-top: 10px"><b>วิธีการจ่ายเงินของลูกค้า:</b></label>
                         <div class="radio-list">
                             <label class="radio">
-                            <input type="radio" value="1" name="FA_CUSTOMER_PAYS">
+                            <input type="radio" value="ขายเงินสด" name="FA_CUSTOMER_PAYS">
                             <span></span>ขายเงินสด</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="FA_CUSTOMER_PAYS">
+                            <input type="radio" value="ขายเงินเชื่อ" name="FA_CUSTOMER_PAYS">
                             <span></span>ขายเงินเชื่อ</label>
                             <label class="radio">
-                            <input type="radio" value="3" name="FA_CUSTOMER_PAYS">
+                            <input type="radio" value="ทั้งขายเงินสดและขายเงินเชื่อ" name="FA_CUSTOMER_PAYS">
                             <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
                             <div class="row">
                                 <div class="col-lg-10">
@@ -216,16 +210,16 @@
                         <label style="margin-top: 10px"><b>การส่งเสริมการขาย(โปรโมชัน):</b></label>
                         <div class="radio-list">
                             <label class="radio">
-                            <input type="radio" value="1" name="FA_PROMOTION">
+                            <input type="radio" value="ไม่มี" name="FA_PROMOTION">
                             <span></span>ไม่มี</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="FA_PROMOTION">
+                            <input type="radio" value="มีการให้ส่วนลด" name="FA_PROMOTION">
                             <span></span>มีการให้ส่วนลด</label>
                             <label class="radio">
-                            <input type="radio" value="3" name="FA_PROMOTION">
+                            <input type="radio" value="มีการแถม" name="FA_PROMOTION">
                             <span></span>มีการแถม</label>
                             <label class="radio">
-                            <input type="radio" value="4" name="FA_PROMOTION">
+                            <input type="radio" value="Social Media" name="FA_PROMOTION">
                             <span></span>Social Media</label>
                             <div class="row">
                                 <div class="col-lg-10">
@@ -244,13 +238,13 @@
                         <label style="margin-top: 10px"><b>จำนวนแรงงานที่ใช้ในร้าน:</b></label>
                         <div class="radio-list">
                             <label class="radio">
-                            <input type="radio" value="1" name="FA_LABOR">
+                            <input type="radio" value="1-3 คน" name="FA_LABOR">
                             <span></span>1-3 คน</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="FA_LABOR">
+                            <input type="radio" value="4-6 คน" name="FA_LABOR">
                             <span></span>4-6 คน</label>
                             <label class="radio">
-                            <input type="radio" value="3" name="FA_LABOR">
+                            <input type="radio" value="7 คนขึ้นไป" name="FA_LABOR">
                             <span></span>7 คนขึ้นไป</label>
                         </div>
                     </div>

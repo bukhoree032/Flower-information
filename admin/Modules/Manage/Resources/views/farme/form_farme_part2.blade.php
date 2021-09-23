@@ -50,7 +50,7 @@
                                             <td>
                                                 <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
+                                                    <option value="">-- หน่วย --</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
@@ -59,7 +59,7 @@
                                             <td>
                                                 <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
+                                                    <option value="">-- หน่วย --</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
@@ -68,7 +68,7 @@
                                             <td>
                                                 <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
+                                                    <option value="">-- หน่วย --</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
@@ -105,7 +105,7 @@
                                             <td>
                                                 <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
                                                 <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
+                                                    <option value="">-- หน่วย --</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
@@ -114,7 +114,7 @@
                                             <td>
                                                 <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
                                                 <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
+                                                    <option value="">-- หน่วย --</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
@@ -123,7 +123,7 @@
                                             <td>
                                                 <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
                                                 <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
+                                                    <option value="">-- หน่วย --</option>
                                                     <option value="ช่อ">ช่อ</option>
                                                     <option value="ดอก">ดอก</option>
                                                     <option value="กิโล">กิโล</option>
@@ -139,16 +139,16 @@
                                 <div class="radio-list">
                                     <label style="margin-top: 10px"><b>สาเหตุที่ทำให้คงเหลือใช้การไม่ได้ คือ:</b></label>
                                     <label class="radio">
-                                    <input type="radio" value="1" name="FA_REMAINING_CAUSE">
+                                    <input type="radio" value="จัดเก็บไม่ดี" name="FA_REMAINING_CAUSE">
                                     <span></span>จัดเก็บไม่ดี</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="FA_REMAINING_CAUSE">
+                                    <input type="radio" value="ขายปริมาณมากเกินไป" name="FA_REMAINING_CAUSE">
                                     <span></span>ขายปริมาณมากเกินไป</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="FA_REMAINING_CAUSE">
+                                    <input type="radio" value="คุณภาพดอกไม้ไม่ดี ขายไม่ได้" name="FA_REMAINING_CAUSE">
                                     <span></span>คุณภาพดอกไม้ไม่ดี ขายไม่ได้</label>
                                     <label class="radio">
-                                    <input type="radio" value="4" name="FA_REMAINING_CAUSE">
+                                    <input type="radio" value="การหีบห่อในการขนส่ง" name="FA_REMAINING_CAUSE">
                                     <span></span>การหีบห่อในการขนส่ง</label>
                                     <div class="row">
                                         <div class="col-lg-10">
