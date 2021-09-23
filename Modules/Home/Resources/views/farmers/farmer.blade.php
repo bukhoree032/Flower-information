@@ -57,7 +57,7 @@
                         <div class="plants-box">
                             <figure><img src="{{ $value->file }}" alt="img" class="img_store"/></figure>
                             <h3> {{ $value->FA_GROUPNAME }}</h3>
-                            <p><b>ที่อยู่ :</b> บ้านเลขที่.{{$value->FA_HOUSENUMBER}} ม.{{$value->FA_MOO}} ต.{{$value->FA_SUB_DISTRICT[0]->name_districts}} อ.{{$value->FA_SUB_DISTRICT[0]->name_amphures}} จ.{{$value->FA_SUB_DISTRICT[0]->name_provinces}}</p>
+                            <p><b>ที่อยู่ :</b> ต.{{$value->FA_SUB_DISTRICT[0]->name_districts}} อ.{{$value->FA_SUB_DISTRICT[0]->name_amphures}} จ.{{$value->FA_SUB_DISTRICT[0]->name_provinces}}</p>
                         </div>
                     </div>
                 @endforeach

@@ -97,6 +97,28 @@
                                 <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
                             </tr>    
                             @endforeach
+                            <tr>
+                                <td>2</td>
+                                <td>กลุ่มวิสาหกิจชุมชน กลุ่มไม้ดอกเมืองหนาว (บ้านปิยะมิตร2)</td>
+                                {{-- <td>{{ $value->FA_NAME }}</td> --}}
+                                {{-- <td>{{ $value->FA_HOUSENUMBER }} ม.{{ $value->FA_MOO }} ต.{{ $value->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $value->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $value->FA_SUB_DISTRICT[0]->name_provinces }}</td> --}}
+                                <td> บ้านเลขที่.192/1 ต.ตาเนาะแมเราะ อ.เบตง จ.ยะลา</td>
+                                {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
+                                <td>2021-09-23 04:38:26</td>
+                                <td>2021-09-23 04:38:26</td>
+                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                            </tr> 
+                            <tr>
+                                <td>3</td>
+                                <td>กลุ่มหมู่บ้านจุฬาภรณ์ 10</td>
+                                {{-- <td>{{ $value->FA_NAME }}</td> --}}
+                                {{-- <td>{{ $value->FA_HOUSENUMBER }} ม.{{ $value->FA_MOO }} ต.{{ $value->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $value->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $value->FA_SUB_DISTRICT[0]->name_provinces }}</td> --}}
+                                <td> ต.อัยเยอร์เวง อ.เบตง จ.ยะลา</td>
+                                {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
+                                <td>2021-09-23 04:12:55</td>
+                                <td>2021-09-23 04:12:55</td>
+                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                            </tr> 
                         </tbody>
                     </table>
                     <!--end: Datatable-->

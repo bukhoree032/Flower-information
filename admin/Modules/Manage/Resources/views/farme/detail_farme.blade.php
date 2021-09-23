@@ -15,7 +15,7 @@
                         <span class="card-icon">
                             <i class="flaticon2-favourite text-primary"></i>
                         </span>
-                        <h3 class="card-label">ข้อมูลร้านค้า</h3>
+                        <h3 class="card-label">ข้อมูลดอกกลุ่มเกษตรกร</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
@@ -82,20 +82,12 @@
                             <td> {{ $result->FA_GROUPNAME }}</td>
                           </tr>
                           <tr>
-                            <th >ชื่อหัวหน้ากลุ่มเกษตรกร</th>
-                            <td> {{ $result->FA_NAME }}</td>
-                          </tr>
-                          <tr>
                             <th >ที่อยู่</th>
-                            <td> บ้านเลขที่.{{ $result->FA_HOUSENUMBER }} หมู่.{{ $result->FA_MOO }} ต.{{ $result->FA_HOUSENUMBER }}{{ $result->FA_HOUSENUMBER }}{{ $result->FA_HOUSENUMBER }}</td>
+                            <td> ต.{{ $result->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $result->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $result->FA_SUB_DISTRICT[0]->name_provinces }}</td>
                           </tr>
                           <tr>
                             <th >เบอร์ติดต่อ</th>
                             <td> {{ $result->FA_PHONE }}</td>
-                          </tr>
-                          <tr>
-                            <th >พิกัด</th>
-                            <td> ละติจูด{{ $result->FA_LAT }} - ลองติจูด{{ $result->FA_LONG }}</td>
                           </tr>
                           <tr>
                             <th >รูปปก</th>
