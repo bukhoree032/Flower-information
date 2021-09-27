@@ -21,6 +21,7 @@ class Stores extends Model
         'S_PROVINCE',
         'S_LAT',
         'S_LONG',
+        'S_DETAIL',
         'S_FLOWER',
         'S_FLOWER_OTHER',
         'S_CUSTOMER_GROUP',
