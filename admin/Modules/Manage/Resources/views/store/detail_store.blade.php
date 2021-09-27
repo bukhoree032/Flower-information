@@ -22,6 +22,7 @@
                         {{-- <div class="dropdown dropdown-inline mr-2">
                             <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="la la-download"></i>รายงาน</button>
+                            <!--begin::Dropdown Menu-->
                             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                 <ul class="nav flex-column nav-hover">
                                     <li class="nav-header font-weight-bolder text-uppercase text-primary pb-2">Choose an option:</li>
@@ -57,19 +58,78 @@
                                     </li>
                                 </ul>
                             </div>
+                            <!--end::Dropdown Menu-->
                         </div> --}}
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="{{ route('index.store') }}" class="btn btn-primary font-weight-bolder">
-                        <i class="la la-eye"></i>ร้านค้า</a>
+                        <a href="{{ route('manage.create.store') }}" class="btn btn-primary font-weight-bolder">
+                        <i class="la la-eye"> </i>ร้านค้า</a>
                         <!--end::Button-->
                     </div>
                 </div>
-                {{-- @dd($result['result']) --}}
+                {{-- @dd($result) --}}
                 <div class="card-body">
-                    <!--begin: Datatable-->
-                    
-                    <!--end: Datatable-->
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col" style="width: 20%">เรื่อง</th>
+                            <th scope="col" style="width: 80%">รายละเอียด</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th >ชื่อร้าน</th>
+                            <td> {{ $result->S_NAME }}</td>
+                          </tr>
+                          <tr>
+                            <th >ชื่อเจ้าของร้าน</th>
+                            <td> {{ $result->S_OWNER_NAME }}</td>
+                          </tr>
+                          <tr>
+                            <th >ที่อยู่</th>
+                            <td> ตลาดสด เทศบาล เมือง ยะลา อ เมือง ยะลา 95000</td>
+                          </tr>
+                          <tr>
+                            <th >เบอร์ติดต่อ</th>
+                            <td> {{ $result->S_PHONE }}</td>
+                          </tr>
+                          <tr>
+                            <th >พิกัด</th>
+                            <td> ละติจูด ไม่มี - ลองติจูด ไม่มี</td>
+                          </tr>
+                          <tr>
+                            <th >รูปปก</th>
+                            <td>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="http://127.0.0.1:8000/storage/flowers/pONkC_LQ6Iq.jpg" alt="" style="width: 100%">
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th >รูปทั้งหมด</th>
+                            <td> 
+                                <div class="row">
+                                  {{-- @foreach ($result->file_multiple as $key => $value) --}}
+                                    <div class="col-lg-3">
+                                        <img src="http://127.0.0.1:8000/storage/flowers/pONkC_LQ6Iq.jpg" alt="" style="width: 100%">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <img src="http://127.0.0.1:8000/storage/flowers/8tQwn_gtqEL.jpg" alt="" style="width: 100%">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <img src="http://127.0.0.1:8000/storage/flowers/HClvZ_ie6BT.jpg" alt="" style="width: 100%">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <img src="http://127.0.0.1:8000/storage/flowers/vGjLO_Ls7g8.jpg" alt="" style="width: 100%">
+                                    </div>
+                                  {{-- @endforeach --}}
+                                </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <!--end::Card-->                 

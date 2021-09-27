@@ -74,5 +74,17 @@ class StoresRepository
         // dd($id);
         return $data;
     }
+
+    
+    public function FlowerStor($id)
+    {
+        $data = \DB::table('flowers')
+                        ->select('F_NAME')
+                        ->where('id',$id)
+                        ->get();
+        // $insert = $this->$db::update($data);
+        // dd($data);
+        return $data;
+    }
 }
 

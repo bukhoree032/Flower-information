@@ -176,7 +176,7 @@ img{
         grid-gap: 1.5rem;
     }
     .card-wrapper{
-        height: 100vh;
+        /* height: 100vh; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -462,3 +462,9 @@ img{
   .card1:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
+
+/* ----------- รูปหน้า detail ---------------- */
+.img_detale {
+    width: 100px;
+    height: 90px;
+}
