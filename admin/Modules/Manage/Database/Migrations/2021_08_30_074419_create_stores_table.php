@@ -27,6 +27,7 @@ class CreateStoresTable extends Migration
             $table->string('S_PROVINCE')->nullable();
             $table->string('S_LAT')->nullable();
             $table->string('S_LONG')->nullable();
+            $table->text('S_DETAIL')->nullable();
             $table->text('S_FLOWER')->nullable();
             $table->text('S_FLOWER_OTHER')->nullable();
             $table->text('S_CUSTOMER_GROUP')->nullable();
