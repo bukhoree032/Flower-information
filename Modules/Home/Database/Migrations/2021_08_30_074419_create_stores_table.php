@@ -20,6 +20,9 @@ class CreateStoresTable extends Migration
             $table->string('S_OWNER_PREFIX')->nullable();
             $table->text('S_OWNER_NAME')->nullable();
             $table->string('S_PHONE')->nullable();
+            $table->string('S_FACEBOOK')->nullable();
+            $table->string('S_LINE')->nullable();
+            $table->text('S_WEBSITE')->nullable();
             $table->string('S_NUMBER')->nullable();
             $table->string('S_VILLAGE')->nullable();
             $table->string('S_SUB_DISTRICT')->nullable();
