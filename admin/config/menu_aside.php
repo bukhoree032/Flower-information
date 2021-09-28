@@ -54,6 +54,13 @@ return [
                 ]
             ]
         ],
+        [
+            'title' => 'ข่าวกิจกรรม',
+            'root' => true,
+            'icon' => 'media/svg/icons/Files/Selected-file.svg',
+            'page' => 'pages/news',
+            'new-tab' => false,
+        ],
 
         // Layout
         [
