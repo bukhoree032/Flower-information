@@ -74,8 +74,8 @@ return [
             'root' => true,
             'submenu' => [
                 [
-                    'title' => 'Light Aside',
-                    'page' => 'layout/themes/aside-light'
+                    'title' => 'ตั้งค่าพื้นฐาน',
+                    'page' => 'pages/system'
                 ],
                 [
                     'title' => 'Dark Header',

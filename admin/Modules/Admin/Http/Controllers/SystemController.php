@@ -10,7 +10,7 @@ use Modules\Admin\Repositories\Repository as Repository;
 use Illuminate\Support\Str;
 use App\Http\Controllers\UploadeFileController;
 
-class NewsController extends UploadeFileController
+class SystemController extends UploadeFileController
 {
     protected $Repository;
 
@@ -25,14 +25,14 @@ class NewsController extends UploadeFileController
      */
     public function index()
     {
-        $page_title = 'ข่าวกิจกรรม';
+        $page_title = 'ตั้งค่าพื้นฐาน';
         $page_description = '';
         $page = compact('page_title', 'page_description');
         
-        $db = "news";
+        $db = "system";
         $data['result'] = $this->Repository->index($db);
 
-        return view('admin::news.news',compact('page_title', 'page_description'),$data);
+        return view('admin::system.system',compact('page_title', 'page_description'),$data);
     }
 
     /**
@@ -41,7 +41,14 @@ class NewsController extends UploadeFileController
      */
     public function create()
     {
-        return view('admin::news.create');
+        $page_title = 'ตั้งค่าพื้นฐาน';
+        $page_description = '';
+        $page = compact('page_title', 'page_description');
+        
+        $db = "system";
+        $data['result'] = $this->Repository->index($db);
+
+        return view('admin::system.create',compact('page_title', 'page_description'),$data);
     }
 
     /**
@@ -59,20 +66,12 @@ class NewsController extends UploadeFileController
                 Str::random(5)
             );
         }
-        
-        if (!empty($request['file_multiples'])) {
-            foreach ($request['file_multiples'] as $key => $value) {
-                $file_multiples[$key] = $uploade->uploadImage(
-                    $value,
-                    'flowers',
-                    Str::random(5)
-                );
-            }
-            $request['file_multiple'] = serialize($file_multiples);
+        if($request->id == ''){
+            $this->Repository->insert($request->all(),'classModelSystem');
+        }else{
+            $this->Repository->update($request->all(),$request->id,'classModelSystem');
         }
-
-        $data['result'] = $this->Repository->insert($request->all(),'classModelNews');
-        return redirect()->route('index.news');
+        return redirect()->route('index.system');
     }
 
     /**

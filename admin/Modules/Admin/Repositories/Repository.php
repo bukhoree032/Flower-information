@@ -5,7 +5,7 @@ namespace Modules\Admin\Repositories;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Admin\Entities\News;
+use Modules\Admin\Entities\System;
 
 use Illuminate\Support\Str;
 use App\Http\Controllers\UploadeFileController;
@@ -14,7 +14,7 @@ class Repository
 {
     public function __construct()
     {
-        $this->classModelNews = News::class;
+        $this->classModelSystem = System::class;
     }
 
     /**
@@ -71,6 +71,17 @@ class Repository
         $result = $this->$db::findOrFail($id);
         $data = $result->update($request);
         return $data;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function delet($id,$db)
+    {
+        $result = $this->$db::findOrFail($id);
+
+        return $result->delete();
     }
 
     /**
