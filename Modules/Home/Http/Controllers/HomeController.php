@@ -24,6 +24,8 @@ class HomeController extends Controller
     {
         $db = "flowers";
         $data['result'] = $this->Repository->show($db);
+        $db = "news";
+        $data['news'] = $this->Repository->show($db);
 
         return view('home::index',$data);
     }

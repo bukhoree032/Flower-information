@@ -48,8 +48,8 @@
         <div class="container">
             <div class="row">
                 @foreach($result as $key => $value)
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
-                        <div class="plants-box">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="plants-box" style="cursor: pointer;" onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
                             <figure><img src="{{ $value->file ?? null}}" alt="img" style="height: 150px"></figure>
                             <p style="font-size: 15px">
                                 @php $value->n_title = __substr($value->n_title,'55') @endphp

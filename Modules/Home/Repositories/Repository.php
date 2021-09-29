@@ -35,7 +35,6 @@ class Repository
                         ->join('amphures','districts.amphure_id','=','amphures.id')
                         ->join('provinces','amphures.province_id','=','provinces.id')
                         ->get();
-
         return $data;
     }
 
@@ -46,6 +45,7 @@ class Repository
     public function show($db)
     {
         $data = \DB::table($db)
+                        ->orderBy('id', 'desc')
                         ->get();
         return $data;
     }
@@ -58,6 +58,7 @@ class Repository
     {
         $data = \DB::table($db)
                         ->where('id',$id)
+                        ->orderBy('id', 'desc')
                         ->get()['0'];
         return $data;
     }
