@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\System;
+use Modules\Admin\Entities\News;
 
 use Illuminate\Support\Str;
 use App\Http\Controllers\UploadeFileController;
@@ -14,6 +15,7 @@ class Repository
 {
     public function __construct()
     {
+        $this->classModelNews = News::class;
         $this->classModelSystem = System::class;
     }
 
@@ -24,8 +26,8 @@ class Repository
     public function index($db)
     {
         $data = \DB::table($db)
+                        ->orderBy('id', 'desc')
                         ->get();
-
         return $data;
     }
 
@@ -36,6 +38,7 @@ class Repository
     public function show($db)
     {
         $data = \DB::table($db)
+                        ->orderBy('id', 'desc')
                         ->get();
         return $data;
     }

@@ -11,10 +11,7 @@
 |
 */
 
-Route::prefix('admin')->group(function() {
-    Route::get('/', 'AdminController@index');
-});
-
 Route::prefix('admin')->name('admin.')->group(function() {
-    Route::get('/news/', 'NewsController@index')->name('index');
+    Route::get('/news/', 'NewsController@index')->name('news.index');
+    Route::get('/news/detail/{id}', 'NewsController@showid')->name('news.detail');
 });

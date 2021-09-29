@@ -86,7 +86,7 @@
                                 <td>{{ $value->n_title }}</td>
                                 @php $value->n_details = __substr($value->n_details,'100') @endphp
                                 <td>{{ $value->n_details }}</td>
-                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('admin.page.detail',$value->id) }}'"></i> <i class="fas fa-edit pointer" onclick="window.location='{{ route('admin.edit',$value->id) }}'" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('admin.detail.news',$value->id) }}'"></i> <i class="fas fa-edit pointer" onclick="window.location='{{ route('admin.edit.news',$value->id) }}'" style="margin-left: 15px"></i><i class="far fa-trash-alt" onclick="window.location='{{ route('admin.delet.news',$value->id) }}'" style="margin-left: 15px"></i></td>
                             </tr>    
                             @endforeach
                         </tbody>

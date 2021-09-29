@@ -89,7 +89,7 @@
                             <td>
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <img src="{{$result->file}}" alt="" style="width: 100%">
+                                        <img src="{{$result->file ?? null}}" alt="" style="width: 100%">
                                     </div>
                                 </div>
                             </td>
@@ -97,19 +97,14 @@
                           <tr>
                             <th >รูปทั้งหมด</th>
                             <td> 
-                                {{-- <div class="row">
-                                  @foreach ($result->file_multiple as $key => $value)
-                                    <div class="col-lg-3">
-                                        <img src="{{$value}}" alt="" style="width: 100%">
-                                    </div>
-                                  @endforeach
-                                </div> --}}
                                 <div class="row">
-                                  @foreach ($result->file_multiple as $key => $value)
-                                    <div class="col-lg-3" id="{{$key}}">
-                                        <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
-                                    </div>
-                                  @endforeach
+                                    @if($result->file_multiple != '')
+                                        @foreach ($result->file_multiple as $key => $value)
+                                            <div class="col-lg-3" id="{{$key}}">
+                                                <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </td>
                           </tr>

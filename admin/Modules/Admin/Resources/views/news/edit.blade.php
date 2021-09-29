@@ -51,7 +51,7 @@ p a {color:#000;}
                     <h2 class="card-title">เพิ่มข้อมูลข่าวกิจกรรม</h2>
                 </div>
                 <!--begin::Form-->
-                <form action="{{ route('admin.update',$result->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.update.news',$result->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group row">
@@ -67,19 +67,18 @@ p a {color:#000;}
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        รูปเดิม
-                                        <img src="{{$result->file}}" alt="" style="width: 100%">
-                                        {{-- <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button> --}}
-                                        <input type="file" id="choose-file" name="files" accept="image/*" />
-                                        <label for="choose-file">เลือกไฟล์ใหม่</label>
-                                    </div>
-                                    <div class="col-lg-4">
-                                      <div>
-                                        <div id="img-preview"></div>
-                                      </div>
+                                  <div class="col-lg-4">
+                                      รูปเดิม
+                                      <img src="{{$result->file}}" alt="" style="width: 100%">
+                                      <input type="file" id="choose-file" name="files" accept="image/*" />
+                                      <label for="choose-file">เลือกไฟล์ใหม่</label>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div>
+                                      <div id="img-preview"></div>
                                     </div>
                                   </div>
+                                </div>
                             </div>
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
