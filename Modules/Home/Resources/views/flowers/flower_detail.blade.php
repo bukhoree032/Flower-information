@@ -9,29 +9,49 @@
           <div class = "product-imgs">
             <div class = "img-display">
               <div class = "img-showcase" style="width: 50%;">
-                <img src = "{{ $result->file }}" >
-                @foreach($result->file_multiple as $key => $value)
-                    @if($key < '5')
-                        <img src = "{{ $value }}"  >
-                    @endif
-                @endforeach
+                <img src = "{{ $result->file ?? asset('storage/icon/img.png')}}" >
+                @if($result->file_multiple != '')
+                    @foreach($result->file_multiple as $key => $value)
+                        @if($key < '5')
+                            <img src = "{{ $value }}"  >
+                        @endif
+                    @endforeach
+                @else
+                    @for($i = 0; $i < 3; $i++)
+                        <div class = "img-item">
+                            <a href = "#" data-id = "{{ asset('storage/icon/img.png') }}">
+                            <img src = "{{ asset('storage/icon/img.png') }}" >
+                            </a>
+                        </div>
+                    @endfor
+                @endif
               </div>
             </div>
             <div class = "img-select">
                 <div class = "img-item">
                     <a href = "#" data-id = "1">
-                        <img src = "{{ $result->file }}" >
+                        <img src = "{{ $result->file ?? asset('storage/icon/img.png')}}" >
                     </a>
                 </div>
-                @foreach($result->file_multiple as $key => $value)
-                    @if($key < '4')
+                @if($result->file_multiple != '')
+                    @foreach($result->file_multiple as $key => $value)
+                        @if($key < '4')
+                            <div class = "img-item">
+                                <a href = "#" data-id = "{{$key+2}}">
+                                <img src = "{{ $value }}" >
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
+                @else
+                    @for($i = 0; $i < 3; $i++)
                         <div class = "img-item">
-                            <a href = "#" data-id = "{{$key+2}}">
-                            <img src = "{{ $value }}" >
+                            <a href = "#" data-id = "{{ asset('storage/icon/img.png') }}">
+                            <img src = "{{ asset('storage/icon/img.png') }}" >
                             </a>
                         </div>
-                    @endif
-                @endforeach
+                    @endfor
+                @endif
             </div>
           </div>
           <!-- card right -->
@@ -56,6 +76,7 @@
     </div>
 </section>
 <section style="background-color: #f1f1f1">
+    <br>
     <div class="container">
         <div style="background-color: #ffff; padding : 10px">
             <h3>ข้อมูลทั่วไป: </h3>
@@ -74,26 +95,44 @@
             <div id="gallery" class="Gallery">
             {{-- <div class="container-fluid margin-r-l"> --}}
                 <div class="row">
-                    @foreach($result->file_multiple as $key => $value)
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
-                            <div class="Gallery-box" style="width: 264px">
-                                <figure>
-                                    <a href="{{ $value }}" class="fancybox" rel="ligthbox" style="width: 264px">
-                                    <img  src="{{ $value }}" class="zoom img-fluid ">
-                                    </a>
-                                    <span class="hoverle">
-                                    <a href="{{ $value }}" class="fancybox" rel="ligthbox">View</a>
-                                    </span>  
-                                </figure>
+                    @if($result->file_multiple != '')
+                        @foreach($result->file_multiple as $key => $value)
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
+                                <div class="Gallery-box" style="width: 264px">
+                                    <figure>
+                                        <a href="{{ $value }}" class="fancybox" rel="ligthbox" style="width: 264px">
+                                        <img  src="{{ $value }}" class="zoom img-fluid ">
+                                        </a>
+                                        <span class="hoverle">
+                                        <a href="{{ $value }}" class="fancybox" rel="ligthbox">View</a>
+                                        </span>  
+                                    </figure>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        @for($i = 0; $i < 4; $i++)
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 thumb">
+                                <div class="Gallery-box" style="width: 264px">
+                                    <figure>
+                                        <a href="" class="fancybox" rel="ligthbox" style="width: 264px">
+                                        <img  src="{{asset('storage/icon/img.png')}}" class="zoom img-fluid ">
+                                        </a>
+                                        <span class="hoverle">
+                                        <a href="{{asset('storage/icon/img.png')}}" class="fancybox" rel="ligthbox">View</a>
+                                        </span>  
+                                    </figure>
+                                </div>
+                            </div>
+                        @endfor
+                    @endif
                 </div>
             </div>
      <!-- end Gallery -->
-    
         </div>
     </div>
+    <br>
+    <br>
 </section>
 
 

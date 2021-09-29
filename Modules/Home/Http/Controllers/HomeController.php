@@ -22,6 +22,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data['system'] = $this->Repository->show('system');
+
         $db = "flowers";
         $data['result'] = $this->Repository->show($db);
         $db = "news";
@@ -36,6 +38,8 @@ class HomeController extends Controller
      */
     public function FlowerDetail($id)
     {
+        $data['system'] = $this->Repository->show('system');
+
         $db = "flowers";
         $data['result'] = $this->Repository->ShowId($id,$db);
 
@@ -48,73 +52,11 @@ class HomeController extends Controller
 
     public function FlowerFlowers()
     {
+        $data['system'] = $this->Repository->show('system');
+
         $db = "flowers";
         $data['result'] = $this->Repository->show($db);
 
         return view('home::flowers.flower',$data);
-    }
-
-
-    // ----------- farmer
-    
-    public function Farmers()
-    {
-        return view('home::farmers.farmer');
-    }
-
-    public function FarmersDetail()
-    {
-        return view('home::farmers.farmer_detail');
-    }
-    
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('home::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('home::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -21,6 +21,8 @@ class StoreController extends Controller
     
     public function Stores()
     {
+        $data['system'] = $this->Repository->show('system');
+
         $db = "stores";
         $data['result'] = $this->Repository->Show($db);
 
@@ -34,6 +36,8 @@ class StoreController extends Controller
 
     public function StoresDetail($id)
     {
+        $data['system'] = $this->Repository->show('system');
+
         $data['result'] = $this->Repository->ShowId($id,"stores");
 
         $data['result']->S_FLOWER = unserialize($data['result']->S_FLOWER);

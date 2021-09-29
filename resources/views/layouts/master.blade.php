@@ -58,8 +58,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo"> 
-                              <a href="{{ route('home.index') }}"><img src="https://static.vecteezy.com/system/resources/previews/001/190/578/non_2x/flower-icon-png.png" alt="#" style="width: 70px"><b> ดอกไม้เมืองหนาว</b> </a> 
-
+                              <a href="{{ route('home.index') }}"><img src="https://static.vecteezy.com/system/resources/previews/001/190/578/non_2x/flower-icon-png.png" alt="#" style="width: 70px"></a>
                            </div>
                         </div>
                      </div>
@@ -97,17 +96,19 @@
                      <div class="col-md-12 ">
                         <div class="footer-box">
                            <div class="headinga">
-                              <h3>Address</h3>
-                              <span>Demo Store .New York  United States</span>
-                              <p>(+71 98765348)</p>
+                              <h3>ติดต่อเรา</h3>
+                              <span><b>{{$system[0]->sys_name_th}}</b></span>
+                              <span>{{$system[0]->sys_name_en}}</span>
+                              <span>{{$system[0]->sys_address_th}}</span>
+                              <p>( {{$system[0]->sys_phon}} )</p>
                            </div>
                            <ul class="location_icon">
-                              <li> <a href="#"><img src="icon/facebook.png"></a></li>
-                              <li> <a href="#"><img src="icon/Twitter.png"></a></li>
-                              <li> <a href="#"><img src="icon/linkedin.png"></a></li>
-                              <li> <a href="#"><img src="icon/instagram.png"></a></li>
+                              <li> <a href="{{$system[0]->sys_facebook_link ?? '#'}}"><img src="{{ asset('storage/icon/facebook.png'); }}"></a></li>
+                              <li> <a href="#"><img src="{{ asset('storage/icon/Twitter.png'); }}"></a></li>
+                              <li> <a href="#"><img src="{{ asset('storage/icon/line.png'); }}"></a></li>
+                              <li> <a href="#"><img src="{{ asset('storage/icon/instagram.png'); }}"></a></li>
                            </ul>
-                           <div class="menu-bottom">
+                           {{-- <div class="menu-bottom">
                               <ul class="link">
                                  <li> <a href="#">Home</a></li>
                                  <li> <a href="#">About</a></li>
@@ -115,14 +116,14 @@
                                  <li> <a href="#">Gallery</a></li>
                                  <li> <a href="#"> Contact us</a></li>
                               </ul>
-                           </div>
+                           </div> --}}
                         </div>
                      </div>
                   </div>
                </div>
                <div class="copyright">
                   <div class="container">
-                     <p>Copyright 2019 All Rights Reserved Design By  <a href="https://html.design/">Free Html Templates</a></p>
+                     {{-- <p>Copyright 2019 All Rights Reserved Design By  <a href="https://html.design/">Free Html Templates</a></p> --}}
                   </div>
                </div>
             </div>

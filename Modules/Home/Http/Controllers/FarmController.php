@@ -18,6 +18,8 @@ class FarmController extends Controller
 
     public function index()
     {
+        $data['system'] = $this->Repository->show('system');
+
         $db = "farmes";
         $data['result'] = $this->Repository->show($db);
 
@@ -37,37 +39,8 @@ class FarmController extends Controller
      */
     public function store(Request $request)
     {
+        $data['system'] = $this->Repository->show('system');
+
         return view('home::farmers.farmer_detail');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('home::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

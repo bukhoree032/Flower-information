@@ -50,44 +50,6 @@
                 </div>
              </div>
           </div>
-          <div class="carousel-item">
-             <div class="container">
-                <div class="row marginii">
-                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      <div class="carousel-caption ">
-                         <h1>Welcome To The <strong class="color">Nutrients Plants</strong></h1>
-                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">About</a>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">Contact US</a>
-                      </div>
-                   </div>
-                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      <div class="img-box ">
-                         <figure><img src="{{ asset('fonend/images/gyufyufyu.png') }}" alt="img"/></figure>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <div class="carousel-item">
-             <div class="container">
-                <div class="row marginii">
-                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      <div class="carousel-caption ">
-                         <h1>Welcome To The <strong class="color">Nutrients Plants</strong></h1>
-                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">About</a>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">Contact US</a>
-                      </div>
-                   </div>
-                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      <div class="img-box">
-                         <figure><img src="{{ asset('fonend/images/gyufyufyu.png') }}" alt="img"/></figure>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
        </div>
        <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
        <i class='fa fa-angle-left'></i></a>
@@ -121,7 +83,8 @@
           @foreach($result as $key => $value)
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.flower.detail',$value->id) }}'">
                <div class="plants-box"  style="cursor: pointer;">
-                  <figure><img src="{{ $value->file }}" alt="img" style="height: 150px"/></figure>
+                  <figure><img src="{{ $value->file ?? asset('storage/icon/img.png')}}" alt="img" style="height: 160px"/></figure>
+                  @php $value->F_NAME = __substr($value->F_NAME,'12') @endphp
                   <h3>{{ $value->F_NAME }}</h3>
                   @php $value->F_OVERALL_APPEARANCE = __substr($value->F_OVERALL_APPEARANCE,'65') @endphp
                   <p><b>ลักษณะ :</b> {{ $value->F_OVERALL_APPEARANCE }}</p>
@@ -152,11 +115,11 @@
                   <div class="col-md-6">
                      <div class="card1" style="width: 100%">
                         <div style="cursor: pointer;"  onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
-                           <img src="https://lpdc.yru.ac.th/backend/web/file-uploads/x0k7AzJRnvZKEVNK-WncgU/thumbnail/706d9d14175a4fc88670ec911d8f1e81.jpg" alt="Avatar" style="width:100%">
+                           <img src="{{$value->file ?? asset('storage/icon/img.png')}}" alt="Avatar" style="width:100%">
                            <div class="container" style="background-color: #fff">
                               @php $data = __substr($value->n_title,'50') @endphp
                               <h4><b>{{ $data }}</b></h4> 
-                              @php $data = __substr($value->n_details,'155') @endphp
+                              @php $data = __substr($value->n_details,'200') @endphp
                               <p>{{ $data }}</p> 
                            </div>
                         </div>
@@ -167,11 +130,11 @@
             <div class="col-md-6">
                <div class="row">
                   @foreach($news as $key => $value)
-                     @if($key != 0)
+                     @if($key >= 1 && $key <= 3)
                         <div class="col-sm-12">
                            <div class="blog-card" style="cursor: pointer;"  onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
                               <div class="meta">
-                              <div class="photo" style="background-image: url({{$value->file ?? null}})"></div>
+                              <div class="photo" style="background-image: url({{$value->file ?? asset('storage/icon/img.png')}})"></div>
                               <ul class="details">
                                  @php $data = __substr($value->n_title,'20') @endphp
                                  <li class="author"><a href="#">{{ $data }}</a></li>
@@ -187,10 +150,8 @@
                               </ul>
                               </div>
                               <div class="description">
-                                 @php $data = 'ลงพื้นที่ฝึกอบรม พร้อมทั้งให้ความรู้ในการปลูกดอกไม้ ณ ศูนย์การเรียนรู้นาขั้นบันได ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส' @endphp
                                  @php $data = __substr($value->n_title,'20') @endphp
                                  <h1>{{ $data }}</h1>
-                                 @php $data = 'เมื่อวันที่ 18-21 มีนาคม 2564 ลงพื้นที่ฝึกอบรม โครงการไม้ดอกเมืองหนาว อันเนื่องมาจากพระราชดำริตำบลตาเนาะแมเราะ อำเภอเบตง จังหวัดยะลา ผู้ช่วยศาสตราจารย์ ดร.สมบัติ โยธาทิพย์ อธิการบดีมหาวิทยาลัยราชภัฏยะลา มอบหมายให้ อาจารย์ ดร.นิรันดิ์' @endphp
                                  @php $data = __substr($value->n_details,'100') @endphp
                                  <p>{{ $data }}</p> 
                               </div>
