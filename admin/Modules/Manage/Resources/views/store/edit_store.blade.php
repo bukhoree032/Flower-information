@@ -186,7 +186,7 @@
                                 <select id="single_c" class="js-example-basic-multiple" name="S_CUSTOMER_GROUP[]"  style="width: 100%" multiple="multiple">
                                     @php $data = __S_CUSTOMER_GROUP()  @endphp
                                     @foreach ($data as $item)
-                                        @foreach ($result->S_CUSTOMER_GROUP as $value)
+                                        @foreach ($result->FA_CUSTOMER_GROUP as $value)
                                             <option value="{{$item}}" @if($value == $item) selected @endif>{{$item}}</option>
                                         @endforeach
                                     @endforeach

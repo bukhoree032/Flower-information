@@ -94,7 +94,7 @@
                                 {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
                                 <td>{{ $value->created_at }}</td>
                                 <td>{{ $value->updated_at }}</td>
-                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit pointer" onclick="window.location='{{ route('manage.edit.farme1',1) }}'" style="margin-left: 15px" ></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit pointer" onclick="window.location='{{ route('manage.edit.farme1',$value->id_db) }}'" style="margin-left: 15px" ></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
                             </tr>    
                             @endforeach
                             <tr>
@@ -106,7 +106,7 @@
                                 {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
                                 <td>2021-09-23 04:38:26</td>
                                 <td>2021-09-23 04:38:26</td>
-                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                                {{-- <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td> --}}
                             </tr> 
                             <tr>
                                 <td>3</td>
@@ -117,7 +117,7 @@
                                 {{-- <td>{{ $value->FA_LAT }},{{ $value->FA_LONG }}</td> --}}
                                 <td>2021-09-23 04:12:55</td>
                                 <td>2021-09-23 04:12:55</td>
-                                <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td>
+                                {{-- <td><i class="fas fa-eye pointer" onclick="window.location='{{ route('manage.page.detail_farme',$value->id_db) }}'"></i> <i class="fas fa-edit" style="margin-left: 15px"></i><i class="far fa-trash-alt" style="margin-left: 15px"></i></td> --}}
                             </tr> 
                         </tbody>
                     </table>

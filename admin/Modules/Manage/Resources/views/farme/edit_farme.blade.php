@@ -3,7 +3,47 @@
 
 {{-- Content --}}
 @section('content')
-
+<style>
+    #img-preview {
+    display: none;
+    width: 100%;
+    border: 2px dashed #333;  
+    margin-bottom: 20px;
+  }
+  #img-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  [type="file"] {
+    height: 0;  
+    width: 0;
+    overflow: hidden;
+  }
+  [type="file"] + label {
+    width: 100%;
+    height: 40px;
+    font-family: sans-serif;
+    background: #f44336;
+    padding: 10px 30px;
+    border: 2px solid #f44336;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  [type="file"] + label:hover {
+    background-color: #fff;
+    color: #f44336;
+  }
+  
+  /* -------------------------------------*/
+  body {padding: 15px;}
+  p {position:fixed; bottom:0; font-family: monospace; font-weight: bold; font-size:12px;}
+  p a {color:#000;}
+  
+</style>
+{{-- @dd($resultID) --}}
 {{-- Dashboard 1 --}}
 <div class="row">
     <div class="col-lg-6 col-xxl-12">
@@ -19,28 +59,28 @@
                 </div>
             </div>
             <!--begin::Form-->
-            <form action="{{ route('manage.insert.farme') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('manage.edit.farme1',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="form-group row">
                         <div class="col-lg-4">
                             <label>ชื่อกลุ่มเกษตรกร (สวนดอกไม้):</label>
-                            <input type="text" class="form-control" name="FA_GROUPNAME" placeholder="ป้อนชื่อกลุ่มเกษตรกร" />
+                            <input type="text" class="form-control" name="FA_GROUPNAME" value="{{ $resultID['result'][0]->FA_GROUPNAME }}" placeholder="ป้อนชื่อกลุ่มเกษตรกร" />
                             <span class="form-text text-muted">กรุณาป้อนชื่อกลุ่มเกษตรกร/สวนดอกไม้</span>
                         </div>
                         <div class="col-lg-4">
                             <label>ชื่อหัวหน้ากลุ่มเกษตรกร:</label>
-                            <input type="text" class="form-control" name="FA_NAME" placeholder="ป้อนชื่อหัวหน้ากลุ่มเกษตรกร" />
+                            <input type="text" class="form-control" name="FA_NAME" value="{{ $resultID['result'][0]->FA_NAME }}" placeholder="ป้อนชื่อหัวหน้ากลุ่มเกษตรกร" />
                             <span class="form-text text-muted">กรุณาป้อนชื่อหัวหน้ากลุ่มเกษตรกร/ผู้ดูแล</span>
                         </div>
                         <div class="col-lg-4">
                             <label>บ้านเลขที่:</label>
-                            <input type="text" class="form-control" name="FA_HOUSENUMBER" placeholder="ป้อนบ้านเลขที่" />
+                            <input type="text" class="form-control" name="FA_HOUSENUMBER" value="{{ $resultID['result'][0]->FA_HOUSENUMBER }}" placeholder="ป้อนบ้านเลขที่" />
                             <span class="form-text text-muted">กรุณาป้อนบ้านเลขที่</span>
                         </div>
                         <div class="col-lg-4">
                             <label>หมู่:</label>
-                            <input type="text" class="form-control" name="FA_MOO" placeholder="ป้อนหมู่" />
+                            <input type="text" class="form-control" name="FA_MOO" value="{{ $resultID['result'][0]->FA_MOO }}" placeholder="ป้อนหมู่" />
                             <span class="form-text text-muted">กรุณาป้อนหมู่ที่</span>
                         </div>
                         <div class="col-lg-6">
@@ -49,7 +89,7 @@
                             <select id="pro" class="js-example-basic-multiple" name="FA_SUB_DISTRICT" style="width: 100%;" required>
                                 <option selected>-- จังหวัด --</option>
                                 @foreach ($resultDistricts as $item => $value)
-                                    <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option>
+                                    <option value="{{ $value->id_districts }}" @if($ProvinceJoin[0]->id_districts == $value->id_districts) selected @endif>ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -60,20 +100,38 @@
                         </div> --}}
                         <div class="col-lg-4">
                             <label>เบอร์ติดต่อ:</label>
-                            <input type="text" class="form-control" name="FA_PHONE" placeholder="ป้อนเบอร์ติดต่อ" />
+                            <input type="text" class="form-control" name="FA_PHONE" value="{{ $resultID['result'][0]->FA_PHONE }}" placeholder="ป้อนเบอร์ติดต่อ" />
                             <span class="form-text text-muted">กรุณาป้อนเบอร์ติดต่อ</span>
                         </div>
                         <div class="col-lg-4">
                             <label>พิกัด (ละติจูด):</label>
-                            <input type="text" class="form-control" name="FA_LAT" placeholder="ป้อนพิกัด (ละติจูด)" />
+                            <input type="text" class="form-control" name="FA_LAT" value="{{ $resultID['result'][0]->FA_LAT }}" placeholder="ป้อนพิกัด (ละติจูด)" />
                             <span class="form-text text-muted">กรุณาป้อนพิกัด (ละติจูด)</span>
                         </div>
                         <div class="col-lg-4">
                             <label>พิกัด (ลองติจูด):</label>
-                            <input type="text" class="form-control" name="FA_LONG" placeholder="พิกัด (ลองติจูด)" />
+                            <input type="text" class="form-control" name="FA_LONG" value="{{ $resultID['result'][0]->FA_LONG }}" placeholder="พิกัด (ลองติจูด)" />
                             <span class="form-text text-muted">กรุณาพิกัด (ลองติจูด)</span>
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    รูปเดิม
+                                    <img src="{{$resultID['result'][0]->file}}" alt="" style="width: 100%">
+                                    {{-- <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button> --}}
+                                    <input type="file" id="choose-file" name="choose-file" accept="image/*" />
+                                    <label for="choose-file">เลือกไฟล์ใหม่</label>
+                                </div>
+                                <div class="col-lg-4">
+                                     
+                                  <div>
+                                    <div id="img-preview"></div>
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        {{-- <div class="col-lg-12" style="margin-top: 20px">
                             <div class="field" align="left">
                                 <input type="file" style="display:none" id="upload-image" name="files"></input>
                                 <div id="upload" class="drop-area">
@@ -81,14 +139,33 @@
                                 </div>
                                 <div id="thumbnail"></div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-lg-12" style="margin-top: 20px">
-                            <div class="field" align="left">
-                                <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
-                                <div id="uploads" class="drop-areas">
-                                    เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                            <div class="row">
+                                @isset($resultID['result'][0]->file_multiple)
+                                    @foreach ($resultID['result'][0]->file_multiple as $key => $value)
+                                        <div class="col-lg-3" id="{{$key}}">
+                                            <input type="text"  name="file_multiples_edit[]" value="{{ $value }}" hidden>
+                                            <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
+                                            <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction({{$key}})">ลบรูป</button>
+                                        </div>
+                                    @endforeach    
+                                @endisset
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <br>
+                                    <div class="field" align="left">
+                                        <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
+                                        <label for="choose-file" id="uploads" class="drop-areas">
+                                            เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                        </label>
+                                    </div>
                                 </div>
-                                <div id="thumbnails"></div>
+                                <div class="col-md-9"></div>
+                                <div class="col-md-12">
+                                    <div id="thumbnails"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +174,9 @@
                         <label style="margin-top: 10px"><b>ดอกไม้ที่ผลิต:</b></label><br>
                         <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                             @foreach ($result as $item)
-                                <option value="{{ $item->id }}">{{ $item->F_NAME }}</option>
+                                @foreach ($resultID['result'][0]->FA_FLOWER as $value)
+                                    <option value="{{ $item->id }}" @if($value == $item->id) selected @endif>{{ $item->F_NAME }}</option>
+                                @endforeach
                             @endforeach
                         </select>
                     </div>
@@ -105,28 +184,30 @@
                     <div class="col-lg-4">
                         <label style="margin-top: 10px"><b>กลุ่มลูกค้า:</b></label>
                         <select id="single_c" class="js-example-basic-multiple" name="FA_CUSTOMER_GROUP[]"  style="width: 100%" multiple="multiple">
-                            <option>ลูกค้ารายย่อย</option>
-                            <option>บุคคลทั่วไป</option>
-                            <option>โรงแรม</option>
-                            <option>สถาบันการศึกษา</option>
-                            <option>ร้านอาหาร</option>
-                            <option>บริษัท/ห้างร้าน</option>
-                            <option>หน่วยงานราชการ</option>
+                            @php $data = __S_CUSTOMER_GROUP()  @endphp
+                            @foreach ($data as $item)
+                                @foreach ($resultID['result'][0]->FA_CUSTOMER_GROUP as $value)
+                                    <option value="{{$item}}" @if($value == $item) selected @endif>{{$item}}</option>
+                                @endforeach
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-lg-5">
                         <div class="radio-list">
                             <label style="margin-top: 10px"><b>รูปแบบการส่ง:</b></label>
-                            <label class="radio">
-                            <input type="radio" value="1" name="FA_SEND">
-                            <span></span>รถยนต์</label>
-                            <label class="radio">
-                            <input type="radio" value="2" name="FA_SEND">
-                            <span></span>รถไฟ</label>
+                            @php $data = __S_SEND()  @endphp
+                            @foreach ($data as $item)
+                                <label class="radio">
+                                    <input type="radio" value="{{$item}}" name="FA_SEND"  @if($resultID['result'][0]->FA_SEND == $item) checked @endif>
+                                    <span></span>{{$item}}
+                                </label>
+                            @endforeach
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div id="boxess">
-                                        <input type="text" class="form-control" name="FA_SEND_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                        @foreach ($resultID['result'][0]->FA_SEND_OTHER as $key =>$value)
+                                            <input type="text" class="form-control" name="FA_SEND_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -140,36 +221,31 @@
                     <div class="col-lg-12">
                         <label style="margin-top: 10px"><b>รูปแบบการขาย:</b></label>
                         <div class="radio-list">
-                            <label class="radio">
-                            <input type="radio" value="ขายหน้าร้านโดยตรง" name="FA_SELL">
-                            <span></span>ขายหน้าร้านโดยตรง</label>
-                            <label class="radio">
-                            <input type="radio" value="ลูกค้าโทรศัพท์สั่งซื้อ" name="FA_SELL">
-                            <span></span>ลูกค้าโทรศัพท์สั่งซื้อ</label>
-                            <label class="radio">
-                            <input type="radio" value="ขายออนไลน์ เพจร้าน" name="FA_SELL">
-                            <span></span>ขายออนไลน์ เพจร้าน</label>
-                            <label class="radio">
-                            <input type="radio" value="ทั้ง 3 วิธี" name="FA_SELL">
-                            <span></span>ทั้ง 3 วิธี</label>
+                            @php $data = __S_SELL()  @endphp
+                            @foreach ($data as $item)
+                                <label class="radio">
+                                    <input type="radio" value="{{$item}}" name="FA_SELL"  @if($resultID['result'][0]->FA_SELL == $item) checked @endif>
+                                    <span></span>{{$item}}
+                                </label>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <label style="margin-top: 10px"><b>เงื่อนไขในการขายดอกไม้:</b></label>
                         <div class="radio-list">
-                            <label class="radio">
-                            <input type="radio" value="ขายเงินสด" name="FA_CONDITION_SELL">
-                            <span></span>ขายเงินสด</label>
-                            <label class="radio">
-                            <input type="radio" value="ขายเงินเชื่อ" name="FA_CONDITION_SELL">
-                            <span></span>ขายเงินเชื่อ</label>
-                            <label class="radio">
-                            <input type="radio" value="ทั้งขายเงินสดและขายเงินเชื่อ" name="FA_CONDITION_SELL">
-                            <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
+                            @php $data = __S_CONDITION_SELL()  @endphp
+                            @foreach ($data as $item)
+                                <label class="radio">
+                                    <input type="radio" value="{{$item}}" name="FA_CONDITION_SELL"  @if($resultID['result'][0]->FA_CONDITION_SELL == $item) checked @endif>
+                                    <span></span>{{$item}}
+                                </label>
+                            @endforeach
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div id="boxesc">
-                                        <input type="text" class="form-control" name="FA_CONDITION_SELL_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                        @foreach ($resultID['result'][0]->FA_CONDITION_SELL_OTHER as $key =>$value)
+                                            <input type="text" class="form-control" name="FA_CONDITION_SELL_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -183,19 +259,21 @@
                     <div class="col-lg-5">
                         <label style="margin-top: 10px"><b>วิธีการจ่ายเงินของลูกค้า:</b></label>
                         <div class="radio-list">
-                            <label class="radio">
-                            <input type="radio" value="ขายเงินสด" name="FA_CUSTOMER_PAYS">
-                            <span></span>ขายเงินสด</label>
-                            <label class="radio">
-                            <input type="radio" value="ขายเงินเชื่อ" name="FA_CUSTOMER_PAYS">
-                            <span></span>ขายเงินเชื่อ</label>
-                            <label class="radio">
-                            <input type="radio" value="ทั้งขายเงินสดและขายเงินเชื่อ" name="FA_CUSTOMER_PAYS">
-                            <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
+                            @php $data = __S_CUSTOMER_PAYS()  @endphp
+                            @foreach ($data as $item)
+                                <label class="radio">
+                                    <input type="radio" value="{{$item}}" name="FA_CUSTOMER_PAYS"  @if($resultID['result'][0]->FA_CUSTOMER_PAYS == $item) checked @endif>
+                                    <span></span>{{$item}}
+                                </label>
+                            @endforeach
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div id="boxesp">
-                                        <input type="text" class="form-control" name="FA_CUSTOMER_PAYFA_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                        @isset($resultID['result'][0]->FA_CUSTOMER_PAYFA_OTHER)
+                                            @foreach ($resultID['result'][0]->FA_CUSTOMER_PAYFA_OTHER as $key =>$value)
+                                                <input type="text" class="form-control" name="FA_CUSTOMER_PAYFA_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
+                                            @endforeach    
+                                        @endisset
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -209,22 +287,19 @@
                     <div class="col-lg-5">
                         <label style="margin-top: 10px"><b>การส่งเสริมการขาย(โปรโมชัน):</b></label>
                         <div class="radio-list">
-                            <label class="radio">
-                            <input type="radio" value="ไม่มี" name="FA_PROMOTION">
-                            <span></span>ไม่มี</label>
-                            <label class="radio">
-                            <input type="radio" value="มีการให้ส่วนลด" name="FA_PROMOTION">
-                            <span></span>มีการให้ส่วนลด</label>
-                            <label class="radio">
-                            <input type="radio" value="มีการแถม" name="FA_PROMOTION">
-                            <span></span>มีการแถม</label>
-                            <label class="radio">
-                            <input type="radio" value="Social Media" name="FA_PROMOTION">
-                            <span></span>Social Media</label>
+                            @php $data = __S_PROMOTION()  @endphp
+                            @foreach ($data as $item)
+                                <label class="radio">
+                                    <input type="radio" value="{{$item}}" name="FA_PROMOTION"  @if($resultID['result'][0]->FA_PROMOTION == $item) checked @endif>
+                                    <span></span>{{$item}}
+                                </label>
+                            @endforeach
                             <div class="row">
                                 <div class="col-lg-10">
                                     <div id="boxespr">
-                                        <input type="text" class="form-control" name="FA_PROMOTION_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                        @foreach ($resultID['result'][0]->FA_PROMOTION_OTHER as $key =>$value)
+                                            <input type="text" class="form-control" name="FA_PROMOTION_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -237,15 +312,13 @@
                     <div class="col-lg-5">
                         <label style="margin-top: 10px"><b>จำนวนแรงงานที่ใช้ในร้าน:</b></label>
                         <div class="radio-list">
-                            <label class="radio">
-                            <input type="radio" value="1-3 คน" name="FA_LABOR">
-                            <span></span>1-3 คน</label>
-                            <label class="radio">
-                            <input type="radio" value="4-6 คน" name="FA_LABOR">
-                            <span></span>4-6 คน</label>
-                            <label class="radio">
-                            <input type="radio" value="7 คนขึ้นไป" name="FA_LABOR">
-                            <span></span>7 คนขึ้นไป</label>
+                            @php $data = __S_LABOR()  @endphp
+                            @foreach ($data as $item)
+                                <label class="radio">
+                                    <input type="radio" value="{{$item}}" name="FA_LABOR"  @if($resultID['result'][0]->FA_LABOR == $item) checked @endif>
+                                    <span></span>{{$item}}
+                                </label>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -274,6 +347,32 @@
     $(document).ready(function() {
         $('.js-example-basic-multiple').select2();
     });
+</script>
+<script>
+    function myFunction(data) {
+        var myobj = document.getElementById(data);
+        myobj.remove();
+    }
+</script>
+<script>
+    const chooseFile = document.getElementById("choose-file");
+    const imgPreview = document.getElementById("img-preview");
+
+    chooseFile.addEventListener("change", function () {
+    getImgData();
+    });
+
+    function getImgData() {
+        const files = chooseFile.files[0];
+        if (files) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(files);
+            fileReader.addEventListener("load", function () {
+            imgPreview.style.display = "block";
+            imgPreview.innerHTML = 'รูปใหม่<img src="' + this.result + '" />';
+            });    
+        }
+    }
 </script>
 
 <!--begin::Global Theme Bundle(used by all pages)-->

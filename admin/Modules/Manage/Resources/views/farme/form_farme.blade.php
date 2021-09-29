@@ -118,10 +118,10 @@
                         <div class="radio-list">
                             <label style="margin-top: 10px"><b>รูปแบบการส่ง:</b></label>
                             <label class="radio">
-                            <input type="radio" value="1" name="FA_SEND">
+                            <input type="radio" value="รถยนต์" name="FA_SEND">
                             <span></span>รถยนต์</label>
                             <label class="radio">
-                            <input type="radio" value="2" name="FA_SEND">
+                            <input type="radio" value="รถไฟ" name="FA_SEND">
                             <span></span>รถไฟ</label>
                             <div class="row">
                                 <div class="col-lg-10">

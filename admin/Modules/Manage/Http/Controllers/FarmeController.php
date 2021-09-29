@@ -139,7 +139,7 @@ class FarmeController extends UploadeFileController
         $request['FA_PROBLEM'] = serialize($request['FA_PROBLEM']);
         // dd($request,$id);
         $datas = $request->all();
-        $data['result'] = $this->Repository->update($datas,$id,'farmes');
+        $data['result'] = $this->Repository->update($datas,$id,'classModelFarmes');
         
         return redirect()->route('index.farme');
     }
@@ -193,10 +193,25 @@ class FarmeController extends UploadeFileController
     }
 
     
-    public function PageEditStore1()
+    public function PageEditStore1(Request $request,$id)
     {
+        
         $page_title = 'แก้ไขข้อมูลดกลุ่มเกษตรกร และฟาร์ม';
         $page_description = '';
+
+        $data['resultID'] = $this->FarmesRepository->ShowId($id,'farmes');
+        $data['resultID']['result'][0]->file_multiple = unserialize($data['resultID']['result'][0]->file_multiple);
+        $data['resultID']['result'][0]->FA_CUSTOMER_GROUP = unserialize($data['resultID']['result'][0]->FA_CUSTOMER_GROUP);
+        $data['resultID']['result'][0]->FA_SEND_OTHER = unserialize($data['resultID']['result'][0]->FA_SEND_OTHER);
+        $data['resultID']['result'][0]->FA_CONDITION_SELL_OTHER = unserialize($data['resultID']['result'][0]->FA_CONDITION_SELL_OTHER);
+        $data['resultID']['result'][0]->FA_PROMOTION_OTHER = unserialize($data['resultID']['result'][0]->FA_PROMOTION_OTHER);
+        $data['resultID']['result'][0]->FA_VOLUME = unserialize($data['resultID']['result'][0]->FA_VOLUME);
+        $data['resultID']['result'][0]->FA_REMAINING = unserialize($data['resultID']['result'][0]->FA_REMAINING);
+        $data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER = unserialize($data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER);
+        $data['resultID']['result'][0]->FA_SET_PRICE = unserialize($data['resultID']['result'][0]->FA_SET_PRICE);
+        $data['resultID']['result'][0]->FA_PROBLEM = unserialize($data['resultID']['result'][0]->FA_PROBLEM);
+        
+        $data['ProvinceJoin'] = $this->Repository->ProvinceJoin($data['resultID']['result'][0]->FA_SUB_DISTRICT);
 
         $data['result'] = $this->Repository->show('flowers');
         $data['resultAmphures'] = $this->Repository->show('amphures');
@@ -204,5 +219,84 @@ class FarmeController extends UploadeFileController
         $data['resultDistricts'] = $this->Repository->districts('provinces');
 
         return view('manage::farme.edit_farme', compact('page_title', 'page_description'),$data);
+    }
+
+    public function EditFarmeStep1(Request $request,$id)
+    {
+
+        $uploade = new UploadeFileController();
+        if (!empty($request['files'])) {
+            $request['file'] = $uploade->uploadImage(
+                $request['files'],
+                'flowers',
+                Str::random(5)
+            );
+        }
+        if (!empty($request['file_multiples'])) {
+            foreach ($request['file_multiples'] as $key => $value) {
+                $file_multiple[$key] = $uploade->uploadImage(
+                    $value,
+                    'flowers',
+                    Str::random(5)
+                );
+            }
+            if(isset($request['file_multiples_edit'])){
+                $file_multiple = array_merge($request['file_multiples_edit'],$file_multiple);
+                $request['file_multiple'] = serialize($file_multiple);
+            }else{
+                $request['file_multiple'] = serialize($file_multiple);
+            } 
+        }else{
+            if(isset($request['file_multiples_edit'])){
+                $request['file_multiple'] = serialize($request['file_multiples_edit']);
+            }
+        }
+
+        $datajount['resultID'] = $this->Repository->ProvinceJoin($request['FA_SUB_DISTRICT']);
+
+        $request['FA_DISTRICT'] = $datajount['resultID']['result'][0]->id_amphures ?? null;
+        $request['FA_PROVINCE'] = $datajount['resultID']['result'][0]->id_provinces ?? null;
+        
+        $request['FA_FLOWER'] = serialize($request['FA_FLOWER']);
+        $request['FA_CUSTOMER_GROUP'] = serialize($request['FA_CUSTOMER_GROUP']);
+        $request['FA_SEND_OTHER'] = serialize($request['FA_SEND_OTHER']);
+        $request['FA_CONDITION_SELL_OTHER'] = serialize($request['FA_CONDITION_SELL_OTHER']);
+        $request['FA_PROMOTION_OTHER'] = serialize($request['FA_PROMOTION_OTHER']);
+
+        unset($request['file_multiples_edit']);
+        unset($request['file_multiples']);
+
+        $data['result'] = $this->Repository->update($request->all(),$id,'classModelFarmes');
+
+        return redirect()->route('manage.page2.edit_farme',$id);
+    }
+
+    public function Page2EditFarme($id)
+    {
+        $page_title = 'รายละเอียดร้าน';
+        $page_description = '';
+
+        $data['resultID'] = $this->FarmesRepository->ShowId($id,'farmes');
+        
+        $data['resultID']['result'][0]->FA_VOLUME = unserialize($data['resultID']['result'][0]->FA_VOLUME);
+        $data['resultID']['result'][0]->FA_REMAINING = unserialize($data['resultID']['result'][0]->FA_REMAINING);
+        $data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER = unserialize($data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER);
+        $data['resultID']['result'][0]->FA_SET_PRICE = unserialize($data['resultID']['result'][0]->FA_SET_PRICE);
+        $data['resultID']['result'][0]->FA_PROBLEM = unserialize($data['resultID']['result'][0]->FA_PROBLEM);
+
+        return view('manage::farme.edit_farme_part2',compact('page_title', 'page_description'),$data);
+    }
+    
+    public function EditFarmeStep2(Request $request,$id)
+    {
+        $request['FA_VOLUME'] = serialize($request['FA_VOLUME']);
+        $request['FA_REMAINING'] = serialize($request['FA_REMAINING']);
+        $request['FA_REMAINING_CAUSE_OTHER'] = serialize($request['FA_REMAINING_CAUSE_OTHER']);
+        $request['FA_SET_PRICE'] = serialize($request['FA_SET_PRICE']);
+        $request['FA_PROBLEM'] = serialize($request['FA_PROBLEM']);
+
+        $data['result'] = $this->Repository->update($request->all(),$id,'classModelFarmes');
+        
+        return redirect()->route('index.farme');
     }
 }
