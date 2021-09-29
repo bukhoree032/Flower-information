@@ -179,16 +179,16 @@
                                 <div class="checkbox-list">
                                     <div class="radio-list">
                                         <label class="radio">
-                                        <input type="radio" value="1" name="S_LOCATION_AFFECT_SALE">
+                                        <input type="radio" value="ไม่มี" name="S_LOCATION_AFFECT_SALE">
                                         <span></span>ไม่มี</label>
                                         <label class="radio">
-                                        <input type="radio" value="2" name="S_LOCATION_AFFECT_SALE">
+                                        <input type="radio" value="มีน้อย" name="S_LOCATION_AFFECT_SALE">
                                         <span></span>มีน้อย</label>
                                         <label class="radio">
-                                        <input type="radio" value="3" name="S_LOCATION_AFFECT_SALE">
+                                        <input type="radio" value="มีปานกลาง" name="S_LOCATION_AFFECT_SALE">
                                         <span></span>มีปานกลาง</label>
                                         <label class="radio">
-                                        <input type="radio" value="4" name="S_LOCATION_AFFECT_SALE">
+                                        <input type="radio" value="มีมาก" name="S_LOCATION_AFFECT_SALE">
                                         <span></span>มีมาก</label>
                                     </div>
                                 </div>
@@ -197,16 +197,16 @@
                                 <label style="margin-top: 10px"><b>ภาวการณ์แข่งขันในปัจจุบัน:</b></label>
                                 <div class="radio-list">
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_COMPETE">
+                                    <input type="radio" value="ไม่มี" name="S_COMPETE">
                                     <span></span>ไม่มี</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_COMPETE">
+                                    <input type="radio" value="มีน้อย" name="S_COMPETE">
                                     <span></span>มีน้อย</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="S_COMPETE">
+                                    <input type="radio" value="มีปานกลาง" name="S_COMPETE">
                                     <span></span>มีปานกลาง</label>
                                     <label class="radio">
-                                    <input type="radio" value="4" name="S_COMPETE">
+                                    <input type="radio" value="มีมาก" name="S_COMPETE">
                                     <span></span>มีมาก</label>
                                 </div>
                             </div>
@@ -214,10 +214,10 @@
                                 <div class="radio-list">
                                     <label style="margin-top: 10px"><b>รูปแบบการส่ง:</b></label>
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_SEND">
+                                    <input type="radio" value="รถยนต์" name="S_SEND">
                                     <span></span>รถยนต์</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_SEND">
+                                    <input type="radio" value="รถไฟ" name="S_SEND">
                                     <span></span>รถไฟ</label>
                                     <div class="row">
                                         <div class="col-lg-10">
@@ -233,16 +233,16 @@
                                 <label style="margin-top: 10px"><b>รูปแบบการขาย:</b></label>
                                 <div class="radio-list">
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_SELL">
+                                    <input type="radio" value="ขายหน้าร้านโดยตรง" name="S_SELL">
                                     <span></span>ขายหน้าร้านโดยตรง</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_SELL">
+                                    <input type="radio" value="ลูกค้าโทรศัพท์สั่งซื้อ" name="S_SELL">
                                     <span></span>ลูกค้าโทรศัพท์สั่งซื้อ</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="S_SELL">
+                                    <input type="radio" value="ขายออนไลน์ เพจร้าน" name="S_SELL">
                                     <span></span>ขายออนไลน์ เพจร้าน</label>
                                     <label class="radio">
-                                    <input type="radio" value="4" name="S_SELL">
+                                    <input type="radio" value="ทั้ง 3 วิธี" name="S_SELL">
                                     <span></span>ทั้ง 3 วิธี</label>
                                 </div>
                             </div>
@@ -250,13 +250,13 @@
                                 <label style="margin-top: 10px"><b>เงื่อนไขในการขายดอกไม้:</b></label>
                                 <div class="radio-list">
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_CONDITION_SELL">
+                                    <input type="radio" value="ขายเงินสด" name="S_CONDITION_SELL">
                                     <span></span>ขายเงินสด</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_CONDITION_SELL">
+                                    <input type="radio" value="ขายเงินเชื่อ" name="S_CONDITION_SELL">
                                     <span></span>ขายเงินเชื่อ</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="S_CONDITION_SELL">
+                                    <input type="radio" value="ทั้งขายเงินสดและขายเงินเชื่อ" name="S_CONDITION_SELL">
                                     <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
                                     <div class="row">
                                         <div class="col-lg-10">
@@ -272,13 +272,13 @@
                                 <label style="margin-top: 10px"><b>วิธีการจ่ายเงินของลูกค้า:</b></label>
                                 <div class="radio-list">
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_CUSTOMER_PAYS">
+                                    <input type="radio" value="ขายเงินสด" name="S_CUSTOMER_PAYS">
                                     <span></span>ขายเงินสด</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_CUSTOMER_PAYS">
+                                    <input type="radio" value="ขายเงินเชื่อ" name="S_CUSTOMER_PAYS">
                                     <span></span>ขายเงินเชื่อ</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="S_CUSTOMER_PAYS">
+                                    <input type="radio" value="ทั้งขายเงินสดและขายเงินเชื่อ" name="S_CUSTOMER_PAYS">
                                     <span></span>ทั้งขายเงินสดและขายเงินเชื่อ</label>
                                     <div class="row">
                                         <div class="col-lg-10">
@@ -294,16 +294,16 @@
                                 <label style="margin-top: 10px"><b>การส่งเสริมการขาย(โปรโมชัน):</b></label>
                                 <div class="radio-list">
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_PROMOTION">
+                                    <input type="radio" value="ไม่มี" name="S_PROMOTION">
                                     <span></span>ไม่มี</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_PROMOTION">
+                                    <input type="radio" value="มีการให้ส่วนลด" name="S_PROMOTION">
                                     <span></span>มีการให้ส่วนลด</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="S_PROMOTION">
+                                    <input type="radio" value="มีการแถม" name="S_PROMOTION">
                                     <span></span>มีการแถม</label>
                                     <label class="radio">
-                                    <input type="radio" value="4" name="S_PROMOTION">
+                                    <input type="radio" value="Social Media" name="S_PROMOTION">
                                     <span></span>Social Media</label>
                                     <div class="row">
                                         <div class="col-lg-10">
@@ -319,13 +319,13 @@
                                 <label style="margin-top: 10px"><b>จำนวนแรงงานที่ใช้ในร้าน:</b></label>
                                 <div class="radio-list">
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_LABOR">
+                                    <input type="radio" value="1-3 คน" name="S_LABOR">
                                     <span></span>1-3 คน</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_LABOR">
+                                    <input type="radio" value="4-6 คน" name="S_LABOR">
                                     <span></span>4-6 คน</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="S_LABOR">
+                                    <input type="radio" value="7 คนขึ้นไป" name="S_LABOR">
                                     <span></span>7 คนขึ้นไป</label>
                                 </div>
                             </div>

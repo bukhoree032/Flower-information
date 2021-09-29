@@ -19,7 +19,7 @@
                 </div>
                 {{-- @dd($resultID['resultflower']) --}}
                 <!--begin::Form-->
-                <form action="{{ route('manage.insert.store2',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('manage.edit.store2',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
@@ -44,30 +44,30 @@
                                             <td>{{ $item+1 }}</td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[1]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[1]['PER_TIME']['QUANTITY'] }} @endempty">
                                                 <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[1]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[1]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[1]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[1]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['QUANTITY'] }} @endempty">
                                                 <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[1]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['QUANTITY'] }} @endempty">
                                                 <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>    
@@ -95,30 +95,30 @@
                                             <td>{{ $item+1 }}</td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[1]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[1]['PER_TIME']['QUANTITY'] }} @endempty">
                                                 <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[1]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[1]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[1]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[1]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['QUANTITY'] }} @endempty">
                                                 <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[1]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['QUANTITY'] }} @endempty">
                                                 <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -131,26 +131,26 @@
                                 <div class="radio-list">
                                     <label style="margin-top: 10px"><b>สาเหตุที่ทำให้คงเหลือใช้การไม่ได้ คือ:</b></label>
                                     <label class="radio">
-                                    <input type="radio" value="1" name="S_REMAINING_CAUSE">
+                                    <input type="radio" value="จัดเก็บไม่ดี" name="S_REMAINING_CAUSE" @if($resultID['result'][0]->S_REMAINING_CAUSE == 'จัดเก็บไม่ดี') checked  @endif>
                                     <span></span>จัดเก็บไม่ดี</label>
                                     <label class="radio">
-                                    <input type="radio" value="2" name="S_REMAINING_CAUSE">
+                                    <input type="radio" value="ขายปริมาณมากเกินไป" name="S_REMAINING_CAUSE" @if($resultID['result'][0]->S_REMAINING_CAUSE == 'ขายปริมาณมากเกินไป') checked  @endif>
                                     <span></span>ขายปริมาณมากเกินไป</label>
                                     <label class="radio">
-                                    <input type="radio" value="3" name="S_REMAINING_CAUSE">
+                                    <input type="radio" value="คุณภาพดอกไม้ไม่ดี ขายไม่ได้" name="S_REMAINING_CAUSE" @if($resultID['result'][0]->S_REMAINING_CAUSE == 'คุณภาพดอกไม้ไม่ดี ขายไม่ได้') checked  @endif>
                                     <span></span>คุณภาพดอกไม้ไม่ดี ขายไม่ได้</label>
                                     <label class="radio">
-                                    <input type="radio" value="4" name="S_REMAINING_CAUSE">
+                                    <input type="radio" value="การหีบห่อในการขนส่ง" name="S_REMAINING_CAUSE" @if($resultID['result'][0]->S_REMAINING_CAUSE == 'การหีบห่อในการขนส่ง') checked  @endif>
                                     <span></span>การหีบห่อในการขนส่ง</label>
                                     <div class="row">
                                         <div class="col-lg-10">
                                             <div id="boxess">
-                                                <input type="text" class="form-control" name="S_REMAINING_CAUSE_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                                <input type="text" class="form-control" name="S_REMAINING_CAUSE_OTHER[]" style="margin-top: 5px" value="@empty($resultID['result'][0]->S_REMAINING_CAUSE_OTHER) {{ $resultID['result'][0]->S_REMAINING_CAUSE_OTHER }} @endempty"  placeholder="อื่น ๆ"/>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
                                             {{-- <label>.</label><br> --}}
-                                            <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a>
+                                            {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -174,13 +174,13 @@
                                             <td>{{ $item+1 }}</td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" value="@if($resultID['result'][0]->S_SET_PRICE[1]['FLOWER'] != '') {{ $resultID['result'][0]->S_SET_PRICE[1]['FLOWER'] }}" @endif> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" value="@if($resultID['result'][0]->S_SET_PRICE[1]['BOUQUET'] != '') {{ $resultID['result'][0]->S_SET_PRICE[1]['BOUQUET'] }} @endif"> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" value="@if($resultID['result'][0]->S_SET_PRICE[1]['KILO'] != '') {{ $resultID['result'][0]->S_SET_PRICE[1]['KILO'] }} @endif"> บาท
                                             </td>
                                         </tr>
                                         @endforeach
@@ -188,6 +188,7 @@
                                 </table>
                                 <!--end: Datatable-->
                             </div>
+                            {{-- @dd($resultID['result'][0]) --}}
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>ข้อจำกัด/ปัญหา:</b></label>
                                 <!--begin: Datatable-->
@@ -204,42 +205,42 @@
                                             <td>1</td>
                                             <td>ดอกไม้</td>
                                             <td>
-                                                <textarea name="S_PROBLEM[FLOWER]" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[FLOWER]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->S_PROBLEM['FLOWER'] != '') {{ $resultID['result'][0]->S_PROBLEM['FLOWER'] }}  @endif</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>ไม้ใบ</td>
                                             <td>
-                                                <textarea name="S_PROBLEM[FOLIAGE_PLANT]" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[FOLIAGE_PLANT]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->S_PROBLEM['FOLIAGE_PLANT'] != '') {{ $resultID['result'][0]->S_PROBLEM['FOLIAGE_PLANT'] }}  @endif</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>การจำหน่าย</td>
                                             <td>
-                                                <textarea name="S_PROBLEM[SELL]" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[SELL]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->S_PROBLEM['SELL'] != '') {{ $resultID['result'][0]->S_PROBLEM['SELL'] }}  @endif</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
                                             <td>ราคา</td>
                                             <td>
-                                                <textarea name="S_PROBLEM[PRICE]" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[PRICE]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->S_PROBLEM['PRICE'] != '') {{ $resultID['result'][0]->S_PROBLEM['PRICE'] }}  @endif</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
                                             <td>ลูกค้า</td>
                                             <td>
-                                                <textarea name="S_PROBLEM[CUSTOMER]" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[CUSTOMER]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->S_PROBLEM['CUSTOMER'] != '') {{ $resultID['result'][0]->S_PROBLEM['CUSTOMER'] }}  @endif</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
                                             <td>อื่น</td>
                                             <td>
-                                                <textarea name="S_PROBLEM[OTHER]" class="form-control" id="" cols="30" rows="3"></textarea>
+                                                <textarea name="S_PROBLEM[OTHER]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->S_PROBLEM['OTHER'] != '') {{ $resultID['result'][0]->S_PROBLEM['OTHER'] }}  @endif</textarea>
                                             </td>
                                         </tr>
                                     </tbody>

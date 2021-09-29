@@ -23,7 +23,7 @@ Route::prefix('manage')->name('manage.')->group(function() {
 });
 
 Route::get('pages/manage_farme', 'FarmeController@index')->name('index.farme');
-
+// manage.edit.store
 Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/create-farme', 'FarmeController@create')->name('create.farme');
     Route::post('/pages/create-insert/Farme/', 'FarmeController@CreateFarme')->name('insert.farme');
@@ -43,6 +43,9 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::post('/pages/create-insert/{id}/', 'StoreController@CreateStore2')->name('insert.store2');
 
     Route::get('/pages/EditStore/{id}/', 'StoreController@PageEditStore')->name('page.edit_store');
+    Route::post('/pages/EditStoreStep1/{id}/', 'StoreController@EditStoreStep1')->name('edit.store');
+    Route::get('/pages2/EditStore/{id}/', 'StoreController@Page2EditStore')->name('page2.edit_store');
+    Route::post('/pages/EditStoreStep2/{id}/', 'StoreController@EditStoreStep2')->name('edit.store2');
 
     Route::get('/pages/DetailStore/{id}/', 'StoreController@PageDetailStore')->name('page.detail_store');
 });
