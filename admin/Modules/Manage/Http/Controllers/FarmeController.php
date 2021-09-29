@@ -191,4 +191,18 @@ class FarmeController extends UploadeFileController
 
         return view('manage::farme.detail_farme',compact('page_title', 'page_description'),$data);
     }
+
+    
+    public function PageEditStore1()
+    {
+        $page_title = 'แก้ไขข้อมูลดกลุ่มเกษตรกร และฟาร์ม';
+        $page_description = '';
+
+        $data['result'] = $this->Repository->show('flowers');
+        $data['resultAmphures'] = $this->Repository->show('amphures');
+        $data['resultProvinces'] = $this->Repository->show('provinces');
+        $data['resultDistricts'] = $this->Repository->districts('provinces');
+
+        return view('manage::farme.edit_farme', compact('page_title', 'page_description'),$data);
+    }
 }

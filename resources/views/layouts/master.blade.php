@@ -58,7 +58,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo"> 
-                              <a href="index.html"><img src="https://static.vecteezy.com/system/resources/previews/001/190/578/non_2x/flower-icon-png.png" alt="#" style="width: 70px"><b> ดอกไม้เมืองหนาว</b> </a> 
+                              <a href="{{ route('home.index') }}"><img src="https://static.vecteezy.com/system/resources/previews/001/190/578/non_2x/flower-icon-png.png" alt="#" style="width: 70px"><b> ดอกไม้เมืองหนาว</b> </a> 
 
                            </div>
                         </div>
@@ -69,8 +69,9 @@
                         <div class="limit-box">
                            <nav class="main-menu">
                               <ul class="menu-area-main">
-                                 <li class="active"> <a href="#">หน้าแรก</a> </li>
-                                 <li> <a href="#about">เกี่ยวกับ</a> </li>
+                                 {{-- <li class="active"> <a href="{{ route('home.index') }}">หน้าแรก</a> </li> --}}
+                                 <li><a href="{{ route('home.index') }}">หน้าแรก</a> </li>
+                                 {{-- <li> <a href="#about">เกี่ยวกับ</a> </li> --}}
                                  <li><a href="{{ route('home.flower.flowers') }}">ดอกไม้</a></li>
                                  <li><a href="{{ route('home.stores') }}">ร้านค้า</a></li>
                                  <li><a href="{{ route('home.farmer') }}">เกษตกร</a></li>

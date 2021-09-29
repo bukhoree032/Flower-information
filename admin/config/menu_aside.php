@@ -54,6 +54,13 @@ return [
                 ]
             ]
         ],
+        [
+            'title' => 'ข่าวกิจกรรม',
+            'root' => true,
+            'icon' => 'media/svg/icons/Files/Selected-file.svg',
+            'page' => 'pages/news',
+            'new-tab' => false,
+        ],
 
         // Layout
         [
@@ -67,8 +74,8 @@ return [
             'root' => true,
             'submenu' => [
                 [
-                    'title' => 'Light Aside',
-                    'page' => 'layout/themes/aside-light'
+                    'title' => 'ตั้งค่าพื้นฐาน',
+                    'page' => 'pages/system'
                 ],
                 [
                     'title' => 'Dark Header',
