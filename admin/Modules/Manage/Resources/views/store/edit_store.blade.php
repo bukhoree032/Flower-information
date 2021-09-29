@@ -23,6 +23,7 @@
   }
   [type="file"] + label {
     width: 100%;
+    height: 40px;
     font-family: sans-serif;
     background: #f44336;
     padding: 10px 30px;
@@ -43,6 +44,7 @@
   p a {color:#000;}
   
 </style>
+
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
     <div class="row">
         <div class="col-lg-6 col-xxl-12">
@@ -59,7 +61,7 @@
                 </div>
                 {{-- @dd($result) --}}
                 <!--begin::Form-->
-                <form action="{{ route('manage.insert.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('manage.edit.store',$result->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
@@ -133,21 +135,33 @@
                                     </div>
                                   </div>
                             </div>
+                            {{-- @dd($result->file_multiple) --}}
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="row">
-                                    @foreach ($result->file_multiple as $key => $value)
-                                      <div class="col-lg-3" id="{{$key}}">
-                                          <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
-                                          <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction({{$key}})">ลบรูป</button>
-                                      </div>
-                                    @endforeach
-                                  </div>
-                                <div class="field" align="left">
-                                    <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
-                                    <label for="choose-file" id="uploads" class="drop-areas">
-                                        เพิ่มรูปภาพดอกไม้ทั้งหมด +
-                                    </label>
-                                    <div id="thumbnails"></div>
+                                    @isset($result->file_multiple)
+                                        @foreach ($result->file_multiple as $key => $value)
+                                            <div class="col-lg-3" id="{{$key}}">
+                                                <input type="text"  name="file_multiples_edit[]" value="{{ $value }}" hidden>
+                                                <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
+                                                <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction({{$key}})">ลบรูป</button>
+                                            </div>
+                                        @endforeach    
+                                    @endisset
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <br>
+                                        <div class="field" align="left">
+                                            <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
+                                            <label for="choose-file" id="uploads" class="drop-areas">
+                                                เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9"></div>
+                                    <div class="col-md-12">
+                                        <div id="thumbnails"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -178,6 +192,7 @@
                                     @endforeach
                                 </select>
                             </div>
+                            {{-- @dd($result->S_SOURCE) --}}
                             <div class="col-lg-6">
                                 <label style="margin-top: 10px"><b>แหล่งที่มาของดอกไม้:</b></label>
                                 <div class="checkbox-list">
@@ -186,37 +201,50 @@
                                             <input type="checkbox" disabled="disabled" checked="checked" >
                                             <span></span>จังหวัด/อำเภอ
                                         </label>
+                                        {{-- @dd($resultAmphures) --}}
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <select id="single_pa" class="js-example-basic-multiple" name="S_SOURCE[1][PROVINCE]" style="width: 100%;" >
-                                                    <option>-- จังหวัด --</option>
-                                                    @foreach ($resultProvinces as $item => $value)
-                                                        <option value="{{ $value->id }}">{{ $value->name_th }}</option>
-                                                    @endforeach
+                                                    <option value="" selected disabled hidden>-- จังหวัด --</option>
+                                                    @if (isset($result->S_SOURCE[1]['PROVINCE']))
+                                                        @foreach ($resultProvinces as $item => $value)
+                                                            <option value="{{ $value->id }}" @if($result->S_SOURCE[1]['PROVINCE'] == $value->id) selected @endif>{{ $value->name_th }}</option>
+                                                        @endforeach    
+                                                    @else 
+                                                        @foreach ($resultProvinces as $item => $value)
+                                                            <option value="{{ $value->id }}">{{ $value->name_th }}</option>
+                                                        @endforeach    
+                                                    @endif
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <select id="single_da" class="js-example-basic-multiple" name="S_SOURCE[1][DISTRICT]" style="width: 100%;" >
-                                                    <option>-- อำเภอ --</option>
-                                                    @foreach ($resultAmphures as $item => $value)
-                                                        <option value="{{ $value->id }}">{{ $value->name_th }}</option>
-                                                    @endforeach
+                                                    <option value="" selected disabled hidden>-- อำเภอ --</option>
+                                                    @if (isset($result->S_SOURCE[1]['DISTRICT']))
+                                                        @foreach ($resultAmphures as $item => $value)
+                                                            <option value="{{ $value->id }}" @if($result->S_SOURCE[1]['DISTRICT'] == $value->id) selected @endif>{{ $value->name_th }}</option>
+                                                        @endforeach    
+                                                    @else 
+                                                        @foreach ($resultAmphures as $item => $value)
+                                                            <option value="{{ $value->id }}">{{ $value->name_th }}</option>
+                                                        @endforeach    
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
                                         <br>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="S_SOURCE[2]" value="ปากคลองตลาด">
+                                            <input type="checkbox" name="S_SOURCE[2]" value="ปากคลองตลาด" @if (isset($result->S_SOURCE[2])) checked @endif>
                                             <span></span>ปากคลองตลาด
                                         </label>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="S_SOURCE[3]" value="มาเลเซีย">
+                                            <input type="checkbox" name="S_SOURCE[3]" value="มาเลเซีย"  @if (isset($result->S_SOURCE[3])) checked @endif>
                                             <span></span>มาเลเซีย
                                         </label>
                                         <div class="row">
                                             <div class="col-lg-10">
                                                 <div id="boxesse">
-                                                    <input type="text" class="form-control" name="S_SOURCE[4]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
+                                                    <input type="text" class="form-control" name="S_SOURCE[4]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{ $result->S_SOURCE[4] }}"/>
                                                 </div>
                                             </div>
                                             {{-- <div class="col-lg-2">
@@ -226,6 +254,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- @dd($result) --}}
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>ทำเลที่ตั้งร้านมีผลต่อยอดขายหรือไม่:</b></label>
                                 <div class="checkbox-list">
@@ -390,8 +419,9 @@
 @section('scripts')
 
 <script>
-    function myFunction(data) {
-    document.getElementById(data).style.display = "none";
+function myFunction(data) {
+    var myobj = document.getElementById(data);
+    myobj.remove();
 }
 </script>
 <script>

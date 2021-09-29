@@ -52,19 +52,6 @@ class HomeController extends Controller
         return view('home::flowers.flower',$data);
     }
 
-    // ----------- Stores
-    
-    public function Stores()
-    {
-        $db = "stores";
-        $data = $this->Repository->Show($db);
-        return view('home::stores.store');
-    }
-
-    public function StoresDetail()
-    {
-        return view('home::stores.store_detail');
-    }
 
     // ----------- farmer
     

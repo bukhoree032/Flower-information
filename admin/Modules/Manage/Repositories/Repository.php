@@ -107,6 +107,7 @@ class Repository
     public function insert($request,$db)
     {
         $insert = $this->$db::create($request);
+        
         return $insert;
     }
 
@@ -114,13 +115,11 @@ class Repository
      * @param $id
      * @return mixed
      */
-    public function update($data,$id,$db)
+    public function update($request,$id,$db)
     {
-        $data = \DB::table($db)
-              ->where('id', $id)
-              ->update($data);
-        // $insert = $this->$db::update($data);
-        // dd($id);
+        $result = $this->$db::findOrFail($id);
+        $data = $result->update($request);
+
         return $data;
     }
 }
