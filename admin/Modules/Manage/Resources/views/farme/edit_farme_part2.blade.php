@@ -39,7 +39,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @dd($resultID['resultflower'][0][0]->id) --}}
+                                        {{-- @dd($resultID['result'][0]->FA_VOLUME[1]) --}}
 
                                         @foreach ($resultID['resultflower'] as $item => $valuw)
                                         @if(isset($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]))

@@ -170,13 +170,13 @@
                         </div>
                     </div>
                     <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
+                    
+                    {{-- @dd($resultID['result'][0]->FA_FLOWER) --}}
                     <div class="col-lg-4">
                         <label style="margin-top: 10px"><b>ดอกไม้ที่ผลิต:</b></label><br>
                         <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                             @foreach ($result as $item)
-                                @foreach ($resultID['result'][0]->FA_FLOWER as $value)
-                                    <option value="{{ $item->id }}" @if($value == $item->id) selected @endif>{{ $item->F_NAME }}</option>
-                                @endforeach
+                                <option value="{{ $item->id }}" @foreach ($resultID['result'][0]->FA_FLOWER as $value) @if($value == $item->id) selected @endif  @endforeach>{{ $item->F_NAME }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -186,10 +186,8 @@
                         <select id="single_c" class="js-example-basic-multiple" name="FA_CUSTOMER_GROUP[]"  style="width: 100%" multiple="multiple">
                             @php $data = __S_CUSTOMER_GROUP()  @endphp
                             @foreach ($data as $item)
-                                @foreach ($resultID['result'][0]->FA_CUSTOMER_GROUP as $value)
-                                    <option value="{{$item}}" @if($value == $item) selected @endif>{{$item}}</option>
-                                @endforeach
-                            @endforeach
+                                <option value="{{$item}}" @foreach ($resultID['result'][0]->FA_CUSTOMER_GROUP as $value) @if($value == $item) selected @endif @endforeach>{{$item}}</option>   
+                            @endforeach 
                         </select>
                     </div>
                     <div class="col-lg-5">
