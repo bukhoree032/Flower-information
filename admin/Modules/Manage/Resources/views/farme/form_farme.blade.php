@@ -38,13 +38,15 @@
                             <input type="text" class="form-control" name="FA_HOUSENUMBER" placeholder="ป้อนบ้านเลขที่" />
                             <span class="form-text text-muted">กรุณาป้อนบ้านเลขที่</span>
                         </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="col-lg-4">
                             <label>หมู่:</label>
                             <input type="text" class="form-control" name="FA_MOO" placeholder="ป้อนหมู่" />
                             <span class="form-text text-muted">กรุณาป้อนหมู่ที่</span>
                         </div>
                         <div class="col-lg-6">
-                            <label style="margin-top: 10px"><b>ตำบล/อำเภอ/จังหวัด:</b></label>
+                            <label>ตำบล/อำเภอ/จังหวัด:</label>
                             <span class="text-danger">*</span></label>
                             <select id="pro" class="js-example-basic-multiple" name="FA_SUB_DISTRICT" style="width: 100%;" required>
                                 <option selected>-- จังหวัด --</option>
@@ -52,12 +54,10 @@
                                     <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option>
                                 @endforeach
                             </select>
+                            <span class="form-text text-muted">กรุณาป้อนหมู่ที่</span>
                         </div>
-                        {{-- <div class="col-lg-4">
-                            <label>รหัสไปรษณีย์:</label>
-                            <input type="text" class="form-control" name="FA_ZIPCODE" placeholder="ป้อนรหัสไปรษณีย์" />
-                            <span class="form-text text-muted">กรุณาป้อนรหัสไปรษณีย์</span>
-                        </div> --}}
+                    </div>
+                    <div class="form-group row">
                         <div class="col-lg-4">
                             <label>เบอร์ติดต่อ:</label>
                             <input type="text" class="form-control" name="FA_PHONE" placeholder="ป้อนเบอร์ติดต่อ" />
@@ -72,6 +72,13 @@
                             <label>พิกัด (ลองติจูด):</label>
                             <input type="text" class="form-control" name="FA_LONG" placeholder="พิกัด (ลองติจูด)" />
                             <span class="form-text text-muted">กรุณาพิกัด (ลองติจูด)</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>ข้อมูลกลุ่ม:</label>
+                            <textarea type="text" class="form-control" name="FA_PHONE" placeholder="ป้อนข้อมูลทั้วไปของกลุ่มหรือฟาร์ม" rows="3"></textarea>
+                            <span class="form-text text-muted">กรุณาป้อนข้อมูลทั่วไป</span>
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
                             <div class="field" align="left">
@@ -97,7 +104,7 @@
                         <label style="margin-top: 10px"><b>ดอกไม้ที่ผลิต:</b></label><br>
                         <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                             @foreach ($result as $item)
-                                <option value="{{ $item->id }}">{{ $item->F_NAME }}</option>
+                                <option value="{{ $item->F_NAME }}">{{ $item->F_NAME }}</option>
                             @endforeach
                         </select>
                     </div>
