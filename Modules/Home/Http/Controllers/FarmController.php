@@ -19,6 +19,7 @@ class FarmController extends Controller
     public function index()
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "farmes";
         $data['result'] = $this->Repository->show($db);
@@ -40,6 +41,7 @@ class FarmController extends Controller
     public function store($id)
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "farmes";
         $data['result'] = $this->Repository->ShowId($id,$db);

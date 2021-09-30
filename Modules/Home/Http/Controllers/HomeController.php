@@ -23,6 +23,7 @@ class HomeController extends Controller
     public function index()
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "flowers";
         $data['result'] = $this->Repository->show($db);
@@ -39,6 +40,7 @@ class HomeController extends Controller
     public function FlowerDetail($id)
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "flowers";
         $data['result'] = $this->Repository->ShowId($id,$db);
@@ -53,6 +55,7 @@ class HomeController extends Controller
     public function FlowerFlowers()
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "flowers";
         $data['result'] = $this->Repository->show($db);

@@ -23,6 +23,7 @@ class NewsController extends Controller
     public function index()
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "news";
         $data['result'] = $this->Repository->Show($db);
@@ -42,6 +43,7 @@ class NewsController extends Controller
     public function showid($id)
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "news";
         $data['result'] = $this->Repository->ShowId($id,$db);

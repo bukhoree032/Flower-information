@@ -22,6 +22,7 @@ class StoreController extends Controller
     public function Stores()
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $db = "stores";
         $data['result'] = $this->Repository->Show($db);
@@ -37,6 +38,7 @@ class StoreController extends Controller
     public function StoresDetail($id)
     {
         $data['system'] = $this->Repository->show('system');
+        $data['banner'] = $this->Repository->show('banner');
 
         $data['result'] = $this->Repository->ShowId($id,"stores");
 
