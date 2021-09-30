@@ -21,6 +21,4 @@ Route::prefix('home')->name('home.')->group(function() {
 
     Route::get('/Farmers/', 'FarmController@index')->name('farmer');
     Route::get('/Farmers/Detail/{id}', 'FarmController@store')->name('farmer.detail');
-    Route::get('/Farmers/Detail1/', 'FarmController@edit')->name('farmer.detail1');
-    Route::get('/Farmers/Detail2/', 'FarmController@update')->name('farmer.detail2');
 });
