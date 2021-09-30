@@ -15,6 +15,8 @@ class CreateSystemTable extends Migration
     {
         Schema::create('system', function (Blueprint $table) {
             $table->id();
+            $table->string('sys_nameweb_th')->nullable();
+            $table->string('sys_nameweb_en')->nullable();
             $table->string('sys_name_th')->nullable();
             $table->string('sys_name_en')->nullable();
             $table->string('sys_subname_th')->nullable();
@@ -25,7 +27,8 @@ class CreateSystemTable extends Migration
             $table->string('sys_mail')->nullable();
             $table->text('sys_address_th')->nullable();
             $table->text('sys_address_en')->nullable();
-            $table->text('file')->nullable();
+            $table->text('file_logo')->nullable();
+            $table->text('file_background')->nullable();
             $table->text('_token')->nullable();
 
             $table->timestamps();

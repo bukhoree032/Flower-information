@@ -10,6 +10,8 @@ class System extends Model
 
     protected $fillable = [
         'id',
+        'sys_nameweb_th',
+        'sys_nameweb_en',
         'sys_name_th',
         'sys_name_en',
         'sys_subname_th',
@@ -21,7 +23,8 @@ class System extends Model
         'sys_address_th',
         'sys_address_en',
         
-        'file',
+        'file_logo',
+        'file_background',
         '_token'
     ];
 }

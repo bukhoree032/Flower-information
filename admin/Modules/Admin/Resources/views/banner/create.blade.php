@@ -12,38 +12,42 @@
                     <h2 class="card-title">เพิ่มข้อมูลข่าวกิจกรรม</h2>
                 </div>
                 <!--begin::Form-->
-                <form action="{{ route('admin.insert.news') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.insert.banner') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-lg-12">
-                                <label>หัวข้อ(เรื่อง) :</label>
-                                <input name="n_title" type="text"  class="form-control" placeholder="ใส่หัวข้อของข่าวกิจกรรม" />
-                                <span class="form-text text-muted">กรุณาใส่หัวข้อของข่าวกิจกรรม</span>
+                            <div class="col-lg-6">
+                                <label>เรื่อง (ไทย):</label>
+                                <input name="ban_title_th" type="text"  class="form-control" placeholder="ใส่เรื่องของแบนเนอร์ภาษาไทย" />
+                                <span class="form-text text-muted">กรุณาใส่เรื่องของแบนเนอร์ภาษาไทย</span>
                             </div>
-                            <div class="col-lg-12">
-                                <label>รายละเอียดข่าว :</label>
-                                <input name="n_details" type="text" class="form-control" placeholder="ใส่รายละเอียดข่าว" />
-                                <span class="form-text text-muted">กรุณาใส่รายละเอียดของข่าวกิจกรรม</span>
+                            <div class="col-lg-6">
+                                <label>เรื่อง (อังกฤษ):</label>
+                                <input name="ban_title_en" type="text" class="form-control" placeholder="ใส่เรื่องของแบนเนอร์ภาษาอังกฤษ" />
+                                <span class="form-text text-muted">กรุณาใส่รายละเอียดของแบนเนอร์ภาษาอังกฤษ</span>
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>รายละเอียด (ไทย):</label>
+                                <input name="ban_detail_th" type="text"  class="form-control" placeholder="ใส่เรื่องของแบนเนอร์ภาษาไทย" />
+                                <span class="form-text text-muted">กรุณาใส่เรื่องของแบนเนอร์ภาษาไทย</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>รายละเอียด (อังกฤษ):</label>
+                                <input name="ban_detail_en" type="text" class="form-control" placeholder="ใส่รายละเอียดของแบนเนอร์ภาษาอังกฤษ" />
+                                <span class="form-text text-muted">กรุณาใส่รายละเอียดของแบนเนอร์ภาษาอังกฤษ</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
                                     <input type="file" style="display:none" id="upload-image" name="files"></input>
                                     <div id="upload" class="drop-area">
-                                        อัปโหลดรูปหน้าปก +
+                                        อัปโหลดรูปแบนเนอร์ +
                                     </div>
-                                    <span class="form-text text-muted">กรุณาใส่รูปหลัก/รูปหน้าปก 1 รูป</span>
+                                    <span class="form-text text-muted">กรุณาใส่รูปแบนเนอร์</span>
                                     <div id="thumbnail"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12" style="margin-top: 20px">
-                                <div class="field" align="left">
-                                    <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
-                                    <div id="uploads" class="drop-areas">
-                                        เพิ่มรูปภาพดอกไม้ทั้งหมด +
-                                    </div>
-                                    <span class="form-text text-muted">กรุณาใส่รูปเพิ่มเติมของข่าวสามารถใส่ได้หลายรูปโดยการกด Ctrl+คลิกรูปที่ต้องการใส่</span>
-                                    <div id="thumbnails"></div>
                                 </div>
                             </div>
                         </div>

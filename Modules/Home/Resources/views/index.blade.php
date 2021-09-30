@@ -39,7 +39,7 @@
                       <div class="carousel-caption ">
                          <h1>ไม้ดอกเมืองหนาว </h1><h3><strong class="color">โครงการไม้ดอกเมืองหนาวอันเนื่องมาจากพระราชดำริ</strong></h3><h3><strong> อำเภอเบตง จังหวัดยะลา</strong></h3>
                          <a class="btn btn-lg btn-primary" href="#" role="button">เกี่ยวกับ</a>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">ติดต่อเรา</a>
+                         <a class="btn btn-lg btn-primary" href="#contact" role="button">ติดต่อเรา</a>
                       </div>
                    </div>
                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">

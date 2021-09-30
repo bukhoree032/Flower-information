@@ -48,23 +48,37 @@ p a {color:#000;}
             <!--begin::Card-->
             <div class="card card-custom gutter-b example example-compact">
                 <div class="card-header">
-                    <h2 class="card-title">เพิ่มข้อมูลข่าวกิจกรรม</h2>
+                    <h2 class="card-title">เพิ่มข้อมูลแบนเนอร์</h2>
                 </div>
                 <!--begin::Form-->
-                <form action="{{ route('admin.update.news',$result->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.update.banner',$result->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="card-body">
+                      <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-lg-12">
-                                <label>หัวข้อ(เรื่อง) :</label>
-                                <input name="n_title" type="text"  class="form-control" placeholder="ใส่ชื่อหัวข้อของข่าวกิจกรรม" value="{{ $result->n_title }}"/>
-                                <span class="form-text text-muted">กรุณาใส่หัวข้อของข่าวกิจกรรม</span>
+                            <div class="col-lg-6">
+                                <label>เรื่อง (ไทย):</label>
+                                <input name="ban_title_th" type="text"  class="form-control" placeholder="ใส่เรื่องของแบนเนอร์ภาษาไทย" value="{{ $result->ban_title_th }}"/>
+                                <span class="form-text text-muted">กรุณาใส่เรื่องของแบนเนอร์ภาษาไทย</span>
                             </div>
-                            <div class="col-lg-12">
-                                <label>รายละเอียดข่าว :</label>
-                                <input name="n_details" type="text" class="form-control" placeholder="ใส่รายละเอียดข่าว" value="{{ $result->n_details }}"/>
-                                <span class="form-text text-muted">กรุณาใส่รายละเอียดของข่าวกิจกรรม</span>
+                            <div class="col-lg-6">
+                                <label>เรื่อง (อังกฤษ):</label>
+                                <input name="ban_title_en" type="text" class="form-control" placeholder="ใส่เรื่องของแบนเนอร์ภาษาอังกฤษ" value="{{ $result->ban_title_en }}"/>
+                                <span class="form-text text-muted">กรุณาใส่รายละเอียดของแบนเนอร์ภาษาอังกฤษ</span>
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>รายละเอียด (ไทย):</label>
+                                <input name="ban_detail_th" type="text"  class="form-control" placeholder="ใส่เรื่องของแบนเนอร์ภาษาไทย" value="{{ $result->ban_detail_th }}"/>
+                                <span class="form-text text-muted">กรุณาใส่เรื่องของแบนเนอร์ภาษาไทย</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>รายละเอียด (อังกฤษ):</label>
+                                <input name="ban_detail_en" type="text" class="form-control" placeholder="ใส่รายละเอียดของแบนเนอร์ภาษาอังกฤษ" value="{{ $result->ban_detail_en }}"/>
+                                <span class="form-text text-muted">กรุณาใส่รายละเอียดของแบนเนอร์ภาษาอังกฤษ</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="row">
                                   <div class="col-lg-4">
@@ -78,27 +92,6 @@ p a {color:#000;}
                                       <div id="img-preview"></div>
                                     </div>
                                   </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12" style="margin-top: 20px">
-                                <div class="field" align="left">
-                                    <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
-                                    <div id="uploads" class="drop-areas">
-                                        เพิ่มรูปภาพดอกไม้ทั้งหมด +
-                                    </div>
-                                    <span class="form-text text-muted">กรุณาใส่รูปเพิ่มเติมของข่าวสามารถใส่ได้หลายรูปโดยการกด Ctrl+คลิกรูปที่ต้องการใส่</span>
-                                    <div id="thumbnails"></div>
-                                </div>
-                                <div class="row">
-                                  @if($result->file_multiple != '')
-                                    @foreach ($result->file_multiple as $key => $value)
-                                      <div class="col-lg-3" id="{{$key}}">
-                                          <input type="text"  name="file_multiples_edit[]" value="{{ $value }}" hidden>
-                                          <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
-                                          <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction({{$key}})">ลบรูป</button>
-                                      </div>
-                                    @endforeach
-                                  @endif
                                 </div>
                             </div>
                         </div>

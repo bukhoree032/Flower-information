@@ -74,12 +74,12 @@ return [
             'root' => true,
             'submenu' => [
                 [
-                    'title' => 'ตั้งค่าพื้นฐาน',
+                    'title' => 'ตั้งค่าทั่วไป',
                     'page' => 'pages/system'
                 ],
                 [
-                    'title' => 'Dark Header',
-                    'page' => 'layout/themes/header-dark'
+                    'title' => 'ตั้งค่าแบนเนอร์',
+                    'page' => 'pages/banner'
                 ]
             ]
         ],

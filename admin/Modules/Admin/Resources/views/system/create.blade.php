@@ -61,7 +61,7 @@ p a {color:#000;}
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <img src="{{$result[0]->file ?? null}}" alt="" style="width: 100%">
-                                        <input type="file" id="choose-file" name="files" accept="image/*" />
+                                        <input type="file" id="choose-file" name="files_logo" accept="image/*" />
                                         <label for="choose-file">อัปโหลดโลโก้ +</label>
                                     </div>
                                     <div class="col-lg-4">
@@ -70,6 +70,34 @@ p a {color:#000;}
                                       </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-12" style="margin-top: 20px">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{$result[0]->file ?? null}}" alt="" style="width: 100%">
+                                        <input type="file" id="choose-file" name="files" accept="image/*" />
+                                        <label for="choose-file">อัปโหลดพื้นหลัง +</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                      <div>
+                                        <div id="img-preview"></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>ชื่อระบบ (ไทย) :</label>
+                                <input name="sys_nameweb_th" type="text"  class="form-control" placeholder="ชื่อระบบภาษาไทย" value="{{ $result[0]->sys_nameweb_th ?? null }}"/>
+                                <span class="form-text text-muted">กรุณาใส่ชื่อระบบภาษาไทย</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>ชื่อระบบ (อังกฤษ) :</label>
+                                <input name="sys_nameweb_en" type="text" class="form-control" placeholder="ชื่อระบบภาษาอังกฤษ" value="{{ $result[0]->sys_nameweb_en ?? null }}"/>
+                                <span class="form-text text-muted">กรุณาใส่ชื่อระบบภาษาอังกฤษ</span>
                             </div>
                         </div>
                         <div class="form-group row">

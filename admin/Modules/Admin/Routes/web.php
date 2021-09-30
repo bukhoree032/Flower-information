@@ -29,10 +29,17 @@ Route::get('pages/system', 'SystemController@index')->name('index.system');
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/pages/create-system', 'SystemController@create')->name('create.system');
     Route::post('/pages/insert-system/', 'SystemController@insert')->name('insert.system');
-    // Route::get('/pages/Detailsystem/{id}/', 'SystemController@detail')->name('detail.system');
+});
 
-    // Route::get('/pages/Editsystem/{id}/', 'SystemController@edit')->name('edit.system');
-    // Route::post('/pages/updatesystem/{id}/', 'SystemController@update')->name('update.system');
+Route::get('pages/banner', 'BannerController@index')->name('index.banner');
 
-    // Route::get('/pages/Deletsystem/{id}/', 'SystemController@delet')->name('delet.system');
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::get('/pages/create-banner', 'BannerController@create')->name('create.banner');
+    Route::post('/pages/insert-banner/', 'BannerController@insert')->name('insert.banner');
+    Route::get('/pages/Detail-banner/{id}/', 'BannerController@detail')->name('detail.banner');
+
+    Route::get('/pages/Edit-banner/{id}/', 'BannerController@edit')->name('edit.banner');
+    Route::post('/pages/update-banner/{id}/', 'BannerController@update')->name('update.banner');
+
+    Route::get('/pages/Delet-banner/{id}/', 'BannerController@delet')->name('delet.banner');
 });

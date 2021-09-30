@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\System;
 use Modules\Admin\Entities\News;
+use Modules\Admin\Entities\Banner;
 
 use Illuminate\Support\Str;
 use App\Http\Controllers\UploadeFileController;
@@ -17,6 +18,7 @@ class Repository
     {
         $this->classModelNews = News::class;
         $this->classModelSystem = System::class;
+        $this->classModelBanner = Banner::class;
     }
 
     /**
