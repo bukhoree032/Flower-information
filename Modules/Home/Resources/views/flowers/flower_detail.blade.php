@@ -55,8 +55,8 @@
             </div>
           </div>
           <!-- card right -->
-          <div class = "product-content">
-            <h2 class = "product-title">{{ $result->F_NAME ?? 'ไม่มีข้อมูล'}}</h2>
+            <div class = "product-content">
+                <h2 class = "product-title">{{ $result->F_NAME ?? 'ไม่มีข้อมูล'}}</h2>
                 <div class = "product-detail">
                     <h3>ชื่อวิทยาศาสตร์: {{ $result->F_SCIENTIFIC_NAME ?? 'ไม่มีข้อมูล'}}</h3>
 
@@ -70,7 +70,6 @@
                     <p><b>ใบ</b> {{ $result->F_NATURE_TRUNK ?? 'ไม่มีข้อมูล'}}</p>
                     <p><b>ดอก</b> {{ $result->F_NATURE_TRUNK ?? 'ไม่มีข้อมูล'}}</p>
                 </div>
-        
             </div>
         </div>
     </div>
@@ -134,10 +133,6 @@
     <br>
     <br>
 </section>
-
-
-
-
 
 <script>
       const imgs = document.querySelectorAll('.img-select a');

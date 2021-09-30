@@ -37,10 +37,22 @@ class FarmController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store($id)
     {
         $data['system'] = $this->Repository->show('system');
 
-        return view('home::farmers.farmer_detail');
+        $db = "farmes";
+        $data['result'] = $this->Repository->ShowId($id,$db);
+
+        $data['result']->FA_FLOWER = unserialize($data['result']->FA_FLOWER);
+        $data['result']->FA_CUSTOMER_GROUP = unserialize($data['result']->FA_CUSTOMER_GROUP);
+        $data['result']->FA_SEND_OTHER = unserialize($data['result']->FA_SEND_OTHER);
+        $data['result']->FA_CONDITION_SELL_OTHER = unserialize($data['result']->FA_CONDITION_SELL_OTHER);
+        $data['result']->FA_PROMOTION_OTHER = unserialize($data['result']->FA_PROMOTION_OTHER);
+        $data['result']->file_multiple = unserialize($data['result']->file_multiple);
+
+        $data['DISTRICT'] = $this->Repository->ProvinceJoin($data['result']->FA_SUB_DISTRICT);
+
+        return view('home::farmers.farmer_detail',$data);
     }
 }

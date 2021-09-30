@@ -57,7 +57,7 @@
             <div class="row">
                 @foreach ($result as $key => $value)
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.stores.detail',$value->id) }}'">
-                    <div class="plants-box">
+                    <div class="plants-box" style="cursor: pointer;">
                         <figure><img src="{{ $value->file }}" alt="img" class="img_store"/></figure>
                         {{-- <p style="font-size: 20px" style="margin-top: 5px"><b>{{ $value->S_NAME }}</b></p> --}}
                         <p style="font-size: 17px" style="margin-top: 10px">

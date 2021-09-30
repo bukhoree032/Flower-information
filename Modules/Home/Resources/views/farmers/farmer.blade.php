@@ -53,35 +53,17 @@
         <div class="container">
             <div class="row">
                 @foreach($result as $key => $value)
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.farmer.detail') }}'">
-                        <div class="plants-box">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.farmer.detail',$value->id) }}'">
+                        <div class="plants-box" style="cursor: pointer;">
                             <figure><img src="{{ $value->file }}" alt="img" class="img_store"/></figure>
-                            <h3> {{ $value->FA_GROUPNAME }}</h3>
-                            <p><b>ที่อยู่ :</b> ต.{{$value->FA_SUB_DISTRICT[0]->name_districts}} อ.{{$value->FA_SUB_DISTRICT[0]->name_amphures}} จ.{{$value->FA_SUB_DISTRICT[0]->name_provinces}}</p>
+                            <p style="font-size: 17px" >
+                                @php $value->FA_GROUPNAME = __substr($value->FA_GROUPNAME,'28') @endphp
+                                <b> {{ $value->FA_GROUPNAME }}</b>
+                                <p><b>ที่อยู่ :</b> ต.{{$value->FA_SUB_DISTRICT[0]->name_districts}} อ.{{$value->FA_SUB_DISTRICT[0]->name_amphures}} จ.{{$value->FA_SUB_DISTRICT[0]->name_provinces}}</p>
+                            </p>
                         </div>
                     </div>
                 @endforeach
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="https://www.paiduaykan.com/travel/wp-content/uploads/2019/01/1-SON00796-800x533.jpg" alt="img" class="img_store"/></figure>
-                        <h3> บ้านปิยะมิตร2</h3>
-                        <p><b>ที่อยู่ :</b> ต.ตาเนาะแมเราะ อ.เบตง จ.ยะลา   </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="http://127.0.0.1:8000/storage/flowers/UJdrM_Xo83B.jpg" alt="img" class="img_store"/></figure>
-                        <h3> กลุ่มขยายผลบ้านธารโต</h3>
-                        <p><b>ที่อยู่ :</b> ต.ธารโต อ.ธารโต จ.ยะลา </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="plants-box">
-                        <figure><img src="https://cbtthailand.dasta.or.th/upload-file-api/Resources/Community/Images/CM1095001/1.jpg" alt="img" class="img_store"/></figure>
-                        <h3> จุฬาภรณ์พัฒนา 10</h3>
-                        <p><b>ที่อยู่ :</b> ต.อัยเยอร์เวง อ.เบตง จ.ยะลา </p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
