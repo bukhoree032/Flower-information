@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- @dd($resultID['resultflower']) --}}
+                {{-- @dd($resultID['result'][0]->S_VOLUME) --}}
                 <!--begin::Form-->
                 <form action="{{ route('manage.edit.store2',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -40,37 +40,71 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($resultID['resultflower'] as $item => $valuw)
+                                        @if(isset($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]))
                                         <tr>
                                             <td>{{ $item+1 }}</td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[1]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[1]['PER_TIME']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['QUANTITY'] }} @endempty">
                                                 <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[1]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[1]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[1]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[1]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['QUANTITY'] }} @endempty">
                                                 <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[1]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[1]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['QUANTITY'] }} @endempty">
                                                 <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[1]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
-                                        </tr>    
+                                        </tr>   
+                                        @else  
+                                        <tr>
+                                            <td>{{ $item+1 }}</td>
+                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
+                                            <td>
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <select name="S_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -91,37 +125,71 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($resultID['resultflower'] as $item => $valuw)
+                                        @if (isset($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]))
                                         <tr>
                                             <td>{{ $item+1 }}</td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[1]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[1]['PER_TIME']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['QUANTITY'] }} @endempty">
                                                 <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[1]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[1]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[1]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[1]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['QUANTITY'] }} @endempty">
                                                 <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[1]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[1]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['QUANTITY'] }} @endempty">
                                                 <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[1]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->S_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
+                                        @else 
+                                        <tr>
+                                            <td>{{ $item+1 }}</td>
+                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
+                                            <td>
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
+                                                <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
+                                                <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
+                                                <select name="S_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
+                                                    <option value="">หน่วย</option>
+                                                    <option value="ช่อ">ช่อ</option>
+                                                    <option value="ดอก">ดอก</option>
+                                                    <option value="กิโล">กิโล</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -170,19 +238,35 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($resultID['resultflower'] as $item => $valuw)
+                                        @if (isset($resultID['result'][0]->S_SET_PRICE[$resultID['resultflower'][$item][0]->id]))
                                         <tr>
                                             <td>{{ $item+1 }}</td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" value="@if($resultID['result'][0]->S_SET_PRICE[1]['FLOWER'] != '') {{ $resultID['result'][0]->S_SET_PRICE[1]['FLOWER'] }}" @endif> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" value="@if($resultID['result'][0]->S_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] != '') {{ $resultID['result'][0]->S_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] }} @endif "> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" value="@if($resultID['result'][0]->S_SET_PRICE[1]['BOUQUET'] != '') {{ $resultID['result'][0]->S_SET_PRICE[1]['BOUQUET'] }} @endif"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" value="@if($resultID['result'][0]->S_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] != '') {{ $resultID['result'][0]->S_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] }} @endif"> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" value="@if($resultID['result'][0]->S_SET_PRICE[1]['KILO'] != '') {{ $resultID['result'][0]->S_SET_PRICE[1]['KILO'] }} @endif"> บาท
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" value="@if($resultID['result'][0]->S_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] != '') {{ $resultID['result'][0]->S_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] }} @endif"> บาท
                                             </td>
                                         </tr>
+                                        @else 
+                                        <tr>
+                                            <td>{{ $item+1 }}</td>
+                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
+                                            <td>
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]"> บาท
+                                            </td>
+                                            <td>
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]"> บาท
+                                            </td>
+                                            <td>
+                                                <input type="text" name="S_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]"> บาท
+                                            </td>
+                                        </tr>
+                                        @endif 
                                         @endforeach
                                     </tbody>
                                 </table>

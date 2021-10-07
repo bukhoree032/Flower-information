@@ -121,7 +121,7 @@ class StoreController extends UploadeFileController
         $request['S_PROBLEM'] = serialize($request['S_PROBLEM']);
 
         $datas = $request->all();
-        $data['result'] = $this->Repository->update($datas,$id,'stores');
+        $data['result'] = $this->Repository->update($datas,$id,'classModelStores');
 
         // return view('manage::store.form_store_part2');
         return redirect()->route('index.store');
@@ -275,7 +275,7 @@ class StoreController extends UploadeFileController
         $request['S_SET_PRICE'] = serialize($request['S_SET_PRICE']);
         $request['S_PROBLEM'] = serialize($request['S_PROBLEM']);
 
-        $data['result'] = $this->Repository->update($request->all(),$id,'classModelStores');
+        $data['result'] = $this->Repository->update($request->all(),$id,"classModelStores");
         
         return redirect()->route('index.store');
     }

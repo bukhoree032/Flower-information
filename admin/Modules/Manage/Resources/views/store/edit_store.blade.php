@@ -175,20 +175,17 @@
                                 <label style="margin-top: 10px"><b>ดอกไม้ที่ขาย:</b></label><br>
                                 <select id="single_f" class="js-example-basic-multiple" name="S_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                                     @foreach ($flowers as $item)
-                                        @foreach ($result->S_FLOWER as $value)
-                                            <option value="{{ $item->id }}" @if($value == $item->id) selected @endif>{{ $item->F_NAME }}</option>
-                                        @endforeach
+                                        <option value="{{ $item->id }}" @foreach ($result->S_FLOWER as $value) @if($value == $item->id) selected @endif @endforeach>{{ $item->F_NAME }}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            {{-- @dd($result) --}}
                             <div class="col-lg-6">
                                 <label style="margin-top: 10px"><b>กลุ่มลูกค้า:</b></label>
                                 <select id="single_c" class="js-example-basic-multiple" name="S_CUSTOMER_GROUP[]"  style="width: 100%" multiple="multiple">
                                     @php $data = __S_CUSTOMER_GROUP()  @endphp
                                     @foreach ($data as $item)
-                                        @foreach ($result->FA_CUSTOMER_GROUP as $value)
-                                            <option value="{{$item}}" @if($value == $item) selected @endif>{{$item}}</option>
-                                        @endforeach
+                                        <option value="{{$item}}" @foreach ($result->S_CUSTOMER_GROUP as $value) @if($value == $item) selected @endif @endforeach>{{$item}}</option>
                                     @endforeach
                                 </select>
                             </div>
