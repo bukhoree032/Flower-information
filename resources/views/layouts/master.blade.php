@@ -8,7 +8,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>ดอกไม้เมืองหนาว</title>
+      <title>{{ $system[0]->sys_nameweb_th ?? 'ชื่อระบบ' }}</title>
+      <link rel = "icon" href ="{{ $system[0]->file_icon ?? null}}" type = "image/x-icon">
+      {{-- @dd($system) --}}
+      {{-- http://127.0.0.1:8000/storage/flowers/KQBGB_TFWat.png --}}
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -44,9 +47,9 @@
    <!-- body -->
    <body class="main-layout">
       <!-- loader  -->
-      <div class="loader_bg">
+      {{-- <div class="loader_bg">
          <div class="loader"><img src="{{ asset('fonend/images/loading.gif') }}" alt="#" /></div>
-      </div>
+      </div> --}}
       <!-- end loader -->
       <!-- header -->
       <header>
@@ -58,7 +61,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo"> 
-                              <a href="{{ route('home.index') }}"><img src="https://static.vecteezy.com/system/resources/previews/001/190/578/non_2x/flower-icon-png.png" alt="#" style="width: 70px"></a>
+                              <a href="{{ route('home.index') }}"><img src="{{ $system[0]->file_logo ?? null }}" alt="#" style="width: 150px"></a>
                            </div>
                         </div>
                      </div>

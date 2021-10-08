@@ -54,6 +54,17 @@ class Repository
      * @param $id
      * @return mixed
      */
+    public function show_NoDESC($db)
+    {
+        $data = \DB::table($db)
+                        ->get();
+        return $data;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function ShowId($id,$db)
     {
         $data = \DB::table($db)

@@ -27,35 +27,68 @@
 <section >
    <div id="main_slider" class="carousel slide banner-main" data-ride="carousel">
        <ol class="carousel-indicators">
-          <li data-target="#main_slider" data-slide-to="0" class="active"></li>
-          <li data-target="#main_slider" data-slide-to="1"></li>
-          <li data-target="#main_slider" data-slide-to="2"></li>
+         @if(isset($banner[0]))
+            @foreach($banner as $key => $value)
+               <li data-target="#main_slider" data-slide-to="{{$key}}" class="@if($key == 0) active @endif"></li>
+            @endforeach
+         @endif
        </ol>
-       <div class="carousel-inner">
-          <div class="carousel-item active">
-             <div class="container">
-                <div class="row marginii">
-                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      <div class="carousel-caption ">
-                         <h1>ไม้ดอกเมืองหนาว </h1><h3><strong class="color">โครงการไม้ดอกเมืองหนาวอันเนื่องมาจากพระราชดำริ</strong></h3><h3><strong> อำเภอเบตง จังหวัดยะลา</strong></h3>
-                         <a class="btn btn-lg btn-primary" href="#" role="button">เกี่ยวกับ</a>
-                         <a class="btn btn-lg btn-primary" href="#contact" role="button">ติดต่อเรา</a>
-                      </div>
-                   </div>
-                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      <div class="img-box">
-                         <figure><img src="{{ asset('fonend/images/gyufyufyu.png') }}" alt="img"/></figure>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-       <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-       <i class='fa fa-angle-left'></i></a>
-       <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-       <i class='fa fa-angle-right'></i>
-       </a>
+      <div class="carousel-inner">
+         @if(!isset($banner[0]))
+            <div class="carousel-item active">
+               <div class="container">
+                  <div class="row marginii">
+                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="carousel-caption ">
+                           {{-- <h1>{ไม้ดอกเมืองหนาว} </h1><h3><strong class="color">โครงการไม้ดอกเมืองหนาวอันเนื่องมาจากพระราชดำริ</strong></h3><h3><strong> อำเภอเบตง จังหวัดยะลา</strong></h3> --}}
+                           <h1>หัวข้อแบนเนอร์</h1>
+                           <div class="col-sm-10">
+                              <h3><strong class="color">รายละเอียดแบนเนอร์</strong></h3>
+                           </div>
+                           <a class="btn btn-lg btn-primary" href="#" role="button">เกี่ยวกับ</a>
+                           <a class="btn btn-lg btn-primary" href="#contact" role="button">ติดต่อเรา</a>
+                        </div>
+                     </div>
+                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="img-box">
+                           <figure><img src="{{ asset('storage/icon/img.png')}}" alt="img" style="width: 350px"/></figure>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         @else
+            @foreach($banner as $key => $value)
+               <div class="carousel-item @if($key == 0) active @endif">
+                  <div class="container">
+                     <div class="row marginii">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                           <div class="carousel-caption ">
+                              {{-- <h1>{ไม้ดอกเมืองหนาว} </h1><h3><strong class="color">โครงการไม้ดอกเมืองหนาวอันเนื่องมาจากพระราชดำริ</strong></h3><h3><strong> อำเภอเบตง จังหวัดยะลา</strong></h3> --}}
+                              <h1>{{ $value->ban_title_th ?? 'หัวข้อแบนเนอร์'}} </h1>
+                              <div class="col-sm-10">
+                                 <h3><strong class="color">{{ $value->ban_detail_th ?? 'รายละเอียดแบนเนอร์'}}</strong></h3>
+                              </div>
+                              <a class="btn btn-lg btn-primary" href="#" role="button">เกี่ยวกับ</a>
+                              <a class="btn btn-lg btn-primary" href="#contact" role="button">ติดต่อเรา</a>
+                           </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                           <div class="img-box">
+                              <figure><img src="{{ $value->file ?? asset('storage/icon/img.png')}}" alt="img" style="width: 450px"/></figure>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            @endforeach
+         @endif
+      </div>
+      <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+      <i class='fa fa-angle-left'></i></a>
+      <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+      <i class='fa fa-angle-right'></i>
+      </a>
    </div>
  </section>
  <!-- plant -->

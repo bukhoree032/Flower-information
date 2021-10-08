@@ -23,6 +23,7 @@ class System extends Model
         'sys_address_th',
         'sys_address_en',
         
+        'file_icon',
         'file_logo',
         'file_background',
         '_token'

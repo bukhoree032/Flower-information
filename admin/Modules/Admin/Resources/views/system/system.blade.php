@@ -30,14 +30,42 @@
                         </thead>
                         <tbody>
                           <tr style="width: 20%">
-                            <th >โลโก้</th>
+                            <th >ไอคอน</th>
                             <td style="width: 80%">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <img src="{{ $result[0]->file ?? null}}" alt="" style="width: 100%">
+                                        <img src="{{ $result[0]->file_icon ?? null}}" alt="" style="width: 100px">
                                     </div>
                                 </div>
                             </td>
+                          </tr>
+                          <tr>
+                            <th>โลโก้</th>
+                            <td style="width: 80%">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{ $result[0]->file_logo ?? null}}" alt="" style="width: 100%">
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>พื้นหลัง</th>
+                            <td style="width: 80%">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{ $result[0]->file_background ?? null}}" alt="" style="width: 100%">
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>ชื่อระบบ (ไทย)</th>
+                            <td> {{ $result[0]->sys_nameweb_th ?? null}}</td>
+                          </tr>
+                          <tr>
+                            <th >ชื่อระบบ (อังกฤษ)</th>
+                            <td> {{ $result[0]->sys_nameweb_th ?? null}}</td>
                           </tr>
                           <tr>
                             <th>ชื่อหน่วยงาน (ไทย)</th>

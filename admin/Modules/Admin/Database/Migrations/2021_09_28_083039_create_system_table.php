@@ -27,6 +27,7 @@ class CreateSystemTable extends Migration
             $table->string('sys_mail')->nullable();
             $table->text('sys_address_th')->nullable();
             $table->text('sys_address_en')->nullable();
+            $table->text('file_icon')->nullable();
             $table->text('file_logo')->nullable();
             $table->text('file_background')->nullable();
             $table->text('_token')->nullable();

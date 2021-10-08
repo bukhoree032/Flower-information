@@ -60,13 +60,13 @@ p a {color:#000;}
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <img src="{{$result[0]->file ?? null}}" alt="" style="width: 100%">
-                                        <input type="file" id="choose-file" name="files_logo" accept="image/*" />
-                                        <label for="choose-file">อัปโหลดโลโก้ +</label>
+                                        <img src="{{$result[0]->file_icon ?? null}}" alt="" style="width: 150px">
+                                        <input type="file" id="choose-file_icon" name="files_icon" accept="image/*" />
+                                        <label for="choose-file_icon">อัปโหลดไอคอน +</label>
                                     </div>
                                     <div class="col-lg-4">
                                       <div>
-                                        <div id="img-preview"></div>
+                                        <div id="img-preview_icon" style="width: 150px"></div>
                                       </div>
                                     </div>
                                 </div>
@@ -76,13 +76,29 @@ p a {color:#000;}
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <img src="{{$result[0]->file ?? null}}" alt="" style="width: 100%">
-                                        <input type="file" id="choose-file" name="files" accept="image/*" />
-                                        <label for="choose-file">อัปโหลดพื้นหลัง +</label>
+                                        <img src="{{$result[0]->file_logo ?? null}}" alt="" style="width: 350px">
+                                        <input type="file" id="choose-file_logo" name="files_logo" accept="image/*" />
+                                        <label for="choose-file_logo">อัปโหลดโลโก้ +</label>
                                     </div>
                                     <div class="col-lg-4">
                                       <div>
-                                        <div id="img-preview"></div>
+                                        <div id="img-preview_logo"></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-12" style="margin-top: 20px">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{$result[0]->file_background ?? null}}" alt="" style="width: 400px">
+                                        <input type="file" id="choose-file_background" name="files_background" accept="image/*" />
+                                        <label for="choose-file_background">อัปโหลดพื้นหลัง +</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                      <div>
+                                        <div id="img-preview_background" style="width: 400px"></div>
                                       </div>
                                     </div>
                                 </div>
@@ -183,21 +199,61 @@ p a {color:#000;}
 {{-- Scripts Section --}}
 @section('scripts')
 <script>
-const chooseFile = document.getElementById("choose-file");
-const imgPreview = document.getElementById("img-preview");
+const chooseFile_icon = document.getElementById("choose-file_icon");
+const imgPreview_icon = document.getElementById("img-preview_icon");
 
-chooseFile.addEventListener("change", function () {
-  getImgData();
+chooseFile_icon.addEventListener("change", function () {
+  getImgData_icon();
 });
 
-function getImgData() {
-  const files = chooseFile.files[0];
+function getImgData_icon() {
+  const files = chooseFile_icon.files[0];
   if (files) {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(files);
     fileReader.addEventListener("load", function () {
-      imgPreview.style.display = "block";
-      imgPreview.innerHTML = 'รูปใหม่<img src="' + this.result + '" />';
+      imgPreview_icon.style.display = "block";
+      imgPreview_icon.innerHTML = 'รูปใหม่<img src="' + this.result + '"  style="width: 150px"/>';
+    });    
+  }
+}
+</script>
+<script>
+const chooseFile_logo = document.getElementById("choose-file_logo");
+const imgPreview_logo = document.getElementById("img-preview_logo");
+
+chooseFile_logo.addEventListener("change", function () {
+  getImgData();
+});
+
+function getImgData() {
+  const files = chooseFile_logo.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
+      imgPreview_logo.style.display = "block";
+      imgPreview_logo.innerHTML = 'รูปใหม่<img src="' + this.result + '"  style="width: 350px"/>';
+    });    
+  }
+}
+</script>
+<script>
+const chooseFile_background = document.getElementById("choose-file_background");
+const imgPreview_background = document.getElementById("img-preview_background");
+
+chooseFile_background.addEventListener("change", function () {
+  getImgData_background();
+});
+
+function getImgData_background() {
+  const files = chooseFile_background.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
+      imgPreview_background.style.display = "block";
+      imgPreview_background.innerHTML = 'รูปใหม่<img src="' + this.result + '"  style="width: 400px"/>';
     });    
   }
 }

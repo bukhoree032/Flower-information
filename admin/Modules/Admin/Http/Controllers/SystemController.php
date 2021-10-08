@@ -59,18 +59,26 @@ class SystemController extends UploadeFileController
     public function insert(Request $request)
     {
         $uploade = new UploadeFileController();
+        if (!empty($request['files_icon'])) {
+            $request['file_icon'] = $uploade->uploadImage(
+                $request['files_icon'],
+                'system',
+                Str::random(5)
+            );
+        }
+
         if (!empty($request['files_logo'])) {
-            $request['files_logo'] = $uploade->uploadImage(
+            $request['file_logo'] = $uploade->uploadImage(
                 $request['files_logo'],
-                'flowers',
+                'system',
                 Str::random(5)
             );
         }
         
-        if (!empty($request['file_background'])) {
+        if (!empty($request['files_background'])) {
             $request['file_background'] = $uploade->uploadImage(
-                $request['file_background'],
-                'flowers',
+                $request['files_background'],
+                'system',
                 Str::random(5)
             );
         }
