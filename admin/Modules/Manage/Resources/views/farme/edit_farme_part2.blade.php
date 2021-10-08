@@ -47,7 +47,7 @@
                                             <td>{{ $item+1 }} </td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][0][0]->id]['PER_TIME']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['QUANTITY'] }} @endempty">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
@@ -56,7 +56,7 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][0][0]->id]['PER_WEEK']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['QUANTITY'] }} @endempty">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
@@ -65,7 +65,7 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][0][0]->id]['PER_MONTH']['QUANTITY'] }} @endempty">
+                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['QUANTITY'] }} @endempty">
                                                 <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
                                                     <option value="">หน่วย</option>
                                                     <option value="ช่อ" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
@@ -234,6 +234,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- @dd($resultID['result'][0]->FA_SET_PRICE) --}}
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>วิธีการตั้งราคา ในการขายโดยเฉลี่ย:</b></label>
                                 <!--begin: Datatable-->
@@ -254,13 +255,13 @@
                                             <td>{{ $item+1 }}</td>
                                             <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] }}" @endif> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] }} @endif "> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] }} @endif"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] }} @endif "> บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] }} @endif"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] }} @endif "> บาท
                                             </td>
                                         </tr>
                                         @else 
@@ -272,13 +273,13 @@
                                                 {{ $resultID['resultflower'][$item][0]->F_NAME }} 
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" > บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" > บาท
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]"> บาท
+                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" > บาท
                                             </td>
                                         </tr>
                                         @endif
