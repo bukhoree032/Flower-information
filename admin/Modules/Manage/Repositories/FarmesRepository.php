@@ -55,12 +55,11 @@ class FarmesRepository
         $data['result'] = \DB::table($db)
                         ->where('id',$id)
                         ->get();
-
         $data['result'][0]->FA_FLOWER = unserialize($data['result'][0]->FA_FLOWER);
 
         foreach ($data['result'][0]->FA_FLOWER as $key => $value) {
             $data['resultflower'][$key] = \DB::table('flowers')
-                        ->where('id',$value)
+                        ->where('F_NAME',$value)
                         ->get();
         }
 

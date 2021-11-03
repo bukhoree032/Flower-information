@@ -20,6 +20,7 @@ class Farmes extends Model
         'FA_PHONE',
         'FA_LAT',
         'FA_LONG',
+        'FA_DETAIL',
         'FA_FLOWER',
         'FA_CUSTOMER_GROUP',
         'FA_SEND',

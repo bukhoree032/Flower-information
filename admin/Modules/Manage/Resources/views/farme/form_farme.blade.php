@@ -77,7 +77,7 @@
                     <div class="form-group row">
                         <div class="col-lg-12">
                             <label>ข้อมูลกลุ่ม:</label>
-                            <textarea type="text" class="form-control" name="FA_PHONE" placeholder="ป้อนข้อมูลทั้วไปของกลุ่มหรือฟาร์ม" rows="3"></textarea>
+                            <textarea type="text" class="form-control" name="FA_DETAIL" placeholder="ป้อนข้อมูลทั้วไปของกลุ่มหรือฟาร์ม" rows="3"></textarea>
                             <span class="form-text text-muted">กรุณาป้อนข้อมูลทั่วไป</span>
                         </div>
                         <div class="col-lg-12" style="margin-top: 20px">
