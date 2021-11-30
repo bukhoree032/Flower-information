@@ -23,23 +23,34 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group row">
-                        <div class="col-lg-4">
-                            <label>ชื่อกลุ่มเกษตรกร (สวนดอกไม้):</label>
-                            <input type="text" class="form-control" name="FA_GROUPNAME" placeholder="ป้อนชื่อกลุ่มเกษตรกร" />
-                            <span class="form-text text-muted">กรุณาป้อนชื่อกลุ่มเกษตรกร/สวนดอกไม้</span>
+                        <div class="col-lg-2">
+                            <label>คำนำหน้า:</label>
+                            <span class="text-danger">*</span></label>
+                            <select id="pro" class="form-control" name="FA_TITLE" style="width: 100%;" required>
+                                <option selected>-- คำนำหน้า --</option>
+                                <option value="นาย">นาย</option>
+                                <option value="นาง">นาง</option>
+                                <option value="นางสาว">นางสาว</option>
+                            </select>
+                            <span class="form-text text-muted">กรุณาเลือกคำนำหน้า</span>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <label>ชื่อหัวหน้ากลุ่มเกษตรกร:</label>
                             <input type="text" class="form-control" name="FA_NAME" placeholder="ป้อนชื่อหัวหน้ากลุ่มเกษตรกร" />
                             <span class="form-text text-muted">กรุณาป้อนชื่อหัวหน้ากลุ่มเกษตรกร/ผู้ดูแล</span>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
+                            <label>ชื่อกลุ่มเกษตรกร (สวนดอกไม้):</label>
+                            <input type="text" class="form-control" name="FA_GROUPNAME" placeholder="ป้อนชื่อกลุ่มเกษตรกร" />
+                            <span class="form-text text-muted">กรุณาป้อนชื่อกลุ่มเกษตรกร/สวนดอกไม้</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-2">
                             <label>บ้านเลขที่:</label>
                             <input type="text" class="form-control" name="FA_HOUSENUMBER" placeholder="ป้อนบ้านเลขที่" />
                             <span class="form-text text-muted">กรุณาป้อนบ้านเลขที่</span>
                         </div>
-                    </div>
-                    <div class="form-group row">
                         <div class="col-lg-4">
                             <label>หมู่:</label>
                             <input type="text" class="form-control" name="FA_MOO" placeholder="ป้อนหมู่" />
@@ -54,7 +65,7 @@
                                     <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option>
                                 @endforeach
                             </select>
-                            <span class="form-text text-muted">กรุณาป้อนหมู่ที่</span>
+                            <span class="form-text text-muted">กรุณาเลือกตำบล/อำเภอ/จังหวัด</span>
                         </div>
                     </div>
                     <div class="form-group row">

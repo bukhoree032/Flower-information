@@ -11,6 +11,7 @@ class Farmes extends Model
     protected $fillable = [
         'id',
         'FA_GROUPNAME',
+        'FA_TITLE',
         'FA_NAME',
         'FA_HOUSENUMBER',
         'FA_MOO',

@@ -17,6 +17,7 @@ class CreateFarmesTable extends Migration
             $table->id();
 
             $table->text('FA_GROUPNAME')->nullable();
+            $table->string('FA_TITLE')->nullable();
             $table->string('FA_NAME')->nullable();
             $table->string('FA_HOUSENUMBER')->nullable();
             $table->string('FA_MOO')->nullable();
