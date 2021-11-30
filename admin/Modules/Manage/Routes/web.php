@@ -18,6 +18,7 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::post('/pages/create-flower/insert/', 'FlowerController@CreateFlower')->name('insert.flower');
 
     Route::get('/pages/EditFlower/{id}/', 'FlowerController@PageEditFlower')->name('page.edit_flower');
+    Route::post('/pages/UpdateFlower/{id}/', 'FlowerController@UpdateFlower')->name('update.flower');
     
     Route::get('/pages/DetailFlower/{id}/', 'FlowerController@PageDetailFlower')->name('page.detail_flower');
 });

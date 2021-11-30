@@ -103,6 +103,34 @@ class FlowerController extends UploadeFileController
 
         return view('manage::flower.edit_flower', compact('page_title', 'page_description'),$data);
     }
+    
+    public function UpdateFlower(Request $request, $id)
+    {
+        $uploade = new UploadeFileController();
+        if (!empty($request['files'])) {
+            $request['file'] = $uploade->uploadImage(
+                $request['files'],
+                'flowers',
+                Str::random(5)
+            );
+        }
+        
+        if (!empty($request['file_multiples'])) {
+            foreach ($request['file_multiples'] as $key => $value) {
+                $file_multiples[$key] = $uploade->uploadImage(
+                    $value,
+                    'flowers',
+                    Str::random(5)
+                );
+            }
+            $request['file_multiple'] = serialize($file_multiples);
+        }
+
+        $data['result'] = $this->Repository->update($request->all(), $id,'classModelFlowers');
+
+        return redirect()->route('index.flower');
+    }
+
     /**
      * Store a newly created resource in storage.
      * @param Request $request
