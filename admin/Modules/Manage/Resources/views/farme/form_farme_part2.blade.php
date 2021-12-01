@@ -4,6 +4,16 @@
 {{-- Content --}}
 @section('content')
     
+<style>
+    .specify{
+        margin-top: -10px; 
+        margin-bottom: 10px; 
+        margin-left: 24px; 
+    }
+    .checkbox_margin{
+        margin-left: 0px;
+    }
+</style>
     <div class="row">
         <div class="col-lg-6 col-xxl-12">
             <!--begin::Card-->
@@ -24,7 +34,7 @@
                     {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
+                            {{-- <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>ปริมาณการขาย (ครั้ง/สัปดาห์/เดือน):</b></label>
                                 <!--begin: Datatable-->
@@ -79,7 +89,7 @@
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
-                            </div>
+                            </div> --}}
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>ปริมาณการผลิต (ครั้ง/สัปดาห์/เดือน):</b></label>
                                 <!--begin: Datatable-->
@@ -135,34 +145,6 @@
                                 </table>
                                 <!--end: Datatable-->
                             </div>
-                            <div class="col-lg-4">
-                                <div class="radio-list">
-                                    <label style="margin-top: 10px"><b>สาเหตุที่ทำให้คงเหลือใช้การไม่ได้ คือ:</b></label>
-                                    <label class="radio">
-                                    <input type="radio" value="จัดเก็บไม่ดี" name="FA_REMAINING_CAUSE">
-                                    <span></span>จัดเก็บไม่ดี</label>
-                                    <label class="radio">
-                                    <input type="radio" value="ขายปริมาณมากเกินไป" name="FA_REMAINING_CAUSE">
-                                    <span></span>ขายปริมาณมากเกินไป</label>
-                                    <label class="radio">
-                                    <input type="radio" value="คุณภาพดอกไม้ไม่ดี ขายไม่ได้" name="FA_REMAINING_CAUSE">
-                                    <span></span>คุณภาพดอกไม้ไม่ดี ขายไม่ได้</label>
-                                    <label class="radio">
-                                    <input type="radio" value="การหีบห่อในการขนส่ง" name="FA_REMAINING_CAUSE">
-                                    <span></span>การหีบห่อในการขนส่ง</label>
-                                    <div class="row">
-                                        <div class="col-lg-10">
-                                            <div id="boxess">
-                                                <input type="text" class="form-control" name="FA_REMAINING_CAUSE_OTHER[]" style="margin-top: 5px" placeholder="อื่น ๆ"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            {{-- <label>.</label><br> --}}
-                                            {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>วิธีการตั้งราคา ในการขายโดยเฉลี่ย:</b></label>
                                 <!--begin: Datatable-->
@@ -199,6 +181,27 @@
                                     </tbody>
                                 </table>
                                 <!--end: Datatable-->
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="checkbox-list">
+                                    <label style="margin-top: 10px"><b>สาเหตุที่ทำให้คงเหลือใช้การไม่ได้ คือ:</b></label>
+                                    @foreach(__FA_REMAINING_CAUSE() as $key => $value)
+                                        @if($value != 'อื่นๆ')
+                                            <label class="checkbox">
+                                                <input type="checkbox" value="{{ $value }}" name="FA_REMAINING_CAUSE[{{$key}}][0]">
+                                                <span></span>{{ $value }}
+                                            </label>
+                                        @else
+                                            <div class="row checkbox_margin">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" value="{{ $value }}" name="FA_REMAINING_CAUSE[{{$key}}][0]">
+                                                    <span></span>{{ $value }}
+                                                </label>
+                                                <input type="text" class="form-control specify" style="width: 20%" name="FA_REMAINING_CAUSE[{{$key}}][1]" placeholder="ระบุ"/>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>ข้อจำกัด/ปัญหา:</b></label>
