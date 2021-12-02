@@ -51,19 +51,15 @@ class FarmesRepository
      */
     public function ShowId($id,$db)
     {
-        // dd($db);
         $data['result'] = \DB::table($db)
                         ->where('id',$id)
                         ->get();
         $data['result'][0]->FA_FLOWER = unserialize($data['result'][0]->FA_FLOWER);
-
         foreach ($data['result'][0]->FA_FLOWER as $key => $value) {
             $data['resultflower'][$key] = \DB::table('flowers')
                         ->where('F_NAME',$value)
                         ->get();
         }
-
-        // dd($data['result'][0]->S_FLOWER);
 
         return $data;
     }
@@ -87,8 +83,6 @@ class FarmesRepository
         $data['update'] = \DB::table($db)
               ->where('id', $id)
               ->update($data);
-        // $insert = $this->$db::update($data);
-        // dd($id);
         return $data;
     }
 }

@@ -4,7 +4,14 @@
 {{-- Content --}}
 @section('content')
 <style>
-    #img-preview {
+    .specify{
+        margin-top: -6px;
+        margin-bottom: 10px; 
+        margin-left: 24px;
+    }
+    .checkbox_margin{
+        margin-left: 0px;
+    }    #img-preview {
     display: none;
     width: 100%;
     border: 2px dashed #333;  
@@ -117,7 +124,7 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     รูปเดิม
-                                    <img src="{{$resultID['result'][0]->file}}" alt="" style="width: 100%">
+                                    <img src="{{$resultID['result'][0]->file}}" alt="" style="width: 100%;height: 80%; margin-top: 10px">
                                     {{-- <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button> --}}
                                     <input type="file" id="choose-file" name="choose-file" accept="image/*" />
                                     <label for="choose-file">เลือกไฟล์ใหม่</label>
@@ -146,7 +153,7 @@
                                     @foreach ($resultID['result'][0]->file_multiple as $key => $value)
                                         <div class="col-lg-3" id="{{$key}}">
                                             <input type="text"  name="file_multiples_edit[]" value="{{ $value }}" hidden>
-                                            <img src="{{$value}}" alt="" style="width: 100%; margin-top: 5px">
+                                            <img src="{{$value}}" alt="" style="width: 100%;height: 80%; margin-top: 10px">
                                             <button type="button" class="btn btn-danger btn-sm btn-block" onclick="myFunction({{$key}})">ลบรูป</button>
                                         </div>
                                     @endforeach    
@@ -158,7 +165,7 @@
                                     <div class="field" align="left">
                                         <input type="file" style="display:none" id="upload-images" name="file_multiples[]" multiple="multiple"></input>
                                         <label for="choose-file" id="uploads" class="drop-areas">
-                                            เพิ่มรูปภาพดอกไม้ทั้งหมด +
+                                            เพิ่มรูปภาพกลุ่มทั้งหมด +
                                         </label>
                                     </div>
                                 </div>
@@ -170,150 +177,93 @@
                         </div>
                     </div>
                     <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
-                    
-                    {{-- @dd($resultID['result'][0]->FA_FLOWER) --}}
                     <div class="col-lg-4">
                         <label style="margin-top: 10px"><b>ดอกไม้ที่ผลิต:</b></label><br>
                         <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                             @foreach ($result as $item)
-                                <option value="{{ $item->id }}" @foreach ($resultID['result'][0]->FA_FLOWER as $value) @if($value == $item->id) selected @endif  @endforeach>{{ $item->F_NAME }}</option>
+                                <option value="{{ $item->id }}" @foreach ($resultID['result'][0]->FA_FLOWER as $value) @if($value == $item->F_NAME) selected @endif  @endforeach>{{ $item->F_NAME }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-lg-6"></div>
-                    <div class="col-lg-4">
-                        <label style="margin-top: 10px"><b>กลุ่มลูกค้า:</b></label>
-                        <select id="single_c" class="js-example-basic-multiple" name="FA_CUSTOMER_GROUP[]"  style="width: 100%" multiple="multiple">
-                            @php $data = __S_CUSTOMER_GROUP()  @endphp
-                            @foreach ($data as $item)
-                                <option value="{{$item}}" @foreach ($resultID['result'][0]->FA_CUSTOMER_GROUP as $value) @if($value == $item) selected @endif @endforeach>{{$item}}</option>   
-                            @endforeach 
-                        </select>
+                    <div class="col-lg-12">
+                        <div class="checkbox-list">
+                            <label style="margin-top: 10px"><b>กลุ่มลูกค้า:</b></label>
+                            @foreach(__FA_CUSTOMER_GROUP() as $key => $value)
+                                <div class="row checkbox_margin">
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="{{ $value }}" name="FA_CUSTOMER_GROUP[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_CUSTOMER_GROUP as $item) @if($value == $item) checked @endif @endforeach>
+                                        <span></span>{{ $value }}
+                                    </label>
+                                    <input type="text" class="form-control specify" style="width: 20%" name="FA_CUSTOMER_GROUP[{{$key}}][1]" placeholder="ระบุ" value="{{ $resultID['result'][0]->FA_CUSTOMER_GROUP[$key][1] }}"/>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="radio-list">
+                    <div class="col-lg-12">
+                        <div class="checkbox-list">
+                            <label style="margin-top: 10px"><b>ปัญหาการปลูก:</b></label>
+                            @foreach(__FA_PROBLEM_PLANT() as $key => $value)
+                                <div class="row checkbox_margin">
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="{{ $value }}" name="FA_PROBLEM_PLANT[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_PROBLEM_PLANT as $item) @if(in_array($value, $item)) checked @endif @endforeach>
+                                        <span></span>{{ $value }}
+                                    </label>
+                                    <input type="text" class="form-control specify" style="width: 20%;" name="FA_PROBLEM_PLANT[{{$key}}][1]" placeholder="ระบุ" value="{{ $resultID['result'][0]->FA_PROBLEM_PLANT[$key][1] }}"/>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="checkbox-list">
                             <label style="margin-top: 10px"><b>รูปแบบการส่ง:</b></label>
-                            @php $data = __S_SEND()  @endphp
-                            @foreach ($data as $item)
-                                <label class="radio">
-                                    <input type="radio" value="{{$item}}" name="FA_SEND"  @if($resultID['result'][0]->FA_SEND == $item) checked @endif>
-                                    <span></span>{{$item}}
-                                </label>
-                            @endforeach
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <div id="boxess">
-                                        @foreach ($resultID['result'][0]->FA_SEND_OTHER as $key =>$value)
-                                            <input type="text" class="form-control" name="FA_SEND_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
-                                        @endforeach
+                            @foreach(__FA_SEND() as $key => $value)
+                                @if($value != 'อื่นๆ')
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="{{ $value }}" name="FA_SEND[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_SEND as $item) @if(in_array($value, $item)) checked @endif @endforeach>
+                                        <span></span>{{ $value }}
+                                    </label>
+                                @else
+                                    <div class="row checkbox_margin">
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="{{ $value }}" name="FA_SEND[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_SEND as $item) @if(in_array($value, $item)) checked @endif @endforeach>
+                                            <span></span>{{ $value }}
+                                        </label>
+                                        <input type="text" class="form-control specify" style="width: 20%" name="FA_SEND[{{$key}}][1]" placeholder="ระบุ" value="{{ $resultID['result'][0]->FA_SEND[$key][1] }}"/>
                                     </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    {{-- <label>.</label><br> --}}
-                                    {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a> --}}
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-8"></div>
                     <div class="col-lg-12">
                         <label style="margin-top: 10px"><b>รูปแบบการขาย:</b></label>
-                        <div class="radio-list">
-                            @php $data = __S_SELL()  @endphp
-                            @foreach ($data as $item)
-                                <label class="radio">
-                                    <input type="radio" value="{{$item}}" name="FA_SELL"  @if($resultID['result'][0]->FA_SELL == $item) checked @endif>
-                                    <span></span>{{$item}}
-                                </label>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <label style="margin-top: 10px"><b>เงื่อนไขในการขายดอกไม้:</b></label>
-                        <div class="radio-list">
-                            @php $data = __S_CONDITION_SELL()  @endphp
-                            @foreach ($data as $item)
-                                <label class="radio">
-                                    <input type="radio" value="{{$item}}" name="FA_CONDITION_SELL"  @if($resultID['result'][0]->FA_CONDITION_SELL == $item) checked @endif>
-                                    <span></span>{{$item}}
-                                </label>
-                            @endforeach
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <div id="boxesc">
-                                        @foreach ($resultID['result'][0]->FA_CONDITION_SELL_OTHER as $key =>$value)
-                                            <input type="text" class="form-control" name="FA_CONDITION_SELL_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
-                                        @endforeach
+                        <div class="checkbox-list">
+                            @foreach(__FA_SELL() as $key => $value)
+                                @if($value != 'อื่นๆ')
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="{{ $value }}" name="FA_SELL[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_SELL as $item) @if(in_array($value, $item)) checked @endif @endforeach>
+                                        <span></span>{{ $value }}
+                                    </label>
+                                @else
+                                    <div class="row checkbox_margin">
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="{{ $value }}" name="FA_SELL[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_SELL as $item) @if(in_array($value, $item)) checked @endif @endforeach>
+                                            <span></span>{{ $value }}
+                                        </label>
+                                        <input type="text" class="form-control specify" style="width: 20%" name="FA_SELL[{{$key}}][1]" placeholder="ระบุ" value="{{ $resultID['result'][0]->FA_SELL[$key][1] }}"/>
                                     </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    {{-- <label>.</label><br> --}}
-                                    {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonc" style="margin-top: 5px">+</a> --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7"></div>
-                    <div class="col-lg-5">
-                        <label style="margin-top: 10px"><b>วิธีการจ่ายเงินของลูกค้า:</b></label>
-                        <div class="radio-list">
-                            @php $data = __S_CUSTOMER_PAYS()  @endphp
-                            @foreach ($data as $item)
-                                <label class="radio">
-                                    <input type="radio" value="{{$item}}" name="FA_CUSTOMER_PAYS"  @if($resultID['result'][0]->FA_CUSTOMER_PAYS == $item) checked @endif>
-                                    <span></span>{{$item}}
-                                </label>
+                                @endif
                             @endforeach
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <div id="boxesp">
-                                        @isset($resultID['result'][0]->FA_CUSTOMER_PAYFA_OTHER)
-                                            @foreach ($resultID['result'][0]->FA_CUSTOMER_PAYFA_OTHER as $key =>$value)
-                                                <input type="text" class="form-control" name="FA_CUSTOMER_PAYFA_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
-                                            @endforeach    
-                                        @endisset
-                                    </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    {{-- <label>.</label><br> --}}
-                                    {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonp" style="margin-top: 5px">+</a> --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7"></div>
-                    <div class="col-lg-5">
-                        <label style="margin-top: 10px"><b>การส่งเสริมการขาย(โปรโมชัน):</b></label>
-                        <div class="radio-list">
-                            @php $data = __S_PROMOTION()  @endphp
-                            @foreach ($data as $item)
-                                <label class="radio">
-                                    <input type="radio" value="{{$item}}" name="FA_PROMOTION"  @if($resultID['result'][0]->FA_PROMOTION == $item) checked @endif>
-                                    <span></span>{{$item}}
-                                </label>
-                            @endforeach
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <div id="boxespr">
-                                        @foreach ($resultID['result'][0]->FA_PROMOTION_OTHER as $key =>$value)
-                                            <input type="text" class="form-control" name="FA_PROMOTION_OTHER[{{ $key }}]" style="margin-top: 5px" placeholder="อื่น ๆ" value="{{$value}}">
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttonpr" style="margin-top: 5px">+</a> --}}
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-lg-7"></div>
                     <div class="col-lg-5">
                         <label style="margin-top: 10px"><b>จำนวนแรงงานที่ใช้ในร้าน:</b></label>
                         <div class="radio-list">
-                            @php $data = __S_LABOR()  @endphp
+                            @php $data = __FA_LABOR()  @endphp
                             @foreach ($data as $item)
                                 <label class="radio">
-                                    <input type="radio" value="{{$item}}" name="FA_LABOR"  @if($resultID['result'][0]->FA_LABOR == $item) checked @endif>
+                                    <input type="radio" value="{{$item}}" name="FA_LABOR" @if($resultID['result'][0]->FA_LABOR == $item) checked @endif>
                                     <span></span>{{$item}}
                                 </label>
                             @endforeach
@@ -330,14 +280,11 @@
                     </div>
                 </div>
             </form>
-            <!--end::Form-->
         </div>
-        <!--end::Card-->
     </div>
 </div>
 
 @endsection
-{{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
 
 {{-- Scripts Section --}}
 @section('scripts')
@@ -367,7 +314,7 @@
             fileReader.readAsDataURL(files);
             fileReader.addEventListener("load", function () {
             imgPreview.style.display = "block";
-            imgPreview.innerHTML = 'รูปใหม่<img src="' + this.result + '" />';
+            imgPreview.innerHTML = 'รูปใหม่<img style="width: 100%;height: 80%; margin-top: 10px" src="' + this.result + '" />';
             });    
         }
     }

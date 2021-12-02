@@ -197,19 +197,18 @@ class FarmeController extends UploadeFileController
     
     public function PageEditStore1(Request $request,$id)
     {
-        
         $page_title = 'แก้ไขข้อมูลดกลุ่มเกษตรกร และฟาร์ม';
         $page_description = '';
 
         $data['resultID'] = $this->FarmesRepository->ShowId($id,'farmes');
+
         $data['resultID']['result'][0]->file_multiple = unserialize($data['resultID']['result'][0]->file_multiple);
         $data['resultID']['result'][0]->FA_CUSTOMER_GROUP = unserialize($data['resultID']['result'][0]->FA_CUSTOMER_GROUP);
-        $data['resultID']['result'][0]->FA_SEND_OTHER = unserialize($data['resultID']['result'][0]->FA_SEND_OTHER);
-        $data['resultID']['result'][0]->FA_CONDITION_SELL_OTHER = unserialize($data['resultID']['result'][0]->FA_CONDITION_SELL_OTHER);
-        $data['resultID']['result'][0]->FA_PROMOTION_OTHER = unserialize($data['resultID']['result'][0]->FA_PROMOTION_OTHER);
-        // $data['resultID']['result'][0]->FA_VOLUME = unserialize($data['resultID']['result'][0]->FA_VOLUME);
+        $data['resultID']['result'][0]->FA_PROBLEM_PLANT = unserialize($data['resultID']['result'][0]->FA_PROBLEM_PLANT);
+        $data['resultID']['result'][0]->FA_SEND = unserialize($data['resultID']['result'][0]->FA_SEND);
+        $data['resultID']['result'][0]->FA_SELL = unserialize($data['resultID']['result'][0]->FA_SELL);
         $data['resultID']['result'][0]->FA_REMAINING = unserialize($data['resultID']['result'][0]->FA_REMAINING);
-        $data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER = unserialize($data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER);
+        $data['resultID']['result'][0]->FA_REMAINING_CAUSE = unserialize($data['resultID']['result'][0]->FA_REMAINING_CAUSE);
         $data['resultID']['result'][0]->FA_SET_PRICE = unserialize($data['resultID']['result'][0]->FA_SET_PRICE);
         $data['resultID']['result'][0]->FA_PROBLEM = unserialize($data['resultID']['result'][0]->FA_PROBLEM);
         
@@ -225,7 +224,6 @@ class FarmeController extends UploadeFileController
 
     public function EditFarmeStep1(Request $request,$id)
     {
-
         $uploade = new UploadeFileController();
         if (!empty($request['files'])) {
             $request['file'] = $uploade->uploadImage(
@@ -260,14 +258,14 @@ class FarmeController extends UploadeFileController
         $request['FA_PROVINCE'] = $datajount['resultID']['result'][0]->id_provinces ?? null;
         
         $request['FA_FLOWER'] = serialize($request['FA_FLOWER']);
+        $request['FA_PROBLEM_PLANT'] = serialize($request['FA_PROBLEM_PLANT']);
         $request['FA_CUSTOMER_GROUP'] = serialize($request['FA_CUSTOMER_GROUP']);
-        $request['FA_SEND_OTHER'] = serialize($request['FA_SEND_OTHER']);
-        $request['FA_CONDITION_SELL_OTHER'] = serialize($request['FA_CONDITION_SELL_OTHER']);
-        $request['FA_PROMOTION_OTHER'] = serialize($request['FA_PROMOTION_OTHER']);
+        $request['FA_SEND'] = serialize($request['FA_SEND']);
+        $request['FA_SELL'] = serialize($request['FA_SELL']);
 
         unset($request['file_multiples_edit']);
         unset($request['file_multiples']);
-
+        dd($request->all());
         $data['result'] = $this->Repository->update($request->all(),$id,'classModelFarmes');
 
         return redirect()->route('manage.page2.edit_farme',$id);
