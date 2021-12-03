@@ -122,5 +122,16 @@ class Repository
 
         return $data;
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function destroy($id, $db)
+    {
+        $result = $this->$db::findOrFail($id);
+
+        return $result->delete();
+    }
 }
 

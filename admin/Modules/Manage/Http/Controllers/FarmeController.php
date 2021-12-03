@@ -305,4 +305,11 @@ class FarmeController extends UploadeFileController
         
         return redirect()->route('index.farme');
     }
+
+    public function delet($id)
+    {
+        $this->Repository->destroy($id,'classModelFarmes');
+        
+        return redirect()->route('index.farme');
+    }
 }
