@@ -51,7 +51,7 @@
                                                 <input type="text" name="FA_REMAINING[{{ $value[0]->id }}][PER_TIME][QUANTITY]" value="{{ $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['QUANTITY'] ?? null }}">
                                                 <select name="FA_REMAINING[{{ $value[0]->id }}][PER_TIME][UNIT]" id="cars">
                                                     @if(!isset($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT']))
-                                                        @php $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT'] = 'ช่อ' @endphp
+                                                        @php $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT'] = '' @endphp
                                                     @endif
                                                     {{-- @dd($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT']) --}}
                                                     <option value="">-- หน่วย --</option>
