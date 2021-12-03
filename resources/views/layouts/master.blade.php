@@ -106,10 +106,10 @@
                               <p>( {{$system[0]->sys_phon}} )</p>
                            </div>
                            <ul class="location_icon">
-                              <li> <a href="{{$system[0]->sys_facebook_link ?? '#'}}"><img src="{{ asset('storage/icon/facebook.png'); }}"></a></li>
-                              <li> <a href="#"><img src="{{ asset('storage/icon/Twitter.png'); }}"></a></li>
-                              <li> <a href="#"><img src="{{ asset('storage/icon/line.png'); }}"></a></li>
-                              <li> <a href="#"><img src="{{ asset('storage/icon/instagram.png'); }}"></a></li>
+                              <li> <a href="{{$system[0]->sys_facebook_link ?? '#'}}"><img src="{{ asset('storage/app/public/icon/facebook.png'); }}"></a></li>
+                              <li> <a href="#"><img src="{{ asset('storage/app/public/icon/Twitter.png'); }}"></a></li>
+                              <li> <a href="#"><img src="{{ asset('storage/app/public/icon/line.png'); }}"></a></li>
+                              <li> <a href="#"><img src="{{ asset('storage/app/public/icon/instagram.png'); }}"></a></li>
                            </ul>
                            {{-- <div class="menu-bottom">
                               <ul class="link">

@@ -9,7 +9,7 @@
           <div class = "product-imgs">
             <div class = "img-display">
               <div class = "img-showcase" style="width: 50%;">
-                <img src = "{{ $result->file ?? asset('storage/icon/img.png')}}" >
+                <img src = "{{ $result->file ?? asset('storage/app/public/icon/img.png')}}" >
                 @if($result->file_multiple != '')
                     @foreach($result->file_multiple as $key => $value)
                         @if($key < '5')
@@ -19,8 +19,8 @@
                 @else
                     @for($i = 0; $i < 3; $i++)
                         <div class = "img-item">
-                            <a href = "#" data-id = "{{ asset('storage/icon/img.png') }}">
-                            <img src = "{{ asset('storage/icon/img.png') }}" >
+                            <a href = "#" data-id = "{{ asset('storage/app/public/icon/img.png') }}">
+                            <img src = "{{ asset('storage/app/public/icon/img.png') }}" >
                             </a>
                         </div>
                     @endfor
@@ -30,7 +30,7 @@
             <div class = "img-select">
                 <div class = "img-item">
                     <a href = "#" data-id = "1">
-                        <img src = "{{ $result->file ?? asset('storage/icon/img.png')}}" >
+                        <img src = "{{ $result->file ?? asset('storage/app/public/icon/img.png')}}" >
                     </a>
                 </div>
                 @if($result->file_multiple != '')
@@ -46,8 +46,8 @@
                 @else
                     @for($i = 0; $i < 3; $i++)
                         <div class = "img-item">
-                            <a href = "#" data-id = "{{ asset('storage/icon/img.png') }}">
-                            <img src = "{{ asset('storage/icon/img.png') }}" >
+                            <a href = "#" data-id = "{{ asset('storage/app/public/icon/img.png') }}">
+                            <img src = "{{ asset('storage/app/public/icon/img.png') }}" >
                             </a>
                         </div>
                     @endfor
@@ -115,10 +115,10 @@
                                 <div class="Gallery-box" style="width: 264px">
                                     <figure>
                                         <a href="" class="fancybox" rel="ligthbox" style="width: 264px">
-                                        <img  src="{{asset('storage/icon/img.png')}}" class="zoom img-fluid ">
+                                        <img  src="{{asset('storage/app/public/icon/img.png')}}" class="zoom img-fluid ">
                                         </a>
                                         <span class="hoverle">
-                                        <a href="{{asset('storage/icon/img.png')}}" class="fancybox" rel="ligthbox">View</a>
+                                        <a href="{{asset('storage/app/public/icon/img.png')}}" class="fancybox" rel="ligthbox">View</a>
                                         </span>  
                                     </figure>
                                 </div>

@@ -51,7 +51,7 @@
                      </div>
                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="img-box">
-                           <figure><img src="{{ asset('storage/icon/img.png')}}" alt="img" style="width: 350px"/></figure>
+                           <figure><img src="{{ asset('storage/app/public/icon/img.png')}}" alt="img" style="width: 350px"/></figure>
                         </div>
                      </div>
                   </div>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                            <div class="img-box">
-                              <figure><img src="{{ $value->file ?? asset('storage/icon/img.png')}}" alt="img" style="width: 450px"/></figure>
+                              <figure><img src="{{ $value->file ?? asset('storage/app/public/icon/img.png')}}" alt="img" style="width: 450px"/></figure>
                            </div>
                         </div>
                      </div>
@@ -116,7 +116,7 @@
           @foreach($result as $key => $value)
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.flower.detail',$value->id) }}'">
                <div class="plants-box"  style="cursor: pointer;">
-                  <figure><img src="{{ $value->file ?? asset('storage/icon/img.png')}}" alt="img" style="height: 160px"/></figure>
+                  <figure><img src="{{ $value->file ?? asset('storage/app/public/icon/img.png')}}" alt="img" style="height: 160px"/></figure>
                   @php $value->F_NAME = __substr($value->F_NAME,'12') @endphp
                   <h3>{{ $value->F_NAME }}</h3>
                   @php $value->F_OVERALL_APPEARANCE = __substr($value->F_OVERALL_APPEARANCE,'65') @endphp
@@ -148,7 +148,7 @@
                   <div class="col-md-6">
                      <div class="card1" style="width: 100%">
                         <div style="cursor: pointer;"  onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
-                           <img src="{{$value->file ?? asset('storage/icon/img.png')}}" alt="Avatar" style="width:100%">
+                           <img src="{{$value->file ?? asset('storage/app/public/icon/img.png')}}" alt="Avatar" style="width:100%">
                            <div class="container" style="background-color: #fff">
                               @php $data = __substr($value->n_title,'50') @endphp
                               <h4><b>{{ $data }}</b></h4> 
@@ -167,7 +167,7 @@
                         <div class="col-sm-12">
                            <div class="blog-card" style="cursor: pointer;"  onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
                               <div class="meta">
-                              <div class="photo" style="background-image: url({{$value->file ?? asset('storage/icon/img.png')}})"></div>
+                              <div class="photo" style="background-image: url({{$value->file ?? asset('storage/app/public/icon/img.png')}})"></div>
                               <ul class="details">
                                  @php $data = __substr($value->n_title,'20') @endphp
                                  <li class="author"><a href="#">{{ $data }}</a></li>

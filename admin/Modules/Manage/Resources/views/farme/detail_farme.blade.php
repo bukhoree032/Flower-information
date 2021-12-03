@@ -77,19 +77,31 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th >ชื่อกลุ่มเกษตรกร</th>
-                            <td> {{ $result->FA_GROUPNAME }}</td>
+                            <tr>
+                              <th >ชื่อหัวหน้ากลุ่มเกษตรกร</th>
+                              <td> {{ $result->FA_TITLE }}{{ $result->FA_NAME }}</td>
                           </tr>
-                          <tr>
-                            <th >ที่อยู่</th>
-                            <td> ต.{{ $result->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $result->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $result->FA_SUB_DISTRICT[0]->name_provinces }}</td>
-                          </tr>
-                          <tr>
-                            <th >เบอร์ติดต่อ</th>
-                            <td> {{ $result->FA_PHONE }}</td>
-                          </tr>
-                          <tr>
+                            <tr>
+                                <th >ชื่อกลุ่มเกษตรกร</th>
+                                <td> {{ $result->FA_GROUPNAME }}</td>
+                            </tr>
+                            <tr>
+                                <th >ที่อยู่</th>
+                                <td> ต.{{ $result->FA_SUB_DISTRICT[0]->name_districts }} อ.{{ $result->FA_SUB_DISTRICT[0]->name_amphures }} จ.{{ $result->FA_SUB_DISTRICT[0]->name_provinces }}</td>
+                            </tr>
+                            <tr>
+                                <th >เบอร์ติดต่อ</th>
+                                <td> {{ $result->FA_PHONE }}</td>
+                            </tr>
+                            <tr>
+                                <th >ข้อมูลพื้นที่</th>
+                                <td> จำนวน {{ $result->FA_FARM ?? '-'}} ไร่ / {{ $result->FA_FARM_WORK  ?? '-'}} งาน / {{ $result->FA_METER  ?? '-'}} ตารางเมตร </td>
+                            </tr>
+                            <tr>
+                                <th >ข้อมูลกลุ่ม</th>
+                                <td> {{ $result->FA_DETAIL ?? '-'}}</td>
+                            </tr>
+                            <tr>
                             <th >รูปปก</th>
                             <td>
                                 <div class="row">
