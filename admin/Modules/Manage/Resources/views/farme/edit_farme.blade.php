@@ -149,7 +149,7 @@
                         </div> --}}
                         <div class="col-lg-12" style="margin-top: 50px">
                             <div class="row">
-                                @isset($resultID['result'][0]->file_multiple)
+                                @isset($resultID['result'][0]->file_multiple[0])
                                     @foreach ($resultID['result'][0]->file_multiple as $key => $value)
                                         <div class="col-lg-3" id="{{$key}}">
                                             <input type="text"  name="file_multiples_edit[]" value="{{ $value }}" hidden>
