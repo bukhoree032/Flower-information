@@ -31,9 +31,9 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/create-insert/CreateFarme2/{id}/', 'FarmeController@FormFarme2')->name('create.farme2');
     Route::post('/pages/create-insert/Farme2/{id}/', 'FarmeController@CreateFarme2')->name('insert.farme2');
 
-    Route::get('/pages/EditFarmeStep1/{id}/', 'FarmeController@PageEditStore1')->name('edit.farme1');
+    Route::get('/pages/EditFarmeStep1/{id}/', 'FarmeController@PageEditFarme1')->name('edit.farme1');
     Route::post('/pages/EditFarmeStep1/{id}/', 'FarmeController@EditFarmeStep1')->name('update.farme1');
-    Route::get('/pages2/EditFarme/{id}/', 'FarmeController@Page2EditFarme')->name('edit_farme2');
+    Route::get('/pages2/EditFarme/{id}/', 'FarmeController@PageEditFarme2')->name('edit.farme2');
     Route::post('/pages/EditFarmeStep2/{id}/', 'FarmeController@EditFarmeStep2')->name('update.farme2');
 
     Route::get('/pages/DetailFarme/{id}/', 'FarmeController@PageDetailFarme')->name('page.detail_farme');

@@ -124,9 +124,9 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     รูปเดิม
-                                    <img src="{{$resultID['result'][0]->file}}" alt="" style="width: 100%;height: 80%; margin-top: 10px">
+                                    <img src="{{$resultID['result'][0]->file}}" alt="" style="width: 100%;height: 80%; margin-top: 0px">
                                     {{-- <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button> --}}
-                                    <input type="file" id="choose-file" name="choose-file" accept="image/*" />
+                                    <input type="file" id="choose-file" name="files" accept="image/*" />
                                     <label for="choose-file">เลือกไฟล์ใหม่</label>
                                 </div>
                                 <div class="col-lg-4">
@@ -147,7 +147,7 @@
                                 <div id="thumbnail"></div>
                             </div>
                         </div> --}}
-                        <div class="col-lg-12" style="margin-top: 20px">
+                        <div class="col-lg-12" style="margin-top: 50px">
                             <div class="row">
                                 @isset($resultID['result'][0]->file_multiple)
                                     @foreach ($resultID['result'][0]->file_multiple as $key => $value)
@@ -176,12 +176,13 @@
                             </div>
                         </div>
                     </div>
+                    {{-- @dd($resultID['result'][0]->FA_FLOWER) --}}
                     <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
                     <div class="col-lg-4">
                         <label style="margin-top: 10px"><b>ดอกไม้ที่ผลิต:</b></label><br>
                         <select id="single_f" class="js-example-basic-multiple" name="FA_FLOWER[]" style="width: 100%;margin-top: 5px" multiple="multiple" required>
                             @foreach ($result as $item)
-                                <option value="{{ $item->id }}" @foreach ($resultID['result'][0]->FA_FLOWER as $value) @if($value == $item->F_NAME) selected @endif  @endforeach>{{ $item->F_NAME }}</option>
+                                <option value="{{ $item->F_NAME }}" @foreach ($resultID['result'][0]->FA_FLOWER as $value) @if($value == $item->F_NAME) selected @endif  @endforeach>{{ $item->F_NAME }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -191,7 +192,7 @@
                             @foreach(__FA_CUSTOMER_GROUP() as $key => $value)
                                 <div class="row checkbox_margin">
                                     <label class="checkbox">
-                                        <input type="checkbox" value="{{ $value }}" name="FA_CUSTOMER_GROUP[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_CUSTOMER_GROUP as $item) @if($value == $item) checked @endif @endforeach>
+                                        <input type="checkbox" value="{{ $value }}" name="FA_CUSTOMER_GROUP[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_CUSTOMER_GROUP as $item) @if(in_array($value, $item)) checked @endif @endforeach>
                                         <span></span>{{ $value }}
                                     </label>
                                     <input type="text" class="form-control specify" style="width: 20%" name="FA_CUSTOMER_GROUP[{{$key}}][1]" placeholder="ระบุ" value="{{ $resultID['result'][0]->FA_CUSTOMER_GROUP[$key][1] }}"/>
@@ -272,10 +273,9 @@
                 </div>
                 <div class="card-footer">
                     <div class="row">
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             <button class="btn btn-primary mr-2">บันทึก</button>
-                            <button type="reset" class="btn btn-secondary">ยกเลิก</button>
+                            <a href="{{ route('manage.edit.farme2',$resultID['result'][0]->id) }}" class="btn btn-secondary">ส่วนที่2</a>
                         </div>
                     </div>
                 </div>

@@ -195,7 +195,7 @@ class FarmeController extends UploadeFileController
     }
 
     
-    public function PageEditStore1(Request $request,$id)
+    public function PageEditFarme1(Request $request,$id)
     {
         $page_title = 'แก้ไขข้อมูลดกลุ่มเกษตรกร และฟาร์ม';
         $page_description = '';
@@ -265,33 +265,39 @@ class FarmeController extends UploadeFileController
 
         unset($request['file_multiples_edit']);
         unset($request['file_multiples']);
-        dd($request->all());
+
         $data['result'] = $this->Repository->update($request->all(),$id,'classModelFarmes');
 
-        return redirect()->route('manage.page2.edit_farme',$id);
+        return redirect()->route('manage.edit.farme2',$id);
     }
 
-    public function Page2EditFarme($id)
+    public function PageEditFarme2($id)
     {
-        $page_title = 'รายละเอียดร้าน';
+        $page_title = 'แก้ไขข้อมูลดกลุ่มเกษตรกร และฟาร์ม';
         $page_description = '';
-
-        $data['resultID'] = $this->FarmesRepository->ShowId($id,'farmes');
         
-        // $data['resultID']['result'][0]->FA_VOLUME = unserialize($data['resultID']['result'][0]->FA_VOLUME);
+        $data['resultID'] = $this->FarmesRepository->ShowId($id,'farmes');
+
         $data['resultID']['result'][0]->FA_REMAINING = unserialize($data['resultID']['result'][0]->FA_REMAINING);
-        $data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER = unserialize($data['resultID']['result'][0]->FA_REMAINING_CAUSE_OTHER);
+        $data['resultID']['result'][0]->FA_REMAINING_CAUSE = unserialize($data['resultID']['result'][0]->FA_REMAINING_CAUSE);
         $data['resultID']['result'][0]->FA_SET_PRICE = unserialize($data['resultID']['result'][0]->FA_SET_PRICE);
         $data['resultID']['result'][0]->FA_PROBLEM = unserialize($data['resultID']['result'][0]->FA_PROBLEM);
 
-        return view('manage::farme.edit_farme_part2',compact('page_title', 'page_description'),$data);
+        $data['result'] = $this->Repository->show('flowers');
+        $data['resultAmphures'] = $this->Repository->show('amphures');
+        $data['resultProvinces'] = $this->Repository->show('provinces');
+        $data['resultDistricts'] = $this->Repository->districts('provinces');
+        if($data['resultID']['result'][0]->FA_REMAINING == null){
+            return redirect()->route('manage.create.farme2',$id);
+        }else{
+            return view('manage::farme.edit_farme_part2', compact('page_title', 'page_description'),$data);
+        }
     }
     
     public function EditFarmeStep2(Request $request,$id)
     {
-        // $request['FA_VOLUME'] = serialize($request['FA_VOLUME']);
         $request['FA_REMAINING'] = serialize($request['FA_REMAINING']);
-        $request['FA_REMAINING_CAUSE_OTHER'] = serialize($request['FA_REMAINING_CAUSE_OTHER']);
+        $request['FA_REMAINING_CAUSE'] = serialize($request['FA_REMAINING_CAUSE']);
         $request['FA_SET_PRICE'] = serialize($request['FA_SET_PRICE']);
         $request['FA_PROBLEM'] = serialize($request['FA_PROBLEM']);
 

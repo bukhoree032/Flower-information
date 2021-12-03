@@ -3,7 +3,16 @@
 
 {{-- Content --}}
 @section('content')
-    
+    <style>
+        .specify{
+            margin-top: -6px;
+            margin-bottom: 10px; 
+            margin-left: 24px;
+        }
+        .checkbox_margin{
+            margin-left: 0px;
+        }
+    </style>
     <div class="row">
         <div class="col-lg-6 col-xxl-12">
             <!--begin::Card-->
@@ -17,17 +26,12 @@
                         </div>
                     </div>
                 </div>
-                {{-- @dd($resultID['resultflower']) --}}
-                <!--begin::Form-->
-                <form action="{{ route('manage.edit.farme2',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('manage.update.farme2',$resultID['result'][0]->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    {{-- {{ method_field('PUT') }} --}}
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-lg-12"><b>ข้อมูลการขายดอกไม้</b></div>
                             <div class="col-lg-12">
-                                <label style="margin-top: 10px"><b>ปริมาณการขาย (ครั้ง/สัปดาห์/เดือน):</b></label>
-                                <!--begin: Datatable-->
+                                <label style="margin-top: 10px"><b>ปริมาณการผลิต (ครั้ง/สัปดาห์/เดือน):</b></label>
                                 <table class="table table-bordered table-hover table-checkable"  style="margin-top: 13px !important">
                                     <thead>
                                         <tr>
@@ -39,205 +43,54 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @dd($resultID['result'][0]->FA_VOLUME[1]) --}}
-
-                                        @foreach ($resultID['resultflower'] as $item => $valuw)
-                                        @if(isset($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]))
-                                        <tr>
-                                            <td>{{ $item+1 }} </td>
-                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
-                                            <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['QUANTITY'] }} @endempty">
-                                                <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['QUANTITY'] }} @endempty">
-                                                <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['QUANTITY'] }} @endempty">
-                                                <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_VOLUME[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
-                                                </select>
-                                            </td>
-                                        </tr>   
-                                        @else 
-                                        <tr>
-                                            <td>
-                                                {{ $item+1 }} 
-                                            </td>
-                                            <td>
-                                                {{ $resultID['resultflower'][$item][0]->F_NAME }} 
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
-                                                <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
-                                                <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
-                                                <select name="FA_VOLUME[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                        </tr>   
-                                        @endif
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                                <!--end: Datatable-->
-                            </div>
-                            {{-- @dd($resultID['resultflower'][0][0]->id) --}}
-                            <div class="col-lg-12">
-                                <label style="margin-top: 10px"><b>ปริมาณดอกไม้คงเหลือที่ใช้การไม่ได้ โดยเฉลี่ย (ครั้ง/สัปดาห์/เดือน):</b></label>
-                                <!--begin: Datatable-->
-                                <table class="table table-bordered table-hover table-checkable"  style="margin-top: 13px !important">
-                                    <thead>
-                                        <tr>
-                                            <th>ลำดับ</th>
-                                            <th>ชื่อดอกไม้</th>
-                                            <th>ต่อครั้ง</th>
-                                            <th>ต่อสัปดาห์</th>
-                                            <th>ต่อเดือน</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($resultID['resultflower'] as $item => $valuw)
-                                        @if (isset($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]))
+                                        @foreach ($resultID['resultflower'] as $item => $value)
                                         <tr>
                                             <td>{{ $item+1 }}</td>
-                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
+                                            <td>{{ $value[0]->F_NAME }}</td>
                                             <td>
-                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]" value="@empty($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['QUANTITY'] }} @endempty">
-                                                <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                <input type="text" name="FA_REMAINING[{{ $value[0]->id }}][PER_TIME][QUANTITY]" value="{{ $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['QUANTITY'] ?? null }}">
+                                                <select name="FA_REMAINING[{{ $value[0]->id }}][PER_TIME][UNIT]" id="cars">
+                                                    @if(!isset($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT']))
+                                                        @php $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT'] = 'ช่อ' @endphp
+                                                    @endif
+                                                    {{-- @dd($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT']) --}}
+                                                    <option value="">-- หน่วย --</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]" value="@empty($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['QUANTITY'] }} @endempty">
-                                                <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                <input type="text" name="FA_REMAINING[{{ $value[0]->id }}][PER_WEEK][QUANTITY]" value="{{ $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_WEEK']['QUANTITY'] ?? null }}">
+                                                <select name="FA_REMAINING[{{ $value[0]->id }}][PER_WEEK][UNIT]" id="cars">
+                                                    @if(!isset($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT']))
+                                                        @php $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_WEEK']['UNIT'] = '' @endphp
+                                                    @endif
+                                                    <option value="">-- หน่วย --</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_WEEK']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_WEEK']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_WEEK']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]" value="@empty($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['QUANTITY']) {{ $resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['QUANTITY'] }} @endempty">
-                                                <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
-                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
-                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_REMAINING[$resultID['resultflower'][$item][0]->id]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
+                                                <input type="text" name="FA_REMAINING[{{$value[0]->id}}][PER_MONTH][QUANTITY]" value="{{ $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_MONTH']['QUANTITY'] ?? null }}">
+                                                <select name="FA_REMAINING[{{ $value[0]->id }}][PER_MONTH][UNIT]" id="cars">
+                                                    @if(!isset($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_TIME']['UNIT']))
+                                                        @php $resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_MONTH']['UNIT'] = '' @endphp
+                                                    @endif
+                                                    <option value="">-- หน่วย --</option>
+                                                    <option value="ช่อ" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_MONTH']['UNIT'] == "ช่อ") selected  @endif>ช่อ</option>
+                                                    <option value="ดอก" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_MONTH']['UNIT'] == "ดอก") selected  @endif>ดอก</option>
+                                                    <option value="กิโล" @if ($resultID['result'][0]->FA_REMAINING[$value[0]->id]['PER_MONTH']['UNIT'] == "กิโล") selected  @endif>กิโล</option>
                                                 </select>
                                             </td>
                                         </tr>
-                                        @else 
-                                        <tr>
-                                            <td>
-                                                {{ $item+1 }} 
-                                            </td>
-                                            <td>
-                                                {{ $resultID['resultflower'][$item][0]->F_NAME }} 
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][QUANTITY]">
-                                                <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_TIME][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][QUANTITY]">
-                                                <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_WEEK][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][QUANTITY]">
-                                                <select name="FA_REMAINING[{{ $resultID['resultflower'][$item][0]->id }}][PER_MONTH][UNIT]" id="cars">
-                                                    <option value="">หน่วย</option>
-                                                    <option value="ช่อ">ช่อ</option>
-                                                    <option value="ดอก">ดอก</option>
-                                                    <option value="กิโล">กิโล</option>
-                                                </select>
-                                            </td>
-                                        </tr>    
-                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <!--end: Datatable-->
                             </div>
-                            <div class="col-lg-4">
-                                <div class="radio-list">
-                                    <label style="margin-top: 10px"><b>สาเหตุที่ทำให้คงเหลือใช้การไม่ได้ คือ:</b></label>
-                                    <label class="radio">
-                                    <input type="radio" value="จัดเก็บไม่ดี" name="FA_REMAINING_CAUSE" @if($resultID['result'][0]->FA_REMAINING_CAUSE == 'จัดเก็บไม่ดี') checked  @endif>
-                                    <span></span>จัดเก็บไม่ดี</label>
-                                    <label class="radio">
-                                    <input type="radio" value="ขายปริมาณมากเกินไป" name="FA_REMAINING_CAUSE" @if($resultID['result'][0]->FA_REMAINING_CAUSE == 'ขายปริมาณมากเกินไป') checked  @endif>
-                                    <span></span>ขายปริมาณมากเกินไป</label>
-                                    <label class="radio">
-                                    <input type="radio" value="คุณภาพดอกไม้ไม่ดี ขายไม่ได้" name="FA_REMAINING_CAUSE" @if($resultID['result'][0]->FA_REMAINING_CAUSE == 'คุณภาพดอกไม้ไม่ดี ขายไม่ได้') checked  @endif>
-                                    <span></span>คุณภาพดอกไม้ไม่ดี ขายไม่ได้</label>
-                                    <label class="radio">
-                                    <input type="radio" value="การหีบห่อในการขนส่ง" name="FA_REMAINING_CAUSE" @if($resultID['result'][0]->FA_REMAINING_CAUSE == 'การหีบห่อในการขนส่ง') checked  @endif>
-                                    <span></span>การหีบห่อในการขนส่ง</label>
-                                    <div class="row">
-                                        <div class="col-lg-10">
-                                            <div id="boxess">
-                                                <input type="text" class="form-control" name="FA_REMAINING_CAUSE_OTHER[]" style="margin-top: 5px" value="@empty($resultID['result'][0]->FA_REMAINING_CAUSE_OTHER) {{ $resultID['result'][0]->FA_REMAINING_CAUSE_OTHER }} @endempty"  placeholder="อื่น ๆ"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            {{-- <label>.</label><br> --}}
-                                            {{-- <a class="btn btn-primary add-more-btn btn-sm" id="addbuttons" style="margin-top: 5px">+</a> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- @dd($resultID['result'][0]->FA_SET_PRICE) --}}
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>วิธีการตั้งราคา ในการขายโดยเฉลี่ย:</b></label>
-                                <!--begin: Datatable-->
                                 <table class="table table-bordered table-hover table-checkable"  style="margin-top: 13px !important">
                                     <thead>
                                         <tr>
@@ -249,49 +102,48 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($resultID['resultflower'] as $item => $valuw)
-                                        @if (isset($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]))
-                                        <tr>
-                                            <td>{{ $item+1 }}</td>
-                                            <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
-                                            <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['FLOWER'] }} @endif "> บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['BOUQUET'] }} @endif "> บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" value="@if($resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] != '') {{ $resultID['result'][0]->FA_SET_PRICE[$resultID['resultflower'][$item][0]->id]['KILO'] }} @endif "> บาท
-                                            </td>
-                                        </tr>
-                                        @else 
-                                        <tr>
-                                            <td>
-                                                {{ $item+1 }} 
-                                            </td>
-                                            <td>
-                                                {{ $resultID['resultflower'][$item][0]->F_NAME }} 
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][FLOWER]" > บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][BOUQUET]" > บาท
-                                            </td>
-                                            <td>
-                                                <input type="text" name="FA_SET_PRICE[{{ $resultID['resultflower'][$item][0]->id }}][KILO]" > บาท
-                                            </td>
-                                        </tr>
-                                        @endif
+                                        @foreach ($resultID['resultflower'] as $item => $value)
+                                            {{-- @dd($resultID['result'][0]->FA_SET_PRICE) --}}
+                                            <tr>
+                                                <td>{{ $item+1 }}</td>
+                                                <td>{{ $resultID['resultflower'][$item][0]->F_NAME }}</td>
+                                                <td>
+                                                    <input type="text" name="FA_SET_PRICE[{{$value[0]->id}}][FLOWER]" value="{{ $resultID['result'][0]->FA_SET_PRICE[$value[0]->id]['FLOWER'] ?? null}}"> บาท
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="FA_SET_PRICE[{{$value[0]->id}}][BOUQUET]" value="{{ $resultID['result'][0]->FA_SET_PRICE[$value[0]->id]['BOUQUET'] ?? null}}"> บาท
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="FA_SET_PRICE[{{$value[0]->id}}][KILO]" value="{{ $resultID['result'][0]->FA_SET_PRICE[$value[0]->id]['KILO'] ?? null}}"> บาท
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <!--end: Datatable-->
                             </div>
-                            {{-- @dd($resultID['result'][0]) --}}
+                            <div class="col-lg-12">
+                                <div class="checkbox-list">
+                                    <label style="margin-top: 10px"><b>สาเหตุที่ทำให้คงเหลือใช้การไม่ได้ คือ:</b></label>
+                                    @foreach(__FA_REMAINING_CAUSE() as $key => $value)
+                                        @if($value != 'อื่นๆ')
+                                            <label class="checkbox">
+                                                <input type="checkbox" value="{{ $value }}" name="FA_REMAINING_CAUSE[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_REMAINING_CAUSE as $item) @if(in_array($value, $item)) checked @endif @endforeach>
+                                                <span></span>{{ $value }}
+                                            </label>
+                                        @else
+                                            <div class="row checkbox_margin">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" value="{{ $value }}" name="FA_REMAINING_CAUSE[{{$key}}][0]" @foreach ($resultID['result'][0]->FA_REMAINING_CAUSE as $item) @if(in_array($value, $item)) checked @endif @endforeach>
+                                                    <span></span>{{ $value }}
+                                                </label>
+                                                <input type="text" class="form-control specify" style="width: 20%" name="FA_REMAINING_CAUSE[{{$key}}][1]" placeholder="ระบุ" value="{{$resultID['result'][0]->FA_REMAINING_CAUSE[$key][1] ?? null}}"/>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
                             <div class="col-lg-12">
                                 <label style="margin-top: 10px"><b>ข้อจำกัด/ปัญหา:</b></label>
-                                <!--begin: Datatable-->
                                 <table class="table table-bordered table-hover table-checkable"  style="margin-top: 13px !important">
                                     <thead>
                                         <tr>
@@ -305,47 +157,46 @@
                                             <td>1</td>
                                             <td>ดอกไม้</td>
                                             <td>
-                                                <textarea name="FA_PROBLEM[FLOWER]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->FA_PROBLEM['FLOWER'] != '') {{ $resultID['result'][0]->FA_PROBLEM['FLOWER'] }}  @endif</textarea>
+                                                <textarea name="FA_PROBLEM[FLOWER]" class="form-control" id="" cols="30" rows="3">{{ $resultID['result'][0]->FA_PROBLEM['FLOWER'] ?? null}}</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>ไม้ใบ</td>
                                             <td>
-                                                <textarea name="FA_PROBLEM[FOLIAGE_PLANT]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->FA_PROBLEM['FOLIAGE_PLANT'] != '') {{ $resultID['result'][0]->FA_PROBLEM['FOLIAGE_PLANT'] }}  @endif</textarea>
+                                                <textarea name="FA_PROBLEM[FOLIAGE_PLANT]" class="form-control" id="" cols="30" rows="3">{{ $resultID['result'][0]->FA_PROBLEM['FOLIAGE_PLANT']  ?? null}}</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>การจำหน่าย</td>
                                             <td>
-                                                <textarea name="FA_PROBLEM[SELL]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->FA_PROBLEM['SELL'] != '') {{ $resultID['result'][0]->FA_PROBLEM['SELL'] }}  @endif</textarea>
+                                                <textarea name="FA_PROBLEM[SELL]" class="form-control" id="" cols="30" rows="3">{{ $resultID['result'][0]->FA_PROBLEM['SELL']  ?? null}}</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
                                             <td>ราคา</td>
                                             <td>
-                                                <textarea name="FA_PROBLEM[PRICE]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->FA_PROBLEM['PRICE'] != '') {{ $resultID['result'][0]->FA_PROBLEM['PRICE'] }}  @endif</textarea>
+                                                <textarea name="FA_PROBLEM[PRICE]" class="form-control" id="" cols="30" rows="3">{{ $resultID['result'][0]->FA_PROBLEM['PRICE']  ?? null}}</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
                                             <td>ลูกค้า</td>
                                             <td>
-                                                <textarea name="FA_PROBLEM[CUSTOMER]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->FA_PROBLEM['CUSTOMER'] != '') {{ $resultID['result'][0]->FA_PROBLEM['CUSTOMER'] }}  @endif</textarea>
+                                                <textarea name="FA_PROBLEM[CUSTOMER]" class="form-control" id="" cols="30" rows="3">{{ $resultID['result'][0]->FA_PROBLEM['CUSTOMER']  ?? null}}</textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
                                             <td>อื่น</td>
                                             <td>
-                                                <textarea name="FA_PROBLEM[OTHER]" class="form-control" id="" cols="30" rows="3">@if($resultID['result'][0]->FA_PROBLEM['OTHER'] != '') {{ $resultID['result'][0]->FA_PROBLEM['OTHER'] }}  @endif</textarea>
+                                                <textarea name="FA_PROBLEM[OTHER]" class="form-control" id="" cols="30" rows="3">{{ $resultID['result'][0]->FA_PROBLEM['OTHER']  ?? null}}</textarea>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <!--end: Datatable-->
                             </div>
                         </div>
                         <!-- Select2 CSS -->
@@ -355,10 +206,8 @@
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-lg-4"></div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-12">
                                 <button class="btn btn-primary mr-2">บันทึก</button>
-                                <button type="reset" class="btn btn-secondary">ยกเลิก</button>
                             </div>
                         </div>
                     </div>
