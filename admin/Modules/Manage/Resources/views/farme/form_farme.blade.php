@@ -313,8 +313,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="row">
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             <button class="btn btn-primary mr-2">บันทึก</button>
                             <button type="reset" class="btn btn-secondary">ยกเลิก</button>
                         </div>
