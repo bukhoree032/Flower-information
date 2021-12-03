@@ -124,7 +124,7 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     รูปเดิม
-                                    <img src="{{$resultID['result'][0]->file asset('storage/app/public/icon/img.png')}}" alt="" style="width: 100%;height: 80%; margin-top: 0px">
+                                    <img src="{{$resultID['result'][0]->file ?? asset('storage/app/public/icon/img.png')}}" alt="" style="width: 100%;height: 80%; margin-top: 0px">
                                     {{-- <button type="button" class="btn btn-danger btn-sm btn-block" >ลบรูป</button> --}}
                                     <input type="file" id="choose-file" name="files" accept="image/*" />
                                     <label for="choose-file">เลือกไฟล์ใหม่</label>
