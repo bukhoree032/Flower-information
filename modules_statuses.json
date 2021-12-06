@@ -1,5 +1,6 @@
 {
     "Page": true,
     "Home": true,
-    "Admin": true
+    "Admin": true,
+    "News": true
 }

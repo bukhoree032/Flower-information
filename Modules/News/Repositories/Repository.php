@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Admin\Repositories;
+namespace Modules\News\Repositories;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Admin\Entities\News;
+use Modules\News\Entities\News;
 
 class Repository 
 {

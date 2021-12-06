@@ -1,21 +1,21 @@
 <?php
 
-namespace Modules\Admin\Providers;
+namespace Modules\News\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class AdminServiceProvider extends ServiceProvider
+class NewsServiceProvider extends ServiceProvider
 {
     /**
      * @var string $moduleName
      */
-    protected $moduleName = 'Admin';
+    protected $moduleName = 'News';
 
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'admin';
+    protected $moduleNameLower = 'news';
 
     /**
      * Boot the application events.

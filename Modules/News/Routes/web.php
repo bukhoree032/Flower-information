@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('admin')->name('admin.')->group(function() {
+Route::prefix('news')->name('news.')->group(function() {
     Route::get('/news/', 'NewsController@index')->name('news.index');
     Route::get('/news/detail/{id}', 'NewsController@showid')->name('news.detail');
 });

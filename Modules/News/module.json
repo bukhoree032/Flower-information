@@ -1,11 +1,11 @@
 {
-    "name": "Admin",
-    "alias": "admin",
+    "name": "News",
+    "alias": "news",
     "description": "",
     "keywords": [],
     "priority": 0,
     "providers": [
-        "Modules\\Admin\\Providers\\AdminServiceProvider"
+        "Modules\\News\\Providers\\NewsServiceProvider"
     ],
     "aliases": {},
     "files": [],
