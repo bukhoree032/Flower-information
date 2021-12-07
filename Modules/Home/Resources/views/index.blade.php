@@ -147,7 +147,7 @@
                @if($key == 0)
                   <div class="col-md-6">
                      <div class="card1" style="width: 100%">
-                        <div style="cursor: pointer;"  onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
+                        <div style="cursor: pointer;"  onclick="window.location='{{ route('news.news.detail',$value->id) }}'">
                            <img src="{{$value->file ?? asset('storage/app/public/icon/img.png')}}" alt="Avatar" style="width:100%">
                            <div class="container" style="background-color: #fff">
                               @php $data = __substr($value->n_title,'50') @endphp
@@ -165,7 +165,7 @@
                   @foreach($news as $key => $value)
                      @if($key >= 1 && $key <= 3)
                         <div class="col-sm-12">
-                           <div class="blog-card" style="cursor: pointer;"  onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
+                           <div class="blog-card" style="cursor: pointer;"  onclick="window.location='{{ route('news.news.detail',$value->id) }}'">
                               <div class="meta">
                               <div class="photo" style="background-image: url({{$value->file ?? asset('storage/app/public/icon/img.png')}})"></div>
                               <ul class="details">
@@ -197,7 +197,7 @@
          </div>
          <div class="row">
             <div class="col-md-12">
-               <a class="btn btn-lg btn-primary pull-right" href="{{ route('admin.news.index',$value->id) }}" role="button">เพิ่มเติม...</a>
+               <a class="btn btn-lg btn-primary pull-right" href="{{ route('news.news.index',$value->id) }}" role="button">เพิ่มเติม...</a>
             </div>
        </div>
    </div>

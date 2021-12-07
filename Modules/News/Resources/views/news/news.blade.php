@@ -49,11 +49,11 @@
             <div class="row">
                 @foreach($result as $key => $value)
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                        <div class="plants-box" style="cursor: pointer;" onclick="window.location='{{ route('admin.news.detail',$value->id) }}'">
-                            <figure><img src="{{ $value->file ?? null}}" alt="img" style="height: 150px"></figure>
+                        <div class="plants-box" style="cursor: pointer;" onclick="window.location='{{ route('news.news.detail',$value->id) }}'">
+                            <figure><img src="{{ $value->file ?? asset('storage/app/public/icon/img.png')}}" alt="img" style="height: 150px"></figure>
                             <p style="font-size: 15px">
                                 @php $value->n_title = __substr($value->n_title,'55') @endphp
-                                <b> {{ $value->n_title ?? null}}</b>
+                                <b> {{ $value->n_title ?? asset('storage/app/public/icon/img.png')}}</b>
                                 <br>
                                 {{-- @php $value->n_details = __substr($value->n_details,'65') @endphp
                                 {{ $value->n_details }} --}}

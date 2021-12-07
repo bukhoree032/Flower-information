@@ -32,7 +32,7 @@ class NewsController extends Controller
             $data['result']->file_multiple = unserialize($data['result']->file_multiple);
         }
 
-        return view('admin::news.news',$data);
+        return view('news::news.news',$data);
     }
 
     /**
@@ -52,6 +52,6 @@ class NewsController extends Controller
             $data['result']->file_multiple = unserialize($data['result']->file_multiple);
         }
 
-        return view('admin::news.detail',$data);
+        return view('news::news.detail',$data);
     }
 }
