@@ -55,7 +55,7 @@
                 @foreach($result as $key => $value)
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" onclick="window.location='{{ route('home.farmer.detail',$value->id) }}'">
                         <div class="plants-box" style="cursor: pointer;">
-                            <figure><img src="{{ $value->file }}" alt="img" class="img_store"/></figure>
+                            <figure><img src="{{ $value->file ?? asset('storage/app/public/icon/img.png') }}" alt="img" class="img_store"/></figure>
                             <p style="font-size: 17px" >
                                 @php $value->FA_GROUPNAME = __substr($value->FA_GROUPNAME,'28') @endphp
                                 <b> {{ $value->FA_GROUPNAME }}</b>

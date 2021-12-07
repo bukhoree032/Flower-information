@@ -48,9 +48,13 @@ class FarmController extends Controller
 
         $data['result']->FA_FLOWER = unserialize($data['result']->FA_FLOWER);
         $data['result']->FA_CUSTOMER_GROUP = unserialize($data['result']->FA_CUSTOMER_GROUP);
-        $data['result']->FA_SEND_OTHER = unserialize($data['result']->FA_SEND_OTHER);
-        $data['result']->FA_CONDITION_SELL_OTHER = unserialize($data['result']->FA_CONDITION_SELL_OTHER);
-        $data['result']->FA_PROMOTION_OTHER = unserialize($data['result']->FA_PROMOTION_OTHER);
+        $data['result']->FA_PROBLEM_PLANT = unserialize($data['result']->FA_PROBLEM_PLANT);
+        $data['result']->FA_SEND = unserialize($data['result']->FA_SEND);
+        $data['result']->FA_SELL = unserialize($data['result']->FA_SELL);
+        $data['result']->FA_REMAINING = unserialize($data['result']->FA_REMAINING);
+        $data['result']->FA_REMAINING_CAUSE = unserialize($data['result']->FA_REMAINING_CAUSE);
+        $data['result']->FA_SET_PRICE = unserialize($data['result']->FA_SET_PRICE);
+        $data['result']->FA_PROBLEM = unserialize($data['result']->FA_PROBLEM);
         $data['result']->file_multiple = unserialize($data['result']->file_multiple);
 
         $data['DISTRICT'] = $this->Repository->ProvinceJoin($data['result']->FA_SUB_DISTRICT);
