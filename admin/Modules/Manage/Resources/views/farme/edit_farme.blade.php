@@ -70,17 +70,30 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group row">
-                        <div class="col-lg-4">
-                            <label>ชื่อกลุ่มเกษตรกร (สวนดอกไม้):</label>
-                            <input type="text" class="form-control" name="FA_GROUPNAME" value="{{ $resultID['result'][0]->FA_GROUPNAME }}" placeholder="ป้อนชื่อกลุ่มเกษตรกร" />
-                            <span class="form-text text-muted">กรุณาป้อนชื่อกลุ่มเกษตรกร/สวนดอกไม้</span>
+                        <div class="col-lg-2">
+                            <label>คำนำหน้า:</label>
+                            <span class="text-danger">*</span></label>
+                            <select id="pro" class="form-control" name="FA_TITLE" style="width: 100%;" required>
+                                <option selected>-- คำนำหน้า --</option>
+                                <option value="นาย" @if($resultID['result'][0]->FA_TITLE == 'นาย') checked @endif>นาย</option>
+                                <option value="นาง" @if($resultID['result'][0]->FA_TITLE == 'นาง') checked @endif>นาง</option>
+                                <option value="นางสาว" @if($resultID['result'][0]->FA_TITLE == 'นางสาว') checked @endif>นางสาว</option>
+                            </select>
+                            <span class="form-text text-muted">กรุณาเลือกคำนำหน้า</span>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <label>ชื่อหัวหน้ากลุ่มเกษตรกร:</label>
                             <input type="text" class="form-control" name="FA_NAME" value="{{ $resultID['result'][0]->FA_NAME }}" placeholder="ป้อนชื่อหัวหน้ากลุ่มเกษตรกร" />
                             <span class="form-text text-muted">กรุณาป้อนชื่อหัวหน้ากลุ่มเกษตรกร/ผู้ดูแล</span>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
+                            <label>ชื่อกลุ่มเกษตรกร (สวนดอกไม้):</label>
+                            <input type="text" class="form-control" name="FA_GROUPNAME" value="{{ $resultID['result'][0]->FA_GROUPNAME }}" placeholder="ป้อนชื่อกลุ่มเกษตรกร" />
+                            <span class="form-text text-muted">กรุณาป้อนชื่อกลุ่มเกษตรกร/สวนดอกไม้</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-2">
                             <label>บ้านเลขที่:</label>
                             <input type="text" class="form-control" name="FA_HOUSENUMBER" value="{{ $resultID['result'][0]->FA_HOUSENUMBER }}" placeholder="ป้อนบ้านเลขที่" />
                             <span class="form-text text-muted">กรุณาป้อนบ้านเลขที่</span>
