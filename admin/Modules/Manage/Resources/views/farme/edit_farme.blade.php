@@ -133,6 +133,32 @@
                             <input type="text" class="form-control" name="FA_LONG" value="{{ $resultID['result'][0]->FA_LONG }}" placeholder="พิกัด (ลองติจูด)" />
                             <span class="form-text text-muted">กรุณาพิกัด (ลองติจูด)</span>
                         </div>
+                        
+                        <div class="col-lg-12"  style="margin-top: 20px">
+                            <b>ข้อมูลพื้นที่</b>
+                        </div>
+                        <div class="col-lg-4">
+                            <label>ไร่:</label>
+                            <input type="text" class="form-control" name="FA_FARM" value="{{ $resultID['result'][0]->FA_FARM }}" placeholder="ป้อนจำนวนพื้นที่กี่ไร่" />
+                            <span class="form-text text-muted">กรุณาป้อนจำนวนพื้นที่กี่ไร่</span>
+                        </div>
+                        <div class="col-lg-4">
+                            <label>งาน:</label>
+                            <input type="text" class="form-control" name="FA_FARM_WORK" value="{{ $resultID['result'][0]->FA_FARM_WORK }}" placeholder="ป้อนจำนวนพื้นที่กี่งาน" />
+                            <span class="form-text text-muted">กรุณาป้อนจำนวนพื้นที่กี่งาน</span>
+                        </div>
+                        <div class="col-lg-4">
+                            <label>ตารางเมตร:</label>
+                            <input type="text" class="form-control" name="FA_METER" value="{{ $resultID['result'][0]->FA_METER }}" placeholder="ป้อนจำนวนพื้นที่กี่ตารางเมตร" />
+                            <span class="form-text text-muted">กรุณาป้อนจำนวนพื้นที่กี่ตารางเมตร</span>
+                        </div>
+
+                        <div class="col-lg-12"style="margin-top: 20px">
+                            <label>ข้อมูลกลุ่ม:</label>
+                            <textarea type="text" class="form-control" name="FA_DETAIL" placeholder="ป้อนข้อมูลทั้วไปของกลุ่มหรือฟาร์ม" rows="3">{{ $resultID['result'][0]->FA_DETAIL }}</textarea>
+                            <span class="form-text text-muted">กรุณาป้อนข้อมูลทั่วไป</span>
+                        </div>
+
                         <div class="col-lg-12" style="margin-top: 20px">
                             <div class="row">
                                 <div class="col-lg-3">
