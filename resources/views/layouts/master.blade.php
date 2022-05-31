@@ -61,7 +61,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo"> 
-                              <a href="{{ route('home.index') }}"><img src="{{ $system[0]->file_logo ?? null }}" alt="#" style="width: 150px"></a>
+                              <a href="{{ route('home.index') }}"><img src="{{ $system[0]->file_logo ?? asset('storage/app/public/icon/img.png') }}" alt="#" style="width: 150px"></a>
                            </div>
                         </div>
                      </div>
@@ -107,7 +107,7 @@
                            </div>
                            <ul class="location_icon">
                               <li> <a href="{{$system[0]->sys_facebook_link ?? '#'}}"><img src="{{ asset('storage/app/public/icon/facebook.png'); }}"></a></li>
-                              <li> <a href="#"><img src="{{ asset('storage/app/public/icon/Twitter.png'); }}"></a></li>
+                              <li> <a href="#"><img src="{{ asset('storage/app/public/icon/twitter.png'); }}"></a></li>
                               <li> <a href="#"><img src="{{ asset('storage/app/public/icon/line.png'); }}"></a></li>
                               <li> <a href="#"><img src="{{ asset('storage/app/public/icon/instagram.png'); }}"></a></li>
                            </ul>
