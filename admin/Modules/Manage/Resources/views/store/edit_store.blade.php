@@ -109,14 +109,47 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>lat:</b></label>
+
+                            <div class="col-lg-12"style="margin-top: 20px">
+                                <label>ข้อมูลกลุ่ม:</label>
+                                <textarea type="text" class="form-control" name="S_DETAIL" placeholder="ป้อนข้อมูลทั้วไปของร้าน" rows="3">{{ $result->S_DETAIL }}</textarea>
+                                <span class="form-text text-muted">กรุณาป้อนข้อมูลทั่วไป</span>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label style="margin-top: 10px"><b>กรุณาป้อนพิกัด (ละติจูด):</b></label>
                                 <input type="text" class="form-control"  name="S_LAT" value="{{$result->S_LAT}}">
                             </div>
-                            <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>long:</b></label>
+                            <div class="col-lg-6">
+                                <label style="margin-top: 10px"><b>กรุณาป้อนพิกัด (ลองติจูด):</b></label>
                                 <input type="text" class="form-control"  name="S_LONG" value="{{$result->S_LONG}}">
                             </div>
+                            
+                            <div class="col-lg-12" >
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label style="margin-top: 10px"><b>FACEBOOK :</b></label>
+                                        <input type="text" class="form-control"  name="S_FACEBOOK" value="{{$result->S_FACEBOOK}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" >
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label style="margin-top: 10px"><b>LINE :</b></label>
+                                        <input type="text" class="form-control"  name="S_LINE" value="{{$result->S_LINE}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" >
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label style="margin-top: 10px"><b>WEBSITE :</b></label>
+                                        <input type="text" class="form-control"  name="S_WEBSITE" value="{{$result->S_WEBSITE}}">
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="row">
                                     <div class="col-lg-3">

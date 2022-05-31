@@ -73,14 +73,48 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            <div class="col-lg-12"style="margin-top: 20px">
+                                <label>ข้อมูลกลุ่ม:</label>
+                                <textarea type="text" class="form-control" name="S_DETAIL" placeholder="ป้อนข้อมูลทั้วไปของร้าน" rows="3"></textarea>
+                                <span class="form-text text-muted">กรุณาป้อนข้อมูลทั่วไป</span>
+                            </div>
+
                             <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>lat:</b></label>
+                                <label style="margin-top: 10px"><b>กรุณาป้อนพิกัด (ละติจูด):</b></label>
                                 <input type="text" class="form-control"  name="S_LAT"/>
                             </div>
                             <div class="col-lg-4">
-                                <label style="margin-top: 10px"><b>long:</b></label>
+                                <label style="margin-top: 10px"><b>กรุณาป้อนพิกัด (ลองติจูด):</b></label>
                                 <input type="text" class="form-control"  name="S_LONG"/>
                             </div>
+                            
+                            
+                            <div class="col-lg-12" >
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label style="margin-top: 10px"><b>FACEBOOK :</b></label>
+                                        <input type="text" class="form-control"  name="S_FACEBOOK">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" >
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label style="margin-top: 10px"><b>LINE :</b></label>
+                                        <input type="text" class="form-control"  name="S_LINE">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" >
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label style="margin-top: 10px"><b>WEBSITE :</b></label>
+                                        <input type="text" class="form-control"  name="S_WEBSITE">
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-lg-12" style="margin-top: 20px">
                                 <div class="field" align="left">
                                     <input type="file" style="display:none" id="upload-image" name="files" multiple="multiple"></input>
