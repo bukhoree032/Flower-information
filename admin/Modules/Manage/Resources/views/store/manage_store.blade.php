@@ -93,8 +93,8 @@
                                 <td>{{ $value->updated_at }}</td>
                                 <td>
                                     <a class="fas fa-eye pointer" href="{{ route('manage.page.detail_store',$value->id_db) }}"></a>
-                                    <a class="fas fa-edit pointer" href="{{ route('manage.edit.edit_store',$value->id_db) }}" style="margin-left: 15px" ></a>
-                                    <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="far fa-trash-alt pointer" href="{{ route('manage.delet.farme',$value->id_db) }}" style="margin-left: 15px"></a>
+                                    <a class="fas fa-edit pointer" href="{{ route('manage.page.edit_store',$value->id_db) }}" style="margin-left: 15px" ></a>
+                                    <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="far fa-trash-alt pointer" href="{{ route('manage.delet.store',$value->id_db) }}" style="margin-left: 15px"></a>
                                 </td>
                             </tr>    
                             @endforeach

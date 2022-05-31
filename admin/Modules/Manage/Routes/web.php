@@ -55,7 +55,7 @@ Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages2/EditStore/{id}/', 'StoreController@Page2EditStore')->name('page2.edit_store');
     Route::post('/pages/EditStoreStep2/{id}/', 'StoreController@EditStoreStep2')->name('edit.store2');
 
-    Route::get('/pages/delet/{id}/', 'FarmeController@delet')->name('delet.store');
+    Route::get('/pages/delet_store/{id}/', 'StoreController@delet')->name('delet.store');
 
     Route::get('/pages/DetailStore/{id}/', 'StoreController@PageDetailStore')->name('page.detail_store');
 });
