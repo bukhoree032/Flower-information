@@ -279,4 +279,11 @@ class StoreController extends UploadeFileController
         
         return redirect()->route('index.store');
     }
+
+    public function delet($id)
+    {
+        $this->Repository->destroy($id,'classModelStores');
+        
+        return redirect()->route('index.store');
+    }
 }
